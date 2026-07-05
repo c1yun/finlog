@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8"><meta property="og:title" content="FinLog 핀로그 — 금융을 번역하는 사람들"><meta property="og:description" content="부산대 학습플러스코칭 동아리 핀로그의 활동 포트폴리오 — 21개 주제·금융챗봇·웹 리포트">
+<meta charset="UTF-8"><meta name="description" content="부산대 학습플러스코칭 동아리 핀로그(FinLog)의 8주 활동 포트폴리오 — 21개 금융·시사 주제 분석, 108용어 금융챗봇, 디지털금융포럼 웹 리포트, 금융 번역기."><meta property="og:title" content="FinLog 핀로그 — 금융을 번역하는 사람들"><meta property="og:description" content="부산대 학습플러스코칭 동아리 핀로그의 활동 포트폴리오 — 21개 주제·금융챗봇·웹 리포트">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#128200;</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FinLog · 핀로그 포트폴리오</title>
@@ -86,8 +86,8 @@ nav a.l:hover{background:rgba(91,176,232,.16);color:#fff}
 /* timeline */
 .tl{position:relative;margin-top:30px;padding-left:6px}
 .tl::before{content:'';position:absolute;left:18px;top:8px;bottom:8px;width:3px;background:linear-gradient(var(--cyan),var(--gold),var(--coral))}
-.tw{position:relative;padding:14px 0 14px 56px;margin-bottom:6px}
-.tw .dot{position:absolute;left:8px;top:18px;width:24px;height:24px;border-radius:50%;background:var(--navy);border:3px solid var(--cyan);box-shadow:0 0 0 4px rgba(91,176,232,.12)}
+.tw{position:relative;padding:14px 16px 14px 56px;margin-bottom:10px;margin-left:34px;background:var(--card);border:1px solid var(--bd);border-radius:12px}
+.tw .dot{position:absolute;left:-26px;top:18px;width:24px;height:24px;border-radius:50%;background:var(--navy);border:3px solid var(--gold);box-shadow:0 0 0 4px rgba(226,176,74,.15)}
 .tw .wk{font-size:.78rem;font-weight:800;color:var(--gold2);letter-spacing:.05em}
 .tw h4{color:#fff;font-size:1.05rem;margin:2px 0 3px}
 .tw p{color:var(--gray);font-size:.9rem}
@@ -132,6 +132,8 @@ nav a.l:hover{background:rgba(91,176,232,.16);color:#fff}
 .hl:hover{border-color:var(--cyan);background:#15315c}
 .hl .t{font-weight:700;color:#eaf1fc}.hl .f{font-size:.78rem;color:var(--grayd)}
 .hl .go{color:var(--gold2);font-weight:800}
+a.hl{text-decoration:none;color:inherit}
+.hl .tag{color:var(--grayd);font-weight:600;font-size:.72rem;white-space:nowrap;border:1px solid var(--bd);border-radius:999px;padding:3px 10px}
 
 footer{padding:54px 0;text-align:center;border-top:1px solid var(--bd);background:#081428}
 footer .lg{font-size:1.5rem;font-weight:900;color:#fff}.footer .lg b{color:var(--gold2)}
@@ -154,6 +156,7 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
 
 <nav><div class="wrap">
   <span class="logo">Fin<b>Log</b></span>
+  <a class="l" href="chatbot.html" style="color:#ffd97a">금융챗봇</a><a class="l" href="forum.html" style="color:#ffd97a">포럼 리포트</a><a class="l" href="translator.html" style="color:#ffd97a">금융번역기</a>
   <a class="l" href="#about">소개</a>
   <a class="l" href="#collab">협업모델</a>
   <a class="l" href="#ai">AI 활용</a>
@@ -162,8 +165,7 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
   <a class="l" href="#works">산출물</a>
   <a class="l" href="#field">현장</a>
   <a class="l" href="#team">팀</a>
-  <a class="l" href="#hub">콘텐츠 허브</a>
-<a class="l" href="chatbot.html" style="color:#ffd97a">금융챗봇</a><a class="l" href="forum.html" style="color:#ffd97a">포럼 리포트</a><a class="l" href="translator.html" style="color:#ffd97a">금융번역기</a></div></nav>
+  <a class="l" href="#hub">콘텐츠 허브</a></div></nav>
 
 <header class="hero">
   <div class="glow g1"></div><div class="glow g2"></div>
@@ -179,10 +181,10 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
       <a class="btn s" href="#topics">16개 이슈, 한 줄로</a>
     </div>
     <div class="hstats">
-      <div class="hstat"><div class="n">8주</div><div class="l">원데이 스프린트</div></div>
-      <div class="hstat"><div class="n">21개</div><div class="l">금융·시사 주제 분석</div></div>
-      <div class="hstat"><div class="n">3가지</div><div class="l">AI 활용 전략</div></div>
-      <div class="hstat"><div class="n">40+</div><div class="l">산출물</div></div>
+      <div class="hstat"><div class="n" data-n="8" data-suf="주">8주</div><div class="l">원데이 스프린트</div></div>
+      <div class="hstat"><div class="n" data-n="21" data-suf="개">21개</div><div class="l">금융·시사 주제 분석</div></div>
+      <div class="hstat"><div class="n" data-n="3" data-suf="가지">3가지</div><div class="l">AI 활용 전략</div></div>
+      <div class="hstat"><div class="n" data-n="40" data-suf="+">40+</div><div class="l">산출물</div></div>
     </div>
   </div>
 </header>
@@ -274,11 +276,11 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
 
 <section class="band"><div class="wrap reveal" style="padding:54px 24px">
   <div class="bstats">
-    <div class="bstat"><div class="n">16</div><div class="l">분석 주제</div></div>
-    <div class="bstat"><div class="n">108</div><div class="l">챗봇 금융용어</div></div>
-    <div class="bstat"><div class="n">24</div><div class="l">카드뉴스</div></div>
-    <div class="bstat"><div class="n">4</div><div class="l">현직자 인터뷰(인)</div></div>
-    <div class="bstat"><div class="n">100+</div><div class="l">산출물 페이지</div></div>
+    <div class="bstat"><div class="n" data-n="16">16</div><div class="l">분석 주제</div></div>
+    <div class="bstat"><div class="n" data-n="108">108</div><div class="l">챗봇 금융용어</div></div>
+    <div class="bstat"><div class="n" data-n="24">24</div><div class="l">카드뉴스</div></div>
+    <div class="bstat"><div class="n" data-n="4">4</div><div class="l">현직자 인터뷰(인)</div></div>
+    <div class="bstat"><div class="n" data-n="100" data-suf="+">100+</div><div class="l">산출물 페이지</div></div>
   </div>
 </div></section>
 
@@ -312,16 +314,16 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
   <h2>콘텐츠 <span class="a">허브</span></h2>
   <p class="lead">모든 산출물은 '학습플러스 코칭' 폴더에 정리되어 있습니다.</p>
   <div class="hub">
-    <div class="hl"><div><div class="t">디지털 금융 포럼 — 웹/PPT/PDF</div><div class="f">디지털금융포럼_정리/</div></div><span class="go">→</span></div>
-    <div class="hl"><div><div class="t">주제별 보고서집 (16주제·34쪽)</div><div class="f">주제별보고서/</div></div><span class="go">→</span></div>
-    <div class="hl"><div><div class="t">금융 챗봇 (108용어)</div><div class="f">금융챗봇/핀로그_금융챗봇.html</div></div><span class="go">→</span></div>
-    <div class="hl"><div><div class="t">카드뉴스 (기본 8 + 주제별 16)</div><div class="f">카드뉴스/</div></div><span class="go">→</span></div>
-    <div class="hl"><div><div class="t">블로그 6편 · 숏폼 5편</div><div class="f">블로그_숏폼/</div></div><span class="go">→</span></div>
-    <div class="hl"><div><div class="t">AI 플레이북 · 면접 대비집</div><div class="f">AI활용_가이드/</div></div><span class="go">→</span></div>
-    <div class="hl"><div><div class="t">현직자 인터뷰 · 박물관 견학</div><div class="f">현직자인터뷰_정리/ · KRX박물관_견학/</div></div><span class="go">→</span></div>
-    <div class="hl"><div><div class="t">금융 번역기 (인터랙티브 체험)</div><div class="f">포트폴리오/translator.html</div></div><span class="go">→</span></div>
-    <div class="hl"><div><div class="t">페르소나 라운드테이블 · 업그레이드 카피</div><div class="f">포트폴리오/핀로그_페르소나_라운드테이블·업그레이드카피</div></div><span class="go">→</span></div>
-    <div class="hl"><div><div class="t">최종보고서 (개정판·14쪽) + 발표 PPT</div><div class="f">최종보고서/</div></div><span class="go">→</span></div>
+    <a class="hl" href="forum.html" style="text-decoration:none;color:inherit"><div><div class="t">디지털 금융 포럼 — 웹 리포트</div><div class="f">forum.html · 클릭하면 열림</div></div><span class="go">→</span></a>
+    <div class="hl"><div><div class="t">주제별 보고서집 (16주제·34쪽)</div><div class="f">주제별보고서/</div></div><span class="tag">PDF 제출물</span></div>
+    <a class="hl" href="chatbot.html" style="text-decoration:none;color:inherit"><div><div class="t">금융 챗봇 (108용어)</div><div class="f">chatbot.html · 클릭하면 열림</div></div><span class="go">→</span></a>
+    <div class="hl"><div><div class="t">카드뉴스 (기본 8 + 주제별 16)</div><div class="f">카드뉴스/</div></div><span class="tag">이미지 제출물</span></div>
+    <div class="hl"><div><div class="t">블로그 6편 · 숏폼 5편</div><div class="f">블로그_숏폼/</div></div><span class="tag">제출물 폴더</span></div>
+    <div class="hl"><div><div class="t">AI 플레이북 · 면접 대비집</div><div class="f">AI활용_가이드/</div></div><span class="tag">PDF 제출물</span></div>
+    <div class="hl"><div><div class="t">현직자 인터뷰 · 박물관 견학</div><div class="f">현직자인터뷰_정리/ · KRX박물관_견학/</div></div><span class="tag">제출물 폴더</span></div>
+    <a class="hl" href="translator.html" style="text-decoration:none;color:inherit"><div><div class="t">금융 번역기 (인터랙티브 체험)</div><div class="f">translator.html · 클릭하면 열림</div></div><span class="go">→</span></a>
+    <div class="hl"><div><div class="t">페르소나 라운드테이블 · 업그레이드 카피</div><div class="f">포트폴리오/핀로그_페르소나_라운드테이블·업그레이드카피</div></div><span class="tag">제출물 폴더</span></div>
+    <div class="hl"><div><div class="t">최종보고서 (개정판·14쪽) + 발표 PPT</div><div class="f">최종보고서/</div></div><span class="tag">PDF 제출물</span></div>
   </div>
 </div></section>
 
@@ -337,7 +339,7 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   // count-up
-  function countUp(el){const txt=el.textContent;const m=txt.match(/(\d+)/);if(!m)return;const end=+m[1];const suf=txt.replace(m[1],'');let s=0;const step=Math.max(1,Math.round(end/40));const t=setInterval(()=>{s+=step;if(s>=end){s=end;clearInterval(t)}el.textContent=s+suf},22);}
+  function countUp(el){let end,suf;if(el.dataset.n!==undefined){end=+el.dataset.n;suf=el.dataset.suf||'';}else{const m=el.textContent.match(/(\d+)/);if(!m)return;end=+m[1];suf=el.textContent.replace(m[1],'');}let s=0;const step=Math.max(1,Math.round(end/40));const t=setInterval(()=>{s+=step;if(s>=end){s=end;clearInterval(t);}el.textContent=s+suf;},22);}
   const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.n').forEach(countUp);co.unobserve(e.target)}}),{threshold:.4});
   document.querySelectorAll('.bstats,.hstats').forEach(el=>co.observe(el));
 </script>
