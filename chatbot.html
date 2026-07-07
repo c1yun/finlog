@@ -90,8 +90,9 @@
   .allterms details:last-child{border-bottom:0}
   .allterms summary{list-style:none;cursor:pointer;padding:9px 13px;font-size:.85rem;font-weight:800;color:var(--navy);display:flex;align-items:center;justify-content:space-between;user-select:none}
   .allterms summary::-webkit-details-marker{display:none}
-  .allterms summary .cnt{font-size:.72rem;font-weight:700;color:var(--mut);background:#eaf0fb;border:1px solid #d6e1f5;padding:1px 8px;border-radius:20px}
-  .allterms summary::after{content:"▸";color:var(--mut);font-weight:700;margin-left:8px}
+  .allterms summary .cn{flex:1 1 auto;min-width:0}
+  .allterms summary .cnt{flex:0 0 auto;font-size:.72rem;font-weight:700;color:var(--mut);background:#eaf0fb;border:1px solid #d6e1f5;padding:1px 0;border-radius:20px;min-width:34px;text-align:center;margin-left:auto}
+  .allterms summary::after{content:"▸";color:var(--mut);font-weight:700;margin-left:8px;flex:0 0 auto}
   .allterms details[open] summary::after{content:"▾"}
   .allterms details[open] summary{background:#eef4fc;color:var(--blue)}
   .termlist{display:flex;flex-wrap:wrap;gap:6px;padding:4px 12px 12px}
@@ -323,7 +324,7 @@ function allTermsBrowse(b){
   CATS.forEach(cat=>{
     const list=KB.filter(e=>e.category===cat); if(!list.length) return;
     const det=el('details');
-    const sm=el('summary'); sm.innerHTML=escapeHtml(cat)+'<span class="cnt">'+list.length+'</span>';
+    const sm=el('summary'); sm.innerHTML='<span class="cn">'+escapeHtml(cat)+'</span><span class="cnt">'+list.length+'</span>';
     det.appendChild(sm);
     const tl=el('div','termlist');
     list.forEach(e=>{const ch=el('div','chip',escapeHtml(e.term));ch.onclick=()=>ask(e.term);tl.appendChild(ch);});
