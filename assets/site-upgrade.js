@@ -18,8 +18,13 @@
       }
     });
 
-    const target = document.querySelector('main')
-      || document.querySelector('header.hero, .hero, .pages, section');
+    const target = document.querySelector('main, #main-content')
+      || document.querySelector('.app')
+      || document.querySelector('.stage')
+      || document.querySelector('.pages')
+      || document.querySelector('article')
+      || document.querySelector('.page')
+      || document.querySelector('header.hero, .hero, section');
     if (target) {
       if (!target.id) target.id = 'main-content';
       if (!target.matches('main')) target.setAttribute('role', 'main');
