@@ -1,0 +1,193 @@
+:root {
+  --finlog-focus: #7dd3fc;
+  --finlog-viewer-bg: rgba(3, 9, 22, .96);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:focus-visible {
+  outline: 3px solid var(--finlog-focus) !important;
+  outline-offset: 3px !important;
+}
+
+.finlog-skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100002;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fff;
+  color: #07152d;
+  font: 800 14px/1.2 "Pretendard", "Malgun Gothic", sans-serif;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform .18s ease;
+}
+
+.finlog-skip-link:focus {
+  transform: translateY(0);
+}
+
+.finlog-progress {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 100001;
+  width: 0;
+  height: 3px;
+  pointer-events: none;
+  background: linear-gradient(90deg, #5bb0e8, #f0cd7a);
+  box-shadow: 0 0 14px rgba(91, 176, 232, .55);
+}
+
+img[data-finlog-image] {
+  transition: opacity .22s ease, filter .22s ease, transform .28s ease;
+}
+
+img[data-finlog-image]:not(.is-loaded) {
+  opacity: .72;
+  filter: saturate(.75);
+}
+
+img[data-finlog-image].is-loaded {
+  opacity: 1;
+}
+
+img.image-unavailable {
+  min-height: 120px;
+  background: linear-gradient(135deg, #13264a, #1d355f);
+  opacity: .45;
+}
+
+img[data-image-viewer] {
+  cursor: zoom-in;
+}
+
+.finlog-image-viewer {
+  width: min(96vw, 1280px);
+  max-width: none;
+  height: min(94vh, 920px);
+  max-height: none;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 18px;
+  background: var(--finlog-viewer-bg);
+  color: #fff;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .65);
+}
+
+.finlog-image-viewer::backdrop {
+  background: rgba(1, 5, 14, .88);
+  backdrop-filter: blur(8px);
+}
+
+.finlog-image-viewer__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: calc(100% - 66px);
+  padding: 18px 68px;
+}
+
+.finlog-image-viewer__image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 18px 54px rgba(0, 0, 0, .44);
+}
+
+.finlog-image-viewer__bar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 18px;
+  min-height: 66px;
+  padding: 12px 18px;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(9, 21, 42, .95);
+}
+
+.finlog-image-viewer__caption {
+  overflow: hidden;
+  color: #d9e4f8;
+  font: 650 14px/1.45 "Pretendard", "Malgun Gothic", sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.finlog-image-viewer__count {
+  color: #f0cd7a;
+  font: 800 13px/1 "Pretendard", "Malgun Gothic", sans-serif;
+}
+
+.finlog-image-viewer button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 999px;
+  background: rgba(11, 27, 57, .82);
+  color: #fff;
+  font: 700 24px/1 sans-serif;
+  cursor: pointer;
+}
+
+.finlog-image-viewer__close {
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  right: 14px;
+}
+
+.finlog-image-viewer__prev,
+.finlog-image-viewer__next {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.finlog-image-viewer__prev { left: 14px; }
+.finlog-image-viewer__next { right: 14px; }
+
+.finlog-image-viewer button:hover {
+  border-color: #f0cd7a;
+  color: #f0cd7a;
+}
+
+@media (max-width: 700px) {
+  .finlog-image-viewer {
+    width: 100vw;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .finlog-image-viewer__stage {
+    padding: 62px 12px 16px;
+  }
+
+  .finlog-image-viewer__prev,
+  .finlog-image-viewer__next {
+    top: auto;
+    bottom: 78px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
