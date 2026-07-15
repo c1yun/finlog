@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>팀 소개 · 함께 이어 가는 핀로그</title>
+  <meta name="description" content="부산대학교 학습플러스코칭 동아리 핀로그의 활동 방식과 팀 기록, 정시윤이 맡은 웹·데이터·품질 점검 범위를 소개합니다.">
+  <link rel="canonical" href="https://c1yun.github.io/finlog/team.html">
+  <link rel="icon" href="assets/images/brand/finlog-mark.png">
+  <link rel="stylesheet" href="assets/site-upgrade.css">
+  <script defer src="assets/site-upgrade.js"></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="팀 소개 · 함께 이어 가는 핀로그">
+  <meta property="og:description" content="질문을 나누고 자료를 함께 살피며 금융 학습 기록을 이어 가는 핀로그를 소개합니다.">
+  <meta property="og:url" content="https://c1yun.github.io/finlog/team.html">
+  <meta property="og:image" content="https://c1yun.github.io/finlog/og-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://c1yun.github.io/finlog/og-v2.png">
+  <style>
+    :root{--navy:#0a1b3a;--navy2:#102a58;--bg:#071226;--card:#10264a;--line:#2a466e;--gold:#e4b84f;--gold2:#f2d280;--cyan:#79c8f4;--text:#f5f8fd;--muted:#adbed6}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-padding-top:76px}
+    body{min-width:320px;background:linear-gradient(180deg,#071226,#091a34 46%,#071226);color:var(--text);font-family:Pretendard,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.7}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    nav{position:sticky;top:0;z-index:80;border-bottom:1px solid rgba(123,164,214,.24);background:#081a35}
+    nav .wrap{display:flex;min-height:64px;align-items:center;gap:5px;overflow-x:auto;scrollbar-width:none}
+    nav .wrap::-webkit-scrollbar{display:none}
+    .logo{display:flex;flex:0 0 auto;align-items:center;gap:7px;margin-right:auto;color:#fff;font-weight:900;white-space:nowrap}
+    .logo img{width:28px;height:28px;border-radius:50%}.logo b{color:var(--gold2)}
+    nav .l{flex:0 0 auto;padding:8px 10px;border-radius:999px;color:#c9d7eb;font-size:.84rem;font-weight:750;white-space:nowrap}
+    nav .l:hover,nav .l[aria-current="page"]{background:rgba(228,184,79,.16);color:var(--gold2)}
+    .hero{padding:72px 0 64px;border-bottom:1px solid rgba(123,164,214,.18)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(460px,1.08fr);align-items:center;gap:54px}
+    .eyebrow{color:var(--gold2);font-size:.76rem;font-weight:850;letter-spacing:.12em}
+    h1{max-width:680px;margin-top:14px;font-size:clamp(2.4rem,4.2vw,3rem);line-height:1.12;letter-spacing:-.06em;text-wrap:balance}
+    .hero .lead{max-width:650px;margin-top:22px;color:#c7d5e8;font-size:1.03rem;line-height:1.85}
+    .hero-note{display:flex;align-items:flex-start;gap:10px;margin-top:25px;padding:15px 17px;border:1px solid rgba(121,200,244,.24);border-radius:13px;background:rgba(9,34,68,.72);color:#b9cae0;font-size:.86rem}
+    .hero-note b{flex:0 0 auto;color:var(--cyan)}
+    .photo-board{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:190px 190px;gap:10px;padding:10px;border:1px solid rgba(121,200,244,.2);border-radius:22px;background:#0a1d3a;box-shadow:0 28px 70px rgba(0,0,0,.3)}
+    .photo-board figure{position:relative;min-width:0;overflow:hidden;border-radius:13px;background:#10264a}
+    .photo-board figure:first-child{grid-row:1/-1}
+    .photo-board img{width:100%;height:100%;display:block;object-fit:cover}
+    .photo-board figure:first-child img{object-position:center 44%}
+    .photo-board figure:nth-child(2) img{object-position:center 42%}
+    .photo-board figure:nth-child(3) img{object-position:center 48%}
+    .photo-board figcaption{position:absolute;inset:auto 0 0;padding:28px 12px 10px;background:linear-gradient(transparent,rgba(3,11,24,.9));color:#fff;font-size:.72rem;font-weight:750}
+    section{padding:82px 0;border-bottom:1px solid rgba(123,164,214,.14)}
+    .section-head{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:44px;align-items:end;margin-bottom:30px}
+    .section-head span{color:var(--gold2);font-size:.75rem;font-weight:850;letter-spacing:.1em}
+    h2{margin-top:9px;font-size:clamp(1.9rem,3.7vw,3rem);line-height:1.22;letter-spacing:-.045em}
+    .section-head p{color:var(--muted);font-size:.98rem;line-height:1.85}
+    .principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .principle{min-height:214px;padding:24px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(150deg,rgba(17,43,82,.96),rgba(9,28,58,.96))}
+    .principle i{display:grid;width:34px;height:34px;place-items:center;border-radius:50%;background:rgba(228,184,79,.16);color:var(--gold2);font-style:normal;font-size:.78rem;font-weight:900}
+    .principle h3{margin-top:20px;color:#fff;font-size:1.05rem}.principle p{margin-top:8px;color:#afc0d7;font-size:.86rem;line-height:1.7}
+    .album{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:260px;gap:12px}
+    .album figure{position:relative;grid-column:span 4;overflow:hidden;border:1px solid rgba(121,200,244,.22);border-radius:16px;background:#0a1d3a}
+    .album figure:first-child{grid-column:span 8}.album figure:last-child{grid-column:span 8}
+    .album img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .28s ease}
+    .album figure:first-child img{object-position:center 44%}.album figure:nth-child(2) img{object-fit:contain;object-position:center;background:#e8edf5}.album figure:nth-child(3) img{object-position:center 43%}.album figure:last-child img{object-position:center 46%}
+    .album figure:hover img{transform:scale(1.018)}
+    .album figcaption{position:absolute;inset:auto 0 0;padding:42px 18px 16px;background:linear-gradient(transparent,rgba(2,10,24,.94));color:#dce7f6;font-size:.82rem}
+    .album figcaption b{display:block;color:#fff;font-size:.98rem}
+    .person-card{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);overflow:hidden;border:1px solid rgba(121,200,244,.28);border-radius:22px;background:linear-gradient(145deg,#112d57,#091d3b)}
+    .person-id{display:flex;min-height:330px;flex-direction:column;justify-content:flex-end;padding:34px;background:linear-gradient(180deg,rgba(8,26,54,.18),rgba(8,26,54,.92)),url('assets/images/activity/team-session-review.webp') center/cover no-repeat}
+    .person-id span{color:var(--gold2);font-size:.72rem;font-weight:850;letter-spacing:.1em}.person-id h3{margin-top:7px;font-size:1.85rem}.person-id p{color:#c5d3e6;font-size:.88rem}
+    .person-copy{padding:42px}
+    .person-copy h3{font-size:1.35rem}.person-copy>p{margin-top:14px;color:#c1d0e4;line-height:1.9}
+    .role-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:26px}
+    .role-list div{padding:16px;border:1px solid rgba(121,200,244,.18);border-radius:12px;background:rgba(5,22,47,.55)}
+    .role-list b{display:block;color:var(--cyan);font-size:.82rem}.role-list span{display:block;margin-top:4px;color:#b6c6da;font-size:.78rem;line-height:1.55}
+    .contact{margin-top:22px;padding-top:20px;border-top:1px solid rgba(121,200,244,.17);color:#aebed3;font-size:.84rem}.contact a{color:var(--gold2);font-weight:800}
+    .archive-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .archive-links a{display:flex;min-height:132px;flex-direction:column;justify-content:space-between;padding:20px;border:1px solid var(--line);border-radius:14px;background:#0d2447;transition:.18s ease}
+    .archive-links a:hover{transform:translateY(-2px);border-color:var(--cyan)}
+    .archive-links b{color:#fff}.archive-links span{color:#aebed3;font-size:.8rem}.archive-links i{color:var(--gold2);font-style:normal;font-size:.82rem;font-weight:850}
+    footer{padding:44px 20px;text-align:center;color:#91a5c0;font-size:.82rem}footer b{color:var(--gold2)}
+    @media(max-width:1050px){.hero-grid,.section-head,.person-card{grid-template-columns:1fr}.photo-board{grid-template-rows:180px 180px}.principles{grid-template-columns:repeat(2,minmax(0,1fr))}.archive-links{grid-template-columns:repeat(2,minmax(0,1fr))}.person-id{min-height:280px}.person-copy{padding:30px}}
+    @media(max-width:620px){.wrap{width:min(100% - 28px,1120px)}nav .wrap{min-height:56px}.logo{margin-right:8px}.hero{padding:48px 0}.hero-grid{gap:30px}.hero h1 br{display:none}.photo-board{grid-template-columns:1fr 1fr;grid-template-rows:230px 150px}.photo-board figure:first-child{grid-column:1/-1;grid-row:auto}.section-head{gap:16px}section{padding:62px 0}.principles,.archive-links,.role-list{grid-template-columns:1fr}.principle{min-height:0}.album{grid-template-columns:1fr;grid-auto-rows:250px}.album figure,.album figure:first-child,.album figure:last-child{grid-column:1}.person-copy{padding:26px}}
+  </style>
+  <link rel="stylesheet" href="assets/finlog-lab.css">
+  <script defer src="assets/finlog-lab.js"></script>
+</head>
+<body class="finlog-classic" data-finlog-enhancement-page="team">
+  <nav aria-label="주요 페이지"><div class="wrap">
+    <a class="logo" href="index.html"><img src="assets/images/brand/finlog-mark-small.png" alt="FinLog" width="46" height="46" decoding="async"><span>Fin<b>Log</b></span></a>
+    <a class="l" href="index.html">홈</a>
+    <a class="l" href="team.html" aria-current="page">팀 소개</a>
+    <a class="l" href="chatbot.html">금융 챗봇</a>
+    <a class="l" href="forum.html">포럼 리포트</a>
+    <a class="l" href="translator.html">번역 과정</a>
+    <a class="l" href="cards.html">카드뉴스</a>
+    <a class="l" href="report.html">보고서</a>
+  </div></nav>
+
+  <main id="main-content">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">2026년 부산대학교 학습플러스코칭 공식 동아리</div>
+          <h1>서로의 질문을 모아,<br>함께 남긴 금융 학습 기록</h1>
+          <p class="lead">핀로그는 전공과 금융 지식의 출발점이 다른 구성원들이 자료를 함께 읽고, 각자의 관점으로 질문하며, 배운 내용을 기록으로 남기는 모임입니다. 지금도 학습과 제작을 이어 가고 있습니다.</p>
+          <div class="hero-note"><b>핀로그의 기준</b><span>함께 배우는 과정에서 서로의 설명을 경청하고, 공개한 기록은 끝까지 점검하려 합니다.</span></div>
+        </div>
+        <div class="photo-board" aria-label="핀로그 활동 사진">
+          <figure><img src="assets/images/activity/team-session-cafe.webp" alt="노트북과 태블릿으로 자료를 함께 살펴보는 핀로그 구성원들" width="1800" height="1350" decoding="async"><figcaption>함께 읽고 질문한 정기 학습 세션</figcaption></figure>
+          <figure><img src="assets/images/activity/remote-review.webp" alt="온라인으로 진행 상황과 문서를 함께 확인하는 핀로그 구성원들" width="1800" height="1011" decoding="async"><figcaption>온라인 검토와 의견 공유</figcaption></figure>
+          <figure><img src="assets/images/forum/opening-room-wide.webp" alt="디지털 금융 포럼의 발표와 토론 현장" width="1800" height="1350" decoding="async"><figcaption>배움의 범위를 넓힌 현장 참여</figcaption></figure>
+        </div>
+      </div>
+    </header>
+
+    <section id="how-we-work"><div class="wrap">
+      <div class="section-head"><div><span>HOW WE WORK</span><h2>함께 일하는 방식</h2></div><p>자료를 나누어 확인하고, 해석이 다른 부분은 충분히 이야기한 뒤, 처음 보는 사람도 이해할 수 있도록 기록합니다.</p></div>
+      <div class="principles">
+        <article class="principle"><i>01</i><h3>확실하지 않은 부분은 먼저 질문합니다</h3><p>질문을 통해 함께 살펴볼 범위와 확인할 자료를 정합니다.</p></article>
+        <article class="principle"><i>02</i><h3>자료를 함께 확인합니다</h3><p>공식 자료와 신뢰할 수 있는 보도를 중심으로 살피고, 출처와 기준일을 남겨 다시 확인할 수 있게 합니다.</p></article>
+        <article class="principle"><i>03</i><h3>관점의 차이를 존중합니다</h3><p>서로 다른 전공의 해석을 함께 듣고, 어려운 표현은 독자의 입장에서 다시 풀어 씁니다.</p></article>
+        <article class="principle"><i>04</i><h3>공개 뒤에도 돌봅니다</h3><p>보고서·카드뉴스·챗봇·웹 기록을 서로 연결하고, 잘못되거나 오래된 내용은 계속 점검합니다.</p></article>
+      </div>
+    </div></section>
+
+    <section id="activity"><div class="wrap">
+      <div class="section-head"><div><span>ACTIVITY</span><h2>활동은 사진과 기록으로 남겼습니다</h2></div><p>정기 학습과 온라인 검토, 현장 학습과 포럼 참여까지 각 장면은 결과물의 배경이 된 실제 과정입니다.</p></div>
+      <div class="album">
+        <figure><img src="assets/images/activity/team-session-review.webp" alt="노트북과 태블릿으로 공동 문서를 함께 검토하는 핀로그 구성원들" width="1800" height="1350" loading="lazy" decoding="async"><figcaption><b>공동 문서 검토</b>각자 정리한 내용을 읽고 문장과 근거를 함께 다듬었습니다.</figcaption></figure>
+        <figure><img src="assets/images/activity/chatbot-qa.webp" alt="스마트폰에서 금융 챗봇의 설명을 직접 점검하는 모습" width="828" height="1800" loading="lazy" decoding="async"><figcaption><b>결과물 점검</b>처음 읽는 사람도 이해할 수 있는지 확인했습니다.</figcaption></figure>
+        <figure><img src="assets/images/activity/krx-history-exhibit.webp" alt="자본시장역사박물관에서 증권시장 역사를 살펴본 현장" width="1800" height="1350" loading="lazy" decoding="async"><figcaption><b>현장 학습</b>제도와 시장의 역사를 직접 살펴보았습니다.</figcaption></figure>
+        <figure><img src="assets/images/forum/participant-survey.webp" alt="디지털 금융 포럼을 마친 뒤 참가자들이 대화를 나누는 행사장" width="1800" height="1350" loading="lazy" decoding="async"><figcaption><b>포럼 기록</b>발표와 토론의 주요 내용을 메모해 팀과 공유했습니다.</figcaption></figure>
+      </div>
+    </div></section>
+
+    <section id="person"><div class="wrap">
+      <div class="section-head"><div><span>TEAM ROLE</span><h2>팀 안에서 맡은 기록 업무</h2></div><p>팀이 함께 만든 과정과 결과가 정확하게 전달되도록 맡은 일을 정리했습니다.</p></div>
+      <article class="person-card">
+        <div class="person-id"><span>FINLOG · TEAM MEMBER</span><h3>정시윤</h3><p>부산대학교 · 핀로그</p></div>
+        <div class="person-copy">
+          <h3>제가 맡은 기록 범위</h3>
+          <p>팀이 모은 자료와 의견을 한곳에서 볼 수 있도록 웹 아카이브의 구조를 정리하고, 금융 용어 데이터와 공개 전 품질 점검을 맡았습니다. 팀원들이 함께 자료를 찾고 서로의 해석을 점검해 준 덕분에 끝까지 정리할 수 있었습니다. 앞으로도 팀의 목소리가 정확하게 남도록 차분히 보완하겠습니다.</p>
+          <div class="role-list">
+            <div><b>웹 기록</b><span>활동·결과물·출처를 찾아보기 쉬운 흐름으로 연결</span></div>
+            <div><b>데이터 정리</b><span>금융 용어와 관련 사례를 검색 가능한 구조로 정리</span></div>
+            <div><b>공개 전 점검</b><span>링크·이미지·문구·기준일과 출처를 함께 점검</span></div>
+          </div>
+          <div class="contact">연락처 · <a href="mailto:c1yun@pusan.ac.kr">c1yun@pusan.ac.kr</a></div>
+        </div>
+      </article>
+    </div></section>
+
+    <section id="records"><div class="wrap">
+      <div class="section-head"><div><span>SHARED RECORDS</span><h2>함께 남긴 결과물</h2></div><p>함께 학습한 내용을 다음 사람과 나누고, 이후 활동에서 다시 참고할 수 있도록 결과물로 남겼습니다.</p></div>
+      <div class="archive-links">
+        <a href="index.html#activity-album"><b>활동 사진 앨범</b><span>모임과 현장 학습의 주요 장면</span><i>사진 보기 →</i></a>
+        <a href="report.html"><b>활동 보고서</b><span>학습·토론·현장 활동을 정리한 공개본</span><i>보고서 보기 →</i></a>
+        <a href="cards.html"><b>3분 금융 카드뉴스</b><span>24개 주제를 일곱 장씩 정리한 기록</span><i>카드뉴스 보기 →</i></a>
+        <a href="chatbot.html"><b>금융 지식 챗봇</b><span>금융 용어와 사례를 찾아보는 웹 도구</span><i>챗봇 열기 →</i></a>
+      </div>
+    </div></section>
+  </main>
+
+  <footer>Fin<b>Log</b> · 함께 배우고 기록을 이어 가는 금융 학습 모임</footer>
+</body>
+</html>

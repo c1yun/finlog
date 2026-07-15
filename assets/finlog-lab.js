@@ -50,13 +50,13 @@
 
     if (!body.classList.contains('standalone-chatbot')) {
       const commandEntries = [
-        { label: '핀로그 소개', detail: '프로젝트 목표와 핵심 성과', href: 'index.html#about', keys: '홈 소개 성과 목표' },
+        { label: '핀로그 소개', detail: '동아리 소개와 활동 기록', href: 'index.html#about', keys: '홈 소개 활동 목표' },
         { label: '전공 간 협업 모델', detail: '전공자와 비전공자의 교차 검토', href: 'index.html#collab', keys: '협업 팀 번역 검토' },
         { label: 'AI 검증 보조 체계', detail: '자료 탐색·반론·문장 점검 원칙', href: 'index.html#ai', keys: '인공지능 ai 프롬프트 검증' },
         { label: '금융·시사 21개 주제', detail: '분석 주제 전체 목록', href: 'index.html#topics', keys: '이슈 금융 시사 토론' },
         { label: '산출물 아카이브', detail: '보고서·카드뉴스·챗봇·웹', href: 'index.html#works', keys: '포트폴리오 결과물' },
         { label: '웹 운영 기록', detail: '검색·데이터·이미지·품질 관리 보조 기록', href: 'index.html#technology', keys: '기술 개발 코드 품질 접근성' },
-        { label: '협업과 담당 역할', detail: '팀의 협업 구조와 담당 범위', href: 'index.html#team', keys: '정시윤 역할 협업 팀' },
+        { label: '팀 소개', detail: '함께 일하는 방식과 담당 기록', href: 'team.html', keys: '정시윤 역할 협업 팀 활동' },
         { label: '금융 챗봇', detail: '108개 용어·63개 FAQ', href: 'chatbot.html', keys: '검색 질문 지식베이스' },
         { label: '용어 번역 과정', detail: '전문 개념과 독자 관점의 해설 비교', href: 'translator.html', keys: '번역 설명 경제용어' },
         { label: '카드뉴스', detail: '24세트·168장 에디토리얼', href: 'cards.html', keys: '이미지 인스타 아카이브' },

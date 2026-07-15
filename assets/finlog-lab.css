@@ -129,6 +129,7 @@ body.finlog-lab::before {
 .finlog-lab .logo b { color: var(--lab-cyan) !important; }
 .finlog-lab .logo img { border: 1px solid var(--lab-line) !important; box-shadow: 0 0 0 3px rgba(98, 215, 255, .05); }
 [data-finlog-page="index"] > nav a[href^="#"] { display: none; }
+[data-finlog-enhancement-page="index"] > nav a[href^="#"] { display: none; }
 
 /* Shared editorial surfaces */
 [data-finlog-page="index"] section { position: relative; }
@@ -1161,15 +1162,15 @@ body.finlog-lab::before {
 
 /* Album focus: each real activity image settles into focus as it enters the story. */
 .lab-is-ready[data-finlog-enhancement-page="index"] .album-shot {
-  opacity: .42;
-  transform: translateY(22px);
-  transition: opacity .58s ease var(--album-delay, 0ms), transform .68s cubic-bezier(.2, .72, .2, 1) var(--album-delay, 0ms);
+  opacity: .64;
+  transform: translateY(12px);
+  transition: opacity .34s ease var(--album-delay, 0ms), transform .38s cubic-bezier(.2, .72, .2, 1) var(--album-delay, 0ms);
 }
 
 .lab-is-ready[data-finlog-enhancement-page="index"] .album-shot img {
-  filter: saturate(.76) blur(1.7px);
-  transform: scale(1.035);
-  transition: filter .72s ease var(--album-delay, 0ms), transform .78s cubic-bezier(.2, .72, .2, 1) var(--album-delay, 0ms);
+  filter: none;
+  transform: none;
+  transition: transform .24s ease;
 }
 
 .lab-is-ready[data-finlog-enhancement-page="index"] .album-shot.is-in-view {
@@ -1183,6 +1184,6 @@ body.finlog-lab::before {
 }
 
 .lab-is-ready[data-finlog-enhancement-page="index"] .album-shot.is-in-view:hover img {
-  filter: saturate(1.04) contrast(1.02);
-  transform: scale(1.025);
+  filter: none;
+  transform: scale(1.012);
 }

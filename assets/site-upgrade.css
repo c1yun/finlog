@@ -48,12 +48,49 @@ body {
   position: fixed;
   inset: 0 auto auto 0;
   z-index: 100001;
-  width: 0;
+  width: 100%;
   height: 3px;
   pointer-events: none;
   background: linear-gradient(90deg, #5bb0e8, #f0cd7a);
-  box-shadow: 0 0 14px rgba(91, 176, 232, .55);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
 }
+
+/* The shared mini navigation stays in document flow so it never covers page content. */
+.finlog-classic .pillnav {
+  position: sticky !important;
+  top: 0 !important;
+  right: auto !important;
+  left: auto !important;
+  transform: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 52px;
+  margin: 0 !important;
+  padding: 5px 10px !important;
+  justify-content: center;
+  overflow-x: auto !important;
+  border-right: 0 !important;
+  border-left: 0 !important;
+  border-radius: 0 !important;
+  background: #081a35 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  scrollbar-width: none;
+}
+
+.finlog-classic .pillnav::-webkit-scrollbar { display: none; }
+
+.finlog-classic > nav,
+.finlog-classic .sitebar,
+.finlog-classic .toc {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.finlog-classic .toc { top: 52px !important; }
 
 img[data-finlog-image] {
   transition: opacity .22s ease, filter .22s ease, transform .28s ease;
@@ -177,6 +214,8 @@ img[data-image-viewer] {
 }
 
 @media (max-width: 700px) {
+  .finlog-classic .pillnav { justify-content: flex-start; }
+
   .finlog-image-viewer {
     width: 100vw;
     height: 100dvh;
