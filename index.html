@@ -159,8 +159,10 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://c1yun.github.io/finlog/og.png">
+<link rel="stylesheet" href="assets/finlog-lab.css">
+<script defer src="assets/finlog-lab.js"></script>
 </head>
-<body>
+<body class="finlog-lab" data-finlog-page="index">
 
 <nav><div class="wrap">
   <span class="logo"><img src="assets/images/brand/finlog-mark-small.png" alt="FinLog" style="height:1.35em;width:1.35em;border-radius:50%;vertical-align:middle;margin-right:7px" width="46" height="46" decoding="async">Fin<b>Log</b></span>
@@ -178,7 +180,7 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
 <header class="hero">
   <div class="glow g1"></div><div class="glow g2"></div>
   <div class="wrap">
-    <span class="htag">FINANCIAL TRANSLATION × AI · PNU 2026</span>
+    <span class="htag">FINANCIAL TRANSLATION × AI · PNU · ONGOING</span>
     <h1>복잡한 금융을,<br><span class="a">검증 가능한 콘텐츠</span>로 번역합니다</h1>
     <div class="sub">금융 이슈 분석부터 지식베이스, 카드뉴스, 인터랙티브 웹까지.</div>
     <p class="desc">핀로그(FinLog = Finance + Log)는 금융권 취업을 목표로 한 다학제 학습 공동체입니다. 팀은 금융·시사 주제를 함께 학습·토론하고 있으며, 그 결과를 108개 용어 지식베이스·168장 카드뉴스·95쪽 보고서·웹 아카이브로 지속해서 구조화하고 있습니다.</p>
@@ -186,8 +188,19 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
       <a class="btn p" href="chatbot.html">금융 챗봇 체험하기</a>
       <a class="btn p" href="translator.html">번역 과정 살펴보기</a>
       <a class="btn s" href="#works">산출물 보기</a>
-      <a class="btn s" href="insight.html">개인 금융 분석 보기</a>
+      <a class="btn s" href="insight.html">금융 분석 읽기</a>
     </div>
+    <aside class="lab-console" aria-label="프로젝트 검증 체계 요약">
+      <div class="lab-console__head"><span>RESEARCH SYSTEM / FINLOG</span><strong><i></i> VERIFIED</strong></div>
+      <div class="lab-console__body">
+        <div class="lab-readout"><span>KNOWLEDGE BASE</span><b>108 TERMS</b></div>
+        <div class="lab-readout"><span>EDITORIAL OUTPUT</span><b>168 CARDS</b></div>
+        <div class="lab-readout"><span>DOCUMENTATION</span><b>95 PAGES</b></div>
+        <div class="lab-readout"><span>CROSS REVIEW</span><b>6 MEMBERS</b></div>
+        <div class="lab-pipeline" aria-label="자료 검증 흐름"><span>SOURCE</span><span>AI ASSIST</span><span>REVIEW</span><span>PUBLISH</span></div>
+        <p>공식 자료를 우선 확인하고, AI 보조 결과는 팀의 교차 검토를 거쳐 기준시점과 함께 기록합니다.</p>
+      </div>
+    </aside>
     <div class="hstats">
       <div class="hstat"><div class="n" data-n="6" data-suf="명">6명</div><div class="l">다학제 팀 협업</div></div>
       <div class="hstat"><div class="n" data-n="21" data-suf="개">21개</div><div class="l">금융·시사 주제 분석</div></div>
@@ -197,11 +210,19 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
   </div>
 </header>
 
+<section class="recruiter-brief" aria-labelledby="recruiter-brief-title"><div class="wrap">
+  <div class="brief-intro"><span>RECRUITER BRIEF</span><h2 id="recruiter-brief-title">한눈에 보는<br>핀로그의 실행 방식</h2></div>
+  <div class="brief-item"><small>01 / OBJECTIVE</small><p>복잡한 금융 정보를 근거와 맥락이 드러나는 콘텐츠로 구조화합니다.</p></div>
+  <div class="brief-item"><small>02 / VALIDATION</small><p>공식 자료 확인, AI 보조, 전공 간 교차 검토를 순차적으로 거칩니다.</p></div>
+  <div class="brief-item"><small>03 / OUTPUT</small><p>108개 지식베이스, 168장 카드뉴스, 95쪽 보고서와 웹 아카이브를 축적했습니다.</p></div>
+  <div class="brief-item"><small>04 / COLLABORATION</small><p>상경·비상경 6인이 질문과 검토를 나누며 공동으로 학습하고 발행합니다.</p></div>
+</div></section>
+
 <section id="about"><div class="wrap reveal">
   <span class="eyebrow">Who we are</span>
   <div class="bar"></div>
   <h2>우리는 <span class="a">금융 번역가</span>입니다</h2>
-  <p class="lead">금융은 어렵습니다. 하지만 어려운 게 당연한 건 아닙니다. 핀로그는 '자료가 늘 최신은 아니고, 논리적 설명이 약하며, 배운 게 금세 잊힌다'는 세 가지 문제를, 하루 만에 토론부터 기록까지 끝내는 <b style="color:#fff">'AI 원데이 스프린트'</b>와 <b style="color:#fff">네 가지 결과물(보고서·카드뉴스·챗봇·블로그) 발행</b>으로 풀었습니다. 매주 월~목 21–23시, 하루 안에 토론→원고→DB 저장을 완결합니다.</p>
+  <p class="lead">금융 정보는 전문성과 시의성을 함께 요구합니다. 핀로그는 최신성, 논리적 설명, 학습 기록의 지속성이라는 세 과제를 <b style="color:#fff">AI 원데이 스프린트</b>와 <b style="color:#fff">네 가지 결과물(보고서·카드뉴스·챗봇·블로그) 발행</b>으로 보완했습니다. 정기 모임에서 토론, 원고 작성, 데이터베이스 반영을 하나의 흐름으로 운영합니다.</p>
   <div class="grid3" style="margin-top:28px">
     <div class="card"><div class="tag" style="color:var(--cyan2)">Mission</div><h3 style="color:#fff;margin:8px 0;font-size:1.2rem">명료하고 정확하게</h3><p style="color:var(--gray);font-size:.94rem">복잡한 금융 개념을 맥락과 근거가 드러나는 콘텐츠로 정리합니다.</p></div>
     <div class="card"><div class="tag" style="color:var(--gold2)">Method</div><h3 style="color:#fff;margin:8px 0;font-size:1.2rem">원데이 스프린트</h3><p style="color:var(--gray);font-size:.94rem">하루 2시간, 토론부터 기록까지 그날 안에 완결합니다.</p></div>
@@ -213,7 +234,7 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
   <span class="eyebrow">Differentiator ①</span>
   <div class="bar"></div>
   <h2>전공자 × 비전공자 <span class="a">번역 협업</span></h2>
-  <p class="lead">단순한 찬반이 아니라, 전공별 특성을 살린 '이해관계자 롤플레잉'으로 논의를 풍성하게 만듭니다. 전공자가 뼈대를 세우면, 비전공자가 어려운 부분을 걷어내는 <b style="color:#fff">크로스 리뷰(번역 과정)</b>를 거칩니다.</p>
+  <p class="lead">단순한 찬반을 넘어, 전공별 관점을 반영한 이해관계자 역할 토론으로 논의를 확장합니다. 전공자가 분석의 구조를 세우고 비전공자가 전달의 명료성을 점검하는 <b style="color:#fff">교차 검토 과정</b>을 거칩니다.</p>
   <div class="ef">
     <div class="efc eng"><div class="who">전공자 · 상경계열 (경영2·경제1)</div><h3>논리의 뼈대</h3><p>자본시장 구조·유동성·정책 파급 효과를 분석해 탄탄한 논리적 골격을 세웁니다.</p></div>
     <div class="vs">×</div>
@@ -221,22 +242,22 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
   </div>
   <div class="flow">
     <div class="tag" style="color:var(--gold2);margin-bottom:10px">실제 '번역' 결과 — Before ▶ After</div>
-    <div class="ba"><span class="term">공매도</span><span class="arrow">▶</span><span class="easy">"기업에 별점 1개를 줄 권리"</span></div>
-    <div class="ba"><span class="term">스테이블코인</span><span class="arrow">▶</span><span class="easy">"언제든 1달러로 바꿔주는 백화점 상품권"</span></div>
-    <div class="ba"><span class="term">토큰증권(STO)</span><span class="arrow">▶</span><span class="easy">"강남 빌딩을 피자처럼 한 조각씩 사는 것"</span></div>
-    <div class="ba"><span class="term">기업 밸류업</span><span class="arrow">▶</span><span class="easy">"냉장고에 쌓아둔 식재료를 꺼내 요리하기"</span></div>
-    <div class="ba"><span class="term">WGBI 편입</span><span class="arrow">▶</span><span class="easy">"수문을 연 저수지에 물(외국 자금)이 흘러듦"</span></div>
+    <div class="ba"><span class="term">공매도</span><span class="arrow">▶</span><span class="easy">차입한 주식을 먼저 매도한 뒤 재매수해 상환하는 거래</span></div>
+    <div class="ba"><span class="term">스테이블코인</span><span class="arrow">▶</span><span class="easy">기준자산과의 교환가치를 유지하도록 설계된 디지털자산</span></div>
+    <div class="ba"><span class="term">토큰증권(STO)</span><span class="arrow">▶</span><span class="easy">실물·금융자산의 권리를 디지털 단위로 분할한 증권</span></div>
+    <div class="ba"><span class="term">기업 밸류업</span><span class="arrow">▶</span><span class="easy">자본배분과 주주환원 계획을 통한 기업가치 제고 전략</span></div>
+    <div class="ba"><span class="term">WGBI 편입</span><span class="arrow">▶</span><span class="easy">한국 국채가 글로벌 채권 벤치마크에 포함되는 절차</span></div>
   </div>
 </div></section>
 
 <section id="ai"><div class="wrap reveal">
   <span class="eyebrow">Differentiator ②</span>
   <div class="bar"></div>
-  <h2>AI를 <span class="a">입체적으로</span> 씁니다</h2>
-  <p class="lead">AI를 단순 검색기가 아니라 <b style="color:#fff">'역할극 파트너'이자 '품질 관리자'</b>로 활용합니다. 월 1회 프롬프트 기법을 공유하고, "사실 판단의 책임은 사람"이라는 원칙을 지킵니다.</p>
+  <h2>AI를 <span class="a">검증 보조 체계</span>로 활용합니다</h2>
+  <p class="lead">AI는 자료 탐색, 반론 도출, 문장 점검을 돕는 보조 수단으로 활용합니다. 프롬프트 기법을 정기적으로 공유하되, 사실 판단과 최종 검토의 책임은 사람이 맡는다는 원칙을 지킵니다.</p>
   <div class="grid3" style="margin-top:28px">
-    <div class="card"><div class="ai"><div class="num">1</div><div><h3>제3자 시각의 심판</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">토론이 한쪽으로 치우치면, AI가 이해관계 없는 제3자 심판이 되어 우리 논리의 허점을 냉정하게 짚어냅니다.</p></div>
-    <div class="card"><div class="ai"><div class="num">2</div><div><h3>실시간 비유 생성기</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">막히는 전문 용어를 즉석에서 일상 비유(찰떡 비유)로 번역해, 비전공자도 직관적으로 이해하게 합니다.</p></div>
+    <div class="card"><div class="ai"><div class="num">1</div><div><h3>제3자 관점의 반론 검토</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">토론이 한쪽으로 치우치지 않도록 AI로 반론과 누락된 관점을 탐색하고, 팀이 논리의 타당성을 다시 검토합니다.</p></div>
+    <div class="card"><div class="ai"><div class="num">2</div><div><h3>설명 방식의 확장</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">설명이 어려운 전문용어에 적합한 비유와 사례를 탐색해, 비전공자의 이해 가능성을 높입니다.</p></div>
     <div class="card"><div class="ai"><div class="num">3</div><div><h3>문해력 스캐너</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">완성한 글을 비전공자 관점에서 검수해, 불필요한 전문용어와 모호한 문장을 정비합니다.</p></div>
   </div>
   <div class="flow" style="margin-top:22px">
@@ -319,24 +340,20 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
     <div class="tm"><div class="av" style="background:var(--cyan2)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.4 5.4l1.9 1.9M16.7 16.7l1.9 1.9M18.6 5.4l-1.9 1.9M7.3 16.7l-1.9 1.9"/></svg></div><div><h4>경영 · 경제 (3명) — 전공자</h4><p>자본시장·정책·재무 분석으로 논리의 뼈대를 세웁니다.</p></div></div>
     <div class="tm"><div class="av" style="background:var(--gold2)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-6 7.2V19l-4 2v-8.8z"/></svg></div><div><h4>철학 · 도시공학 · 영문 (3명) — 비전공자</h4><p>윤리·소비자 관점과 명료한 해설을 담당합니다.</p></div></div>
   </div>
-  <div style="margin-top:24px;background:linear-gradient(160deg,#12315f,#0b1f43);border:1px solid var(--bd);border-radius:16px;padding:26px 28px">
-    <div class="eyebrow" style="color:var(--gold2);margin-bottom:8px">이 아카이브를 만든 사람</div>
-    <h3 style="color:#fff;font-size:1.4rem;margin:0 0 6px">정시윤 <span style="color:var(--gray);font-size:.9rem;font-weight:600">· 부산대학교 · 금융권 취업 준비</span></h3>
-    <p style="color:var(--gray);font-size:.95rem;margin:0 0 16px;line-height:1.7">팀 6명이 함께 학습·토론을 이어가고 있으며, 그 결과는 <b style="color:#dfe7f8">웹 아카이브·챗봇·발표자료로 정리해 지속적으로 보완</b>하고 있습니다.</p>
-    <ul style="list-style:none;margin:0;padding:0;display:grid;gap:9px;color:#cfdcf3;font-size:.95rem;line-height:1.55">
-      <li>· 이 포트폴리오 웹사이트 기획·제작 (GitHub Pages)</li>
-      <li>· 팀 학습 내용을 카드뉴스·보고서·챗봇·번역과정으로 재구성·통합</li>
-      <li>· 금융용어 108개 + FAQ 63개 지식베이스 구조화</li>
-      <li>· 이미지 자산 파이프라인 구축 (WebP 썸네일·지연 로딩·키보드 확대 뷰)</li>
-      <li>· 내부 링크·이미지 설명·스크립트 문법을 확인하는 정적 품질 검사 자동화</li>
-      <li>· 최종 발표자료(보고서·PPT) 제작</li>
-      <li>· AI 도구를 자료 정리·콘텐츠 초안·검토에 활용</li>
-      <li>· 오르소·고마 비주얼은 Gemini를 활용해 생성하고, 핀로그가 콘셉트 선정·편집·브랜딩</li>
-    </ul>
-    <a href="insight.html" style="display:block;margin-top:18px;background:linear-gradient(100deg,var(--gold),var(--gold2));color:#241a04;padding:13px 18px;border-radius:12px;text-decoration:none;font-weight:800;font-size:.98rem;line-height:1.5">▶ 정시윤의 금융 분석 — 원화 스테이블코인, 편익·위험과 '신중한 설계'</a>
-    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-      <a href="mailto:c1yun@pusan.ac.kr" style="display:inline-flex;align-items:center;padding:9px 16px;border:1px solid var(--bd);border-radius:30px;color:#dce6f8;text-decoration:none;font-weight:700;font-size:.9rem">이메일 · c1yun@pusan.ac.kr</a>
-      <a href="https://github.com/c1yun/finlog" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:9px 16px;border:1px solid var(--bd);border-radius:30px;color:#dce6f8;text-decoration:none;font-weight:700;font-size:.9rem">GitHub · c1yun/finlog</a>
+  <div class="team-note">
+    <div class="eyebrow">Collaboration protocol</div>
+    <h3>공동 학습, 교차 검토, 공동 발행</h3>
+    <p>핀로그의 결과물은 서로 다른 전공의 질문과 검토를 바탕으로 완성됩니다. 각자의 관점을 보태고 근거를 함께 확인하며, 공개 이후에도 수정과 보완을 이어가고 있습니다.</p>
+    <div class="team-note__grid">
+      <div><b>DISCUSS</b><span>금융·시사 주제를 함께 선정하고 이해관계자 관점으로 토론합니다.</span></div>
+      <div><b>CROSS REVIEW</b><span>전공자는 논리와 제도를, 비전공자는 문장과 전달력을 점검합니다.</span></div>
+      <div><b>VERIFY</b><span>AI는 보조 도구로 활용하며 사실 판단과 최종 검토는 팀이 맡습니다.</span></div>
+      <div><b>PUBLISH</b><span>보고서·카드뉴스·챗봇·웹 아카이브를 공동 결과물로 축적합니다.</span></div>
+    </div>
+    <div class="team-note__links">
+      <a href="insight.html">금융 분석 노트 읽기</a>
+      <a href="mailto:c1yun@pusan.ac.kr">이메일 · c1yun@pusan.ac.kr</a>
+      <a href="https://github.com/c1yun/finlog" target="_blank" rel="noopener">GitHub · c1yun/finlog</a>
     </div>
   </div>
 </div></section>
@@ -345,7 +362,7 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
   <span class="eyebrow">Content Hub</span>
   <div class="bar"></div>
   <h2>콘텐츠 <span class="a">허브</span></h2>
-  <p class="lead">모든 산출물은 '학습플러스 코칭' 폴더에 정리되어 있습니다.</p>
+  <p class="lead">주요 산출물을 웹 아카이브에서 직접 확인할 수 있도록 연결했습니다.</p>
   <div class="hub">
     <a class="hl" href="forum.html" style="text-decoration:none;color:inherit"><div><div class="t">디지털 금융 포럼 — 웹 리포트</div><div class="f">forum.html · 클릭하면 열림</div></div><span class="go">→</span></a>
     <a class="hl" href="report.html#p15" style="text-decoration:none;color:inherit"><div><div class="t">주제별 심화 보고서</div><div class="f">report.html · 브라우저에서 바로 열람</div></div><span class="go">→</span></a>
