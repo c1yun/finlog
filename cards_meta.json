@@ -1,338 +1,338 @@
 [
-{
-"slug": "bigtech",
-"week": "1주차",
-"title": "빅테크 독점과 플랫폼 규제",
-"files": [
-"bigtech_01.png",
-"bigtech_02.png",
-"bigtech_03.png",
-"bigtech_04.png",
-"bigtech_05.png",
-"bigtech_06.png",
-"bigtech_07.png"
-]
-},
-{
-"slug": "carbon-tax",
-"week": "1주차",
-"title": "탄소세",
-"files": [
-"carbon-tax_01.png",
-"carbon-tax_02.png",
-"carbon-tax_03.png",
-"carbon-tax_04.png",
-"carbon-tax_05.png",
-"carbon-tax_06.png",
-"carbon-tax_07.png"
-]
-},
-{
-"slug": "generation-gap",
-"week": "1주차",
-"title": "세대갈등, 감정 말고 제도로 읽어 봅시다",
-"files": [
-"generation-gap_01.png",
-"generation-gap_02.png",
-"generation-gap_03.png",
-"generation-gap_04.png",
-"generation-gap_05.png",
-"generation-gap_06.png",
-"generation-gap_07.png"
-]
-},
-{
-"slug": "short-selling",
-"week": "2-3주차",
-"title": "떨어져야 돈 버는 거래? 공매도의 두 얼굴",
-"files": [
-"short-selling_01.png",
-"short-selling_02.png",
-"short-selling_03.png",
-"short-selling_04.png",
-"short-selling_05.png",
-"short-selling_06.png",
-"short-selling_07.png"
-]
-},
-{
-"slug": "trade-tariff",
-"week": "2-5주차",
-"title": "관세와 보호무역",
-"files": [
-"trade-tariff_01.png",
-"trade-tariff_02.png",
-"trade-tariff_03.png",
-"trade-tariff_04.png",
-"trade-tariff_05.png",
-"trade-tariff_06.png",
-"trade-tariff_07.png"
-]
-},
-{
-"slug": "education-rights",
-"week": "2주차",
-"title": "학생인권 vs 교권, 정말 하나만 골라야 할까요?",
-"files": [
-"education-rights_01.png",
-"education-rights_02.png",
-"education-rights_03.png",
-"education-rights_04.png",
-"education-rights_05.png",
-"education-rights_06.png",
-"education-rights_07.png"
-]
-},
-{
-"slug": "market-infra",
-"week": "3-5주차",
-"title": "주식 '매수' 버튼 뒤에서 벌어지는 일",
-"files": [
-"market-infra_01.png",
-"market-infra_02.png",
-"market-infra_03.png",
-"market-infra_04.png",
-"market-infra_05.png",
-"market-infra_06.png",
-"market-infra_07.png"
-]
-},
-{
-"slug": "stablecoin",
-"week": "4-7주차",
-"title": "스테이블코인, '안 흔들리는 코인'은 무엇에 기대어 서 있나",
-"files": [
-"stablecoin_01.png",
-"stablecoin_02.png",
-"stablecoin_03.png",
-"stablecoin_04.png",
-"stablecoin_05.png",
-"stablecoin_06.png",
-"stablecoin_07.png"
-]
-},
-{
-"slug": "blockchain",
-"week": "4주차",
-"title": "블록체인·가상자산, 투기 말고 '장부'부터 봅시다",
-"files": [
-"blockchain_01.png",
-"blockchain_02.png",
-"blockchain_03.png",
-"blockchain_04.png",
-"blockchain_05.png",
-"blockchain_06.png",
-"blockchain_07.png"
-]
-},
-{
-"slug": "interview",
-"week": "5주차 특별",
-"title": "현직자 4인에게 물었습니다",
-"files": [
-"interview_01.png",
-"interview_02.png",
-"interview_03.png",
-"interview_04.png",
-"interview_05.png",
-"interview_06.png",
-"interview_07.png"
-]
-},
-{
-"slug": "museum",
-"week": "5주차 특별",
-"title": "딱따기에서 MTS까지",
-"files": [
-"museum_01.png",
-"museum_02.png",
-"museum_03.png",
-"museum_04.png",
-"museum_05.png",
-"museum_06.png",
-"museum_07.png"
-]
-},
-{
-"slug": "hbm",
-"week": "5주차",
-"title": "반도체·HBM 경쟁",
-"files": [
-"hbm_01.png",
-"hbm_02.png",
-"hbm_03.png",
-"hbm_04.png",
-"hbm_05.png",
-"hbm_06.png",
-"hbm_07.png"
-]
-},
-{
-"slug": "esg",
-"week": "6주차",
-"title": "탄소 가계부 쓰는 법",
-"files": [
-"esg_01.png",
-"esg_02.png",
-"esg_03.png",
-"esg_04.png",
-"esg_05.png",
-"esg_06.png",
-"esg_07.png"
-]
-},
-{
-"slug": "nxt",
-"week": "6주차",
-"title": "거래소가 둘이 되면 생기는 일",
-"files": [
-"nxt_01.png",
-"nxt_02.png",
-"nxt_03.png",
-"nxt_04.png",
-"nxt_05.png",
-"nxt_06.png",
-"nxt_07.png"
-]
-},
-{
-"slug": "value-up",
-"week": "6주차",
-"title": "쌓아둔 현금은 누구의 몫일까",
-"files": [
-"value-up_01.png",
-"value-up_02.png",
-"value-up_03.png",
-"value-up_04.png",
-"value-up_05.png",
-"value-up_06.png",
-"value-up_07.png"
-]
-},
-{
-"slug": "yellow-envelope",
-"week": "6주차",
-"title": "노란봉투법과 긴급조정권, 파업 뉴스가 경제면에 실리는 이유",
-"files": [
-"yellow-envelope_01.png",
-"yellow-envelope_02.png",
-"yellow-envelope_03.png",
-"yellow-envelope_04.png",
-"yellow-envelope_05.png",
-"yellow-envelope_06.png",
-"yellow-envelope_07.png"
-]
-},
-{
-"slug": "ai-fairness",
-"week": "7-8주차",
-"title": "차별하지 않는 AI는 가능한가",
-"files": [
-"ai-fairness_01.png",
-"ai-fairness_02.png",
-"ai-fairness_03.png",
-"ai-fairness_04.png",
-"ai-fairness_05.png",
-"ai-fairness_06.png",
-"ai-fairness_07.png"
-]
-},
-{
-"slug": "ai-surveillance",
-"week": "7-8주차",
-"title": "주식시장의 보안검색대",
-"files": [
-"ai-surveillance_01.png",
-"ai-surveillance_02.png",
-"ai-surveillance_03.png",
-"ai-surveillance_04.png",
-"ai-surveillance_05.png",
-"ai-surveillance_06.png",
-"ai-surveillance_07.png"
-]
-},
-{
-"slug": "alt-data",
-"week": "7-8주차",
-"title": "첫 대출에서 미끄러진 당신, 신용이 아니라 '기록'이 없었습니다",
-"files": [
-"alt-data_01.png",
-"alt-data_02.png",
-"alt-data_03.png",
-"alt-data_04.png",
-"alt-data_05.png",
-"alt-data_06.png",
-"alt-data_07.png"
-]
-},
-{
-"slug": "derivatives",
-"week": "7-8주차",
-"title": "파생상품, 보험과 도박 사이",
-"files": [
-"derivatives_01.png",
-"derivatives_02.png",
-"derivatives_03.png",
-"derivatives_04.png",
-"derivatives_05.png",
-"derivatives_06.png",
-"derivatives_07.png"
-]
-},
-{
-"slug": "financials",
-"week": "7-8주차",
-"title": "흑자인데 망한다고요? 재무제표 세 장을 함께 읽어야 하는 이유",
-"files": [
-"financials_01.png",
-"financials_02.png",
-"financials_03.png",
-"financials_04.png",
-"financials_05.png",
-"financials_06.png",
-"financials_07.png"
-]
-},
-{
-"slug": "governance",
-"week": "7-8주차",
-"title": "누가 회사를 위해 결정하는가",
-"files": [
-"governance_01.png",
-"governance_02.png",
-"governance_03.png",
-"governance_04.png",
-"governance_05.png",
-"governance_06.png",
-"governance_07.png"
-]
-},
-{
-"slug": "regtech",
-"week": "7-8주차",
-"title": "규제를 지키는 기술, 레그테크",
-"files": [
-"regtech_01.png",
-"regtech_02.png",
-"regtech_03.png",
-"regtech_04.png",
-"regtech_05.png",
-"regtech_06.png",
-"regtech_07.png"
-]
-},
-{
-"slug": "forum",
-"week": "7주차 특별",
-"title": "커피 원두를 쪼개 투자한다고요?",
-"files": [
-"forum_01.png",
-"forum_02.png",
-"forum_03.png",
-"forum_04.png",
-"forum_05.png",
-"forum_06.png",
-"forum_07.png"
-]
-}
+  {
+    "slug": "bigtech",
+    "week": "1주차",
+    "title": "플랫폼 편의의 비용 구조",
+    "files": [
+      "bigtech_01.png",
+      "bigtech_02.png",
+      "bigtech_03.png",
+      "bigtech_04.png",
+      "bigtech_05.png",
+      "bigtech_06.png",
+      "bigtech_07.png"
+    ]
+  },
+  {
+    "slug": "carbon-tax",
+    "week": "1주차",
+    "title": "탄소 배출에 가격을 부과하는 이유",
+    "files": [
+      "carbon-tax_01.png",
+      "carbon-tax_02.png",
+      "carbon-tax_03.png",
+      "carbon-tax_04.png",
+      "carbon-tax_05.png",
+      "carbon-tax_06.png",
+      "carbon-tax_07.png"
+    ]
+  },
+  {
+    "slug": "generation-gap",
+    "week": "1주차",
+    "title": "세대갈등을 제도와 배분의 관점에서 읽기",
+    "files": [
+      "generation-gap_01.png",
+      "generation-gap_02.png",
+      "generation-gap_03.png",
+      "generation-gap_04.png",
+      "generation-gap_05.png",
+      "generation-gap_06.png",
+      "generation-gap_07.png"
+    ]
+  },
+  {
+    "slug": "short-selling",
+    "week": "2-3주차",
+    "title": "공매도의 기능과 위험",
+    "files": [
+      "short-selling_01.png",
+      "short-selling_02.png",
+      "short-selling_03.png",
+      "short-selling_04.png",
+      "short-selling_05.png",
+      "short-selling_06.png",
+      "short-selling_07.png"
+    ]
+  },
+  {
+    "slug": "trade-tariff",
+    "week": "2-5주차",
+    "title": "보호무역의 비용과 편익",
+    "files": [
+      "trade-tariff_01.png",
+      "trade-tariff_02.png",
+      "trade-tariff_03.png",
+      "trade-tariff_04.png",
+      "trade-tariff_05.png",
+      "trade-tariff_06.png",
+      "trade-tariff_07.png"
+    ]
+  },
+  {
+    "slug": "education-rights",
+    "week": "2주차",
+    "title": "학생인권과 교권의 균형",
+    "files": [
+      "education-rights_01.png",
+      "education-rights_02.png",
+      "education-rights_03.png",
+      "education-rights_04.png",
+      "education-rights_05.png",
+      "education-rights_06.png",
+      "education-rights_07.png"
+    ]
+  },
+  {
+    "slug": "market-infra",
+    "week": "3-5주차",
+    "title": "주식 주문 이후의 시장 인프라",
+    "files": [
+      "market-infra_01.png",
+      "market-infra_02.png",
+      "market-infra_03.png",
+      "market-infra_04.png",
+      "market-infra_05.png",
+      "market-infra_06.png",
+      "market-infra_07.png"
+    ]
+  },
+  {
+    "slug": "stablecoin",
+    "week": "4-7주차",
+    "title": "스테이블코인의 가치 안정 구조",
+    "files": [
+      "stablecoin_01.png",
+      "stablecoin_02.png",
+      "stablecoin_03.png",
+      "stablecoin_04.png",
+      "stablecoin_05.png",
+      "stablecoin_06.png",
+      "stablecoin_07.png"
+    ]
+  },
+  {
+    "slug": "blockchain",
+    "week": "4주차",
+    "title": "가상자산보다 먼저 살펴볼 장부 구조",
+    "files": [
+      "blockchain_01.png",
+      "blockchain_02.png",
+      "blockchain_03.png",
+      "blockchain_04.png",
+      "blockchain_05.png",
+      "blockchain_06.png",
+      "blockchain_07.png"
+    ]
+  },
+  {
+    "slug": "interview",
+    "week": "5주차 특별",
+    "title": "현직자 4인이 설명한 금융 실무 역량",
+    "files": [
+      "interview_01.png",
+      "interview_02.png",
+      "interview_03.png",
+      "interview_04.png",
+      "interview_05.png",
+      "interview_06.png",
+      "interview_07.png"
+    ]
+  },
+  {
+    "slug": "museum",
+    "week": "5주차 특별",
+    "title": "딱따기에서 MTS까지, 시장 인프라의 진화",
+    "files": [
+      "museum_01.png",
+      "museum_02.png",
+      "museum_03.png",
+      "museum_04.png",
+      "museum_05.png",
+      "museum_06.png",
+      "museum_07.png"
+    ]
+  },
+  {
+    "slug": "hbm",
+    "week": "5주차",
+    "title": "AI의 병목을 줄이는 메모리, HBM",
+    "files": [
+      "hbm_01.png",
+      "hbm_02.png",
+      "hbm_03.png",
+      "hbm_04.png",
+      "hbm_05.png",
+      "hbm_06.png",
+      "hbm_07.png"
+    ]
+  },
+  {
+    "slug": "esg",
+    "week": "6주차",
+    "title": "기업의 탄소회계, 스코프 1·2·3",
+    "files": [
+      "esg_01.png",
+      "esg_02.png",
+      "esg_03.png",
+      "esg_04.png",
+      "esg_05.png",
+      "esg_06.png",
+      "esg_07.png"
+    ]
+  },
+  {
+    "slug": "nxt",
+    "week": "6주차",
+    "title": "복수거래소가 투자자에게 미치는 영향",
+    "files": [
+      "nxt_01.png",
+      "nxt_02.png",
+      "nxt_03.png",
+      "nxt_04.png",
+      "nxt_05.png",
+      "nxt_06.png",
+      "nxt_07.png"
+    ]
+  },
+  {
+    "slug": "value-up",
+    "week": "6주차",
+    "title": "현금 보유와 주주가치의 관계",
+    "files": [
+      "value-up_01.png",
+      "value-up_02.png",
+      "value-up_03.png",
+      "value-up_04.png",
+      "value-up_05.png",
+      "value-up_06.png",
+      "value-up_07.png"
+    ]
+  },
+  {
+    "slug": "yellow-envelope",
+    "week": "6주차",
+    "title": "노동권과 경제안정 사이의 제도 설계",
+    "files": [
+      "yellow-envelope_01.png",
+      "yellow-envelope_02.png",
+      "yellow-envelope_03.png",
+      "yellow-envelope_04.png",
+      "yellow-envelope_05.png",
+      "yellow-envelope_06.png",
+      "yellow-envelope_07.png"
+    ]
+  },
+  {
+    "slug": "ai-fairness",
+    "week": "7-8주차",
+    "title": "금융 AI의 공정성과 설명 책임",
+    "files": [
+      "ai-fairness_01.png",
+      "ai-fairness_02.png",
+      "ai-fairness_03.png",
+      "ai-fairness_04.png",
+      "ai-fairness_05.png",
+      "ai-fairness_06.png",
+      "ai-fairness_07.png"
+    ]
+  },
+  {
+    "slug": "ai-surveillance",
+    "week": "7-8주차",
+    "title": "AI를 활용한 시장감시",
+    "files": [
+      "ai-surveillance_01.png",
+      "ai-surveillance_02.png",
+      "ai-surveillance_03.png",
+      "ai-surveillance_04.png",
+      "ai-surveillance_05.png",
+      "ai-surveillance_06.png",
+      "ai-surveillance_07.png"
+    ]
+  },
+  {
+    "slug": "alt-data",
+    "week": "7-8주차",
+    "title": "금융이력 부족과 대안데이터",
+    "files": [
+      "alt-data_01.png",
+      "alt-data_02.png",
+      "alt-data_03.png",
+      "alt-data_04.png",
+      "alt-data_05.png",
+      "alt-data_06.png",
+      "alt-data_07.png"
+    ]
+  },
+  {
+    "slug": "derivatives",
+    "week": "7-8주차",
+    "title": "파생상품의 헤지 기능과 위험",
+    "files": [
+      "derivatives_01.png",
+      "derivatives_02.png",
+      "derivatives_03.png",
+      "derivatives_04.png",
+      "derivatives_05.png",
+      "derivatives_06.png",
+      "derivatives_07.png"
+    ]
+  },
+  {
+    "slug": "financials",
+    "week": "7-8주차",
+    "title": "이익과 현금흐름의 차이",
+    "files": [
+      "financials_01.png",
+      "financials_02.png",
+      "financials_03.png",
+      "financials_04.png",
+      "financials_05.png",
+      "financials_06.png",
+      "financials_07.png"
+    ]
+  },
+  {
+    "slug": "governance",
+    "week": "7-8주차",
+    "title": "기업 의사결정과 주주가치",
+    "files": [
+      "governance_01.png",
+      "governance_02.png",
+      "governance_03.png",
+      "governance_04.png",
+      "governance_05.png",
+      "governance_06.png",
+      "governance_07.png"
+    ]
+  },
+  {
+    "slug": "regtech",
+    "week": "7-8주차",
+    "title": "규정 준수를 지원하는 레그테크",
+    "files": [
+      "regtech_01.png",
+      "regtech_02.png",
+      "regtech_03.png",
+      "regtech_04.png",
+      "regtech_05.png",
+      "regtech_06.png",
+      "regtech_07.png"
+    ]
+  },
+  {
+    "slug": "forum",
+    "week": "7주차 특별",
+    "title": "토큰증권과 조각투자의 구조",
+    "files": [
+      "forum_01.png",
+      "forum_02.png",
+      "forum_03.png",
+      "forum_04.png",
+      "forum_05.png",
+      "forum_06.png",
+      "forum_07.png"
+    ]
+  }
 ]

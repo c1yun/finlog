@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="strict-origin-when-cross-origin"><meta property="og:title" content="핀로그 금융 챗봇"><meta property="og:description" content="금융 용어 108개·FAQ 63문답 — 오르소와 고마가 쉽게 알려주는 금융사전">
+<meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="strict-origin-when-cross-origin"><meta property="og:title" content="핀로그 금융 챗봇"><meta property="og:description" content="금융 용어 108개·FAQ 63문답 — 오르소와 고마가 핵심을 명료하게 설명하는 금융 지식베이스">
 <link rel="icon" href="assets/images/brand/finlog-mark.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>핀로그 금융 챗봇 · FinLog Bot</title>
@@ -115,14 +115,14 @@
     <div class="av" id="hdav"></div>
     <div>
       <h1>핀로그 금융 챗봇</h1>
-      <p>직접 만든 금융용어·FAQ 검색 챗봇 — 용어·시사·면접까지 찾아보세요</p>
+      <p>금융용어·시사·면접 주제를 구조화한 검색형 지식베이스</p>
     </div>
     <div class="kbn" id="kbn"></div>
   </header>
   <div class="chat" id="chat" aria-live="polite" role="log"></div>
   <div class="quick" id="quick"></div>
   <div class="composer">
-    <input id="inp" placeholder="용어·질문을 입력하세요 (예: 공매도가 뭐야?)" autocomplete="off" aria-label="용어·질문 입력">
+    <input id="inp" placeholder="용어·질문을 입력하세요 (예: 공매도란 무엇인가요?)" autocomplete="off" aria-label="용어·질문 입력">
     <button id="send" title="보내기">➤</button>
   </div>
 </div>
@@ -278,7 +278,7 @@ function answer(q){
   const catHit=CATS.find(c=>norm(c)===ncat);
   const res=search(q);
   if(catHit && !(res.length && norm(res[0].e.term)===norm(q))){
-    const b=botWrap(); b.innerHTML='<b>'+escapeHtml(catHit)+'</b> 카테고리예요. 눌러서 확인해 보세요.';
+    const b=botWrap(); b.innerHTML='<b>'+escapeHtml(catHit)+'</b> 분류에 해당합니다. 아래 항목에서 확인할 수 있습니다.';
     const list=KB.filter(e=>e.category===catHit);
     const c=el('div','chips'); list.forEach(e=>{const ch=el('div','chip',escapeHtml(e.term));ch.onclick=()=>ask(e.term);c.appendChild(ch);});
     b.appendChild(c); scroll(); return;
@@ -294,12 +294,12 @@ function answer(q){
     h+='<div class="detail">'+highlight(faq.f.a,tk)+'</div>';
     if(ent) h+='<div class="box tip"><span class="h">🔗 관련 주제</span>'+escapeHtml(ent.term)+(ent.weeks?' · 학습 '+escapeHtml(ent.weeks):'')+'</div>';
     h+='</div>'; b.innerHTML=h;
-    if(ent){const c=el('div','chips');const ch=el('div','chip','▶ '+escapeHtml(ent.term)+' 더 알아보기');ch.onclick=()=>ask(ent.term);c.appendChild(ch);b.appendChild(c);}
+    if(ent){const c=el('div','chips');const ch=el('div','chip','▶ '+escapeHtml(ent.term)+' 관련 항목');ch.onclick=()=>ask(ent.term);c.appendChild(ch);b.appendChild(c);}
     scroll(); return;
   }
   if(res.length && res[0].s>=50){
     const e=res[0].e; const b=botWrap();
-    const pre=hasForeign?'<div class="short">핀로그 챗봇은 <b>국내 금융 이슈</b> 위주라, 해외 사례는 아직 준비돼 있지 않아요. 가장 가까운 국내 내용을 알려드릴게요 👇</div>':'';
+    const pre=hasForeign?'<div class="short">핀로그 지식베이스는 <b>국내 금융 이슈</b>를 중심으로 구성되어 있습니다. 관련성이 높은 국내 항목을 제시합니다.</div>':'';
     b.innerHTML=pre+renderEntry(e,tk);
     faqChips(b,e); sameTopicChips(b,e); scroll(); return;
   }
@@ -316,7 +316,7 @@ function answer(q){
   }
   // no match
   const b=botWrap();
-  b.innerHTML='음… <b>"'+escapeHtml(q)+'"</b>는 제가 아직 학습하지 않은 내용이에요. 저는 <b>국내 자본시장·디지털금융</b> 이슈 위주로 알고 있어요! 아래 카테고리에서 찾아볼까요?';
+  b.innerHTML='<b>"'+escapeHtml(q)+'"</b>는 현재 지식베이스의 범위를 벗어납니다. 아래 분류에서 <b>국내 자본시장·디지털금융</b> 관련 항목을 확인할 수 있습니다.';
   catChips(b);
   scroll();
 }
@@ -327,7 +327,7 @@ inp.addEventListener('keydown',e=>{if(e.key==='Enter' && !e.isComposing){const v
 
 // ---- 전체 용어 탐색(카테고리별 접이식 목록) ----
 function allTermsBrowse(b){
-  b.innerHTML='<b>전체 용어 '+KB.length+'개</b>를 카테고리별로 모았어요. 카테고리를 눌러 펼치고, 용어를 누르면 바로 찾아드려요.';
+  b.innerHTML='<b>전체 용어 '+KB.length+'개</b>를 분류별로 정리했습니다. 분류를 선택하면 관련 용어를 확인할 수 있습니다.';
   const wrap=el('div','allterms');
   CATS.forEach(cat=>{
     const list=KB.filter(e=>e.category===cat); if(!list.length) return;
@@ -343,7 +343,7 @@ function allTermsBrowse(b){
 // quick bar: 21주제 + categories
 (function(){
   const t=el('div','chip cat','🎓 핀로그 학습주제'); t.onclick=()=>{
-    const b=botWrap(); b.innerHTML='핀로그가 학습한 <b>21개 주제</b>예요. 눌러서 결론·면접Tip까지 확인하세요.';
+    const b=botWrap(); b.innerHTML='핀로그가 검토한 <b>21개 주제</b>입니다. 각 항목에서 주요 결론과 면접 관점을 확인할 수 있습니다.';
     const c=el('div','chips'); TOPICS.forEach(e=>{const ch=el('div','chip',escapeHtml(e.term));ch.onclick=()=>ask(e.term);c.appendChild(ch);});
     b.appendChild(c); scroll();
   }; quick.appendChild(t);

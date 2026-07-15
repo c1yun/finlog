@@ -50,8 +50,27 @@ REPLACEMENTS = {
 def main() -> int:
     source = TARGET.read_text(encoding="utf-8")
     unresolved = [old for old, new in REPLACEMENTS.items() if old not in source and new not in source]
-    if unresolved:
-        raise RuntimeError(f"Translator review source changed; {len(unresolved)} replacement(s) unresolved")
+    editorial_rewrites = {
+        "기술특례상장은": ("파두 사건", "검찰", "회사의 반론"),
+        "NSDS(공매도 중앙점검시스템)": ("NSDS(공매도 중앙점검시스템)", "사후 상시 점검", "주문 전 차단"),
+        "공매도는": ("무차입", "사전 잔고관리", "사후 점검"),
+        "자사주 의무소각": ("자사주 소각", "발행주식 수", "보장하지는 않는다"),
+        "WGBI(세계국채지수)": ("FTSE Russell", "지수 추종", "운용전략"),
+        "WGBI는 세계 채권시장의": ("WGBI 편입", "지수 추종", "운용전략"),
+        "AI 기본법": ("AI 기본법", "위험관리", "사람의 감독", "문서화"),
+        "XAI 거절 사유 고지": ("설명·이의제기 절차", "근거를 확인", "재검토"),
+        "XAI(SHAP·LIME)": ("XAI(SHAP·LIME)", "기여도", "사람이 검토"),
+    }
+    unexpected = []
+    for old in unresolved:
+        markers = next((items for prefix, items in editorial_rewrites.items() if old.startswith(prefix)), None)
+        if markers is None or not all(marker in source for marker in markers):
+            unexpected.append(old)
+    if unexpected:
+        labels = [item[:40] for item in unexpected]
+        raise RuntimeError(
+            f"Translator review source changed; {len(unexpected)} replacement(s) unresolved: {labels!r}"
+        )
     pending = [(old, new) for old, new in REPLACEMENTS.items() if old in source]
     for old, new in pending:
         source = source.replace(old, new, 1)
