@@ -97,6 +97,9 @@
   .ses .who{font-size:.82rem;color:var(--gold);font-weight:800}
   .ses ul{margin:8px 0 0 18px;color:#33445f;font-size:.92rem}
   .ses li{margin-bottom:5px}
+  .use-list{margin:9px 0 0 18px;color:#33445f;font-size:.93rem}
+  .use-list li{margin-bottom:5px}
+  .use-note{margin-top:9px;color:var(--mut);font-size:.88rem}
 
   /* gallery */
   .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -128,7 +131,7 @@
 </style>
 <style>body{word-break:keep-all;overflow-wrap:break-word}</style>
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://c1yun.github.io/finlog/">
+<link rel="canonical" href="https://c1yun.github.io/finlog/forum.html"><meta property="og:url" content="https://c1yun.github.io/finlog/forum.html">
 <meta property="og:image" content="https://c1yun.github.io/finlog/og-v2.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -155,14 +158,14 @@ nav .wrap{height:52px}
 <link rel="stylesheet" href="assets/finlog-lab.css">
 <script defer src="assets/finlog-lab.js"></script>
 </head>
-<body class="finlog-lab" data-finlog-page="forum">
+<body class="finlog-classic" data-finlog-enhancement-page="forum">
 <header class="sitebar"><div class="sbwrap">
   <a class="sbrand" href="index.html" title="FinLog 홈"><img src="assets/images/brand/finlog-mark-small.png" alt="FinLog" width="46" height="46" decoding="async"><span>Fin<b>Log</b></span></a>
   <div class="slinks">
     <a href="index.html">홈</a>
     <a href="chatbot.html">챗봇</a>
     <a href="forum.html" class="on">포럼</a>
-    <a href="translator.html">번역과정</a>
+    <a href="translator.html">번역 과정</a>
     <a href="cards.html">카드뉴스</a>
     <a href="report.html">보고서</a>
   </div>
@@ -171,22 +174,23 @@ nav .wrap{height:52px}
 <nav><div class="wrap">
   <span class="brand">디지털금융포럼</span>
   <a href="#overview">개요</a>
-  <a href="#summary">5분요약</a>
-  <a href="#vs">CBDC vs 코인</a>
+  <a href="#summary">5분 요약</a>
+  <a href="#vs">CBDC와 스테이블코인</a>
   <a href="#keynote">기조연설</a>
-  <a href="#world">세계전략</a>
+  <a href="#world">주요국 제도</a>
   <a href="#sessions">발표</a>
   <a href="#panel">패널</a>
   <a href="#issues">쟁점</a>
   <a href="#glossary">용어</a>
   <a href="#gallery">현장</a>
 </div></nav>
+<main id="main-content">
 
 <header class="hero">
   <div class="wrap">
     <span class="htag">제7회 디지털 금융 포럼 · 2026.6.25 · 그랜드 조선 부산</span>
-    <h1>스테이블코인, 디지털 화폐<br>패권의 골든타임</h1>
-    <div class="sub">디지털 금융 패러다임의 전환 — 생태계의 리스크와 기회</div>
+    <h1>스테이블코인과 CBDC, 디지털 지급결제 질서의 전환</h1>
+    <div class="sub">디지털 금융 전환과 지급결제 생태계의 과제</div>
     <div class="meta">
       <span><b>2026.6.25(목)</b> 10:30–18:00</span>
       <span><b>그랜드 조선 부산</b></span>
@@ -200,13 +204,13 @@ nav .wrap{height:52px}
 <section class="sec" id="overview">
   <div class="wrap reveal">
     <span class="eyebrow">Overview</span>
-    <h2>한 줄로 말하면</h2>
-    <p class="lead">국가가 만드는 <b>CBDC</b>와 민간이 만드는 <b>스테이블코인</b>, 두 디지털 화폐가 '돈의 미래'를 두고 경쟁한다. 미국·중국·EU·일본의 대응을 비교하며 한국의 원화 스테이블코인 설계 방향을 논의한 포럼이었다. 아래 내용은 현장 발표와 토론을 핀로그가 요약한 것으로, 발표자별 전망과 제안은 확정된 제도나 투자 권유가 아니다.</p>
+    <h2>핵심 요약</h2>
+    <p class="lead">포럼에서는 중앙은행이 발행하는 <b>CBDC</b>와 민간이 발행하는 <b>스테이블코인</b>이 지급결제 체계에서 맡을 역할을 논의했습니다. 미국·중국·EU·일본의 제도 대응을 비교하고, 한국의 원화 스테이블코인 설계 방향을 검토했습니다. 아래 내용은 현장 발표와 토론을 핀로그가 요약한 것이며, 발표자별 전망과 제안은 확정된 제도나 투자 권유가 아닙니다.</p>
     <div class="stats" style="margin-top:28px">
       <div class="stat"><div class="n">약 430조원</div><div class="l">발표자료상 시가총액 추산</div></div>
-      <div class="stat"><div class="n">~75%</div><div class="l">발표자가 제시한 온체인 비중</div></div>
-      <div class="stat"><div class="n">90%+</div><div class="l">발표자가 설명한 달러 기반 비중</div></div>
-      <div class="stat"><div class="n">비용↓</div><div class="l">국경 간 송금의 기대 효과</div></div>
+      <div class="stat"><div class="n">약 75%</div><div class="l">발표자가 제시한 온체인 비중</div></div>
+      <div class="stat"><div class="n">90% 이상</div><div class="l">발표자가 설명한 달러 기반 비중</div></div>
+      <div class="stat"><div class="n">비용 절감</div><div class="l">국경 간 송금의 기대 효과</div></div>
     </div>
   </div>
 </section>
@@ -215,15 +219,15 @@ nav .wrap{height:52px}
 <section class="sec" id="summary">
   <div class="wrap reveal">
     <span class="eyebrow">5-Minute Read</span>
-    <h2>비참여자를 위한 5분 요약</h2>
+    <h2>포럼 핵심 논의</h2>
     <div style="margin-top:18px">
-      <div class="hl"><div class="ic">1</div><div><b>두 개의 디지털 화폐가 경쟁한다.</b> ① CBDC = 국가 발행, 안정·통제 중심. ② 스테이블코인 = 민간 발행, 1달러=1코인으로 가치 고정, 혁신·확장 중심.</div></div>
-      <div class="hl"><div class="ic">2</div><div><b>스테이블코인은 이미 큰 시장이다.</b> 포럼 발표자는 시가총액·거래량과 달러 기반 코인의 높은 비중을 근거로 지급결제 인프라로서의 영향력을 강조했다.</div></div>
-      <div class="hl"><div class="ic">3</div><div><b>미국 정책에는 국채 수요와 달러 영향력도 연결된다.</b> 발표에서는 준비자산 규율이 미 국채 수요와 달러 기반 결제망 확대에 미칠 가능성을 주요 정책 배경으로 설명했다.</div></div>
-      <div class="hl"><div class="ic">4</div><div><b>중국은 정반대.</b> 민간 코인 금지, 국가 CBDC(디지털 위안)로 일대일로 결제망과 데이터 주권을 노린다.</div></div>
-      <div class="hl"><div class="ic">5</div><div><b>한국에서는 속도와 안정성의 균형이 쟁점이다.</b> 원화 기반 수요를 선점해야 한다는 견해와 준비자산·상환·발행주체 규율을 먼저 갖춰야 한다는 견해가 함께 제시됐다.</div></div>
-      <div class="hl"><div class="ic">6</div><div><b>현장에서 제시된 활용처는 명확했다.</b> 국내 결제 인프라의 효율성을 고려하면 일반 결제보다 <b>해외송금·외국인 노동자 송금·국경 간 결제·자산 토큰화(RWA)</b>에서 활용 가능성이 부각된다.</div></div>
-      <div class="hl"><div class="ic">7</div><div><b>부산을 테스트베드로 활용하자는 제안.</b> 발표자는 블록체인 규제자유특구·금융중심지·항만 물류 기반을 실증 여건으로 제시했다.</div></div>
+      <div class="hl"><div class="ic">1</div><div><b>CBDC와 스테이블코인은 발행 주체와 운영 구조가 다릅니다.</b> CBDC는 중앙은행이 발행하며, 스테이블코인은 민간 발행자가 준비자산과 상환 구조를 바탕으로 기준자산과의 교환가치를 유지합니다.</div></div>
+      <div class="hl"><div class="ic">2</div><div><b>발표자는 시장 규모와 지급결제 인프라로서의 영향력 확대를 강조했습니다.</b> 현장 발표에서는 시가총액·거래량과 달러 기반 코인의 높은 비중이 근거로 제시되었습니다.</div></div>
+      <div class="hl"><div class="ic">3</div><div><b>미국 정책에는 국채 수요와 달러 영향력도 연결됩니다.</b> 발표에서는 준비자산 규율이 미 국채 수요와 달러 기반 결제망 확대에 미칠 가능성을 주요 정책 배경으로 설명했습니다.</div></div>
+      <div class="hl"><div class="ic">4</div><div><b>중국은 국가 주도 전략을 택했습니다.</b> 민간 가상자산 거래를 제한하는 한편 디지털 위안화를 중심으로 국내외 지급결제 활용을 확대하고 있습니다.</div></div>
+      <div class="hl"><div class="ic">5</div><div><b>한국에서는 속도와 안정성의 균형이 쟁점입니다.</b> 원화 기반 수요를 선점해야 한다는 견해와 준비자산·상환·발행 주체 규율을 먼저 갖춰야 한다는 견해가 함께 제시되었습니다.</div></div>
+      <div class="hl"><div class="ic">6</div><div><b>해외송금·국경 간 결제·자산 토큰화가 우선 활용 영역으로 제시되었습니다.</b> 국내 결제 인프라의 효율성을 고려하면 일반 결제보다 해당 영역에서 활용 가능성이 부각된다는 설명이었습니다.</div></div>
+      <div class="hl"><div class="ic">7</div><div><b>부산을 실증 지역으로 활용하자는 제안도 있었습니다.</b> 발표자는 블록체인 규제자유특구·금융중심지·항만 물류 기반을 주요 실증 여건으로 제시했습니다.</div></div>
     </div>
   </div>
 </section>
@@ -232,23 +236,23 @@ nav .wrap{height:52px}
 <section class="sec" id="vs">
   <div class="wrap reveal">
     <span class="eyebrow">Core Comparison</span>
-    <h2>CBDC vs 스테이블코인</h2>
-    <p class="lead">기조연설이 정리한 핵심 구도. 둘은 경쟁하지만 결국 '역할을 나눈 공존(관리된 공존)'으로 간다는 것이 공통된 전망.</p>
+    <h2>CBDC와 스테이블코인</h2>
+    <p class="lead">기조연설은 두 수단이 경쟁하는 동시에 도매 정산과 민간 서비스에서 역할을 나누는 '관리된 공존' 가능성을 제시했습니다.</p>
     <div style="overflow-x:auto;margin-top:20px">
     <table class="cmp">
       <thead><tr><th>구분</th><th>CBDC (중앙은행)</th><th>스테이블코인 (민간)</th></tr></thead>
       <tbody>
         <tr><td>발행 주체</td><td>중앙은행 (국가 신용)</td><td>민간 기업 (은행·핀테크·빅테크)</td></tr>
-        <tr><td>담보</td><td>국가 신용</td><td>준비금(현금·단기 국채) 100%+</td></tr>
-        <tr><td>강점</td><td>안정성·정책 효율(프로그래머블)</td><td>확장성·혁신·글로벌 운용성</td></tr>
-        <tr><td>약점</td><td>프라이버시(데이터 집중), 은행 역할 약화</td><td>불법 악용·디페그·달러 종속 위험</td></tr>
-        <tr><td>적합 영역</td><td><b>도매</b> — 은행 간 정산·증권 결제</td><td><b>소매</b> — 송금·무역·디파이·외국인 송금</td></tr>
+        <tr><td>가치 기반</td><td>중앙은행 신용</td><td>발행액에 상응하는 준비자산과 상환 의무</td></tr>
+        <tr><td>주요 강점</td><td>중앙은행 신뢰·결제의 최종성</td><td>민간 서비스 연계·국경 간 활용 가능성</td></tr>
+        <tr><td>주요 위험</td><td>거래정보 집중에 따른 프라이버시 우려, 금융중개 구조 변화</td><td>준비자산 부실·상환 불이행·디페그·자금세탁 위험</td></tr>
+        <tr><td>주요 논의 영역</td><td><b>도매 중심</b> — 은행 간 정산·증권 결제</td><td><b>민간 활용</b> — 송금·무역결제·자산 토큰화</td></tr>
       </tbody>
     </table>
     </div>
     <div class="card" style="margin-top:18px;border-left:4px solid var(--gold)">
       <span class="tag">딜레마와 해법</span>
-      <p style="margin-top:6px">CBDC는 거래정보의 중앙 집중에 따른 프라이버시 우려가 있고, 완전한 익명성은 자금세탁방지와 상충할 수 있다. <b>영지식증명(ZKP)</b>은 거래의 구체적 내용을 공개하지 않고도 정당성을 검증하는 기술적 대안으로 논의된다.</p>
+      <p style="margin-top:6px">CBDC는 거래정보의 중앙 집중에 따른 프라이버시 우려가 있고, 완전한 익명성은 자금세탁방지와 상충할 수 있습니다. <b>영지식증명(ZKP)</b>은 거래의 구체적 내용을 공개하지 않고도 정당성을 검증하는 기술적 대안으로 논의됩니다.</p>
     </div>
   </div>
 </section>
@@ -258,22 +262,22 @@ nav .wrap{height:52px}
   <div class="wrap reveal">
     <span class="eyebrow">Keynote · 김용진 교수(서강대)</span>
     <h2>기조연설: 디지털 화폐 패권 경쟁과 공존의 미래</h2>
-    <p class="lead">역사 → 구조 → 국가전략 → 결론을 한 흐름으로 꿰었다. 클릭해 펼쳐 보세요.</p>
+    <p class="lead">기조연설의 역사적 배경, 시장 구조, 국가별 전략, 정책 제안을 다섯 항목으로 정리했습니다.</p>
     <div style="margin-top:20px">
       <div class="acc"><button>① 디지털 화폐란? — '프로그래밍 가능한 돈'<span class="pl">+</span></button>
-        <div class="body"><div class="inner"><p>현행은 <b>이중 통화제도</b>(중앙은행+상업은행). 민간 화폐의 90% 이상은 상업은행이 만든다.</p><p>디지털 화폐의 본질은 <b>① 무한 분할 ② 프로그래밍 가능</b> — "언제·어디서·누가·어떻게 쓸지를 정의할 수 있는 돈".</p></div></div></div>
+        <div class="body"><div class="inner"><p>발표자는 현행 통화제도를 중앙은행화폐와 상업은행화폐가 함께 유통되는 <b>이중 통화제도</b>로 설명했습니다. 민간 화폐 비중은 현장 발표자료의 수치이므로 활용 시 원자료 확인이 필요합니다.</p><p>디지털 화폐의 특징으로는 <b>① 세분화 가능성 ② 프로그래밍 가능성</b>이 제시되었습니다. 사용 조건을 코드로 설계할 수 있다는 의미입니다.</p></div></div></div>
 
       <div class="acc"><button>② 역사는 반복된다 — 미국 자유은행 시대<span class="pl">+</span></button>
-        <div class="body"><div class="inner"><p>1836년 제2합중국은행의 특허가 종료된 뒤 주정부 인가 은행이 발행한 은행권이 확산됐고, 일부 부실 발행과 뱅크런을 거쳐 1863년 국법은행법을 중심으로 통화체계가 재편됐다.</p><p>오늘날 스테이블코인 발행 주체를 둘러싼 논의도 민간 혁신과 지급결제 시스템의 안정성 사이에서 적정한 규율 수준을 정하는 문제로 볼 수 있다.</p></div></div></div>
+        <div class="body"><div class="inner"><p>1836년 제2합중국은행의 특허가 종료된 뒤 주정부 인가 은행이 발행한 은행권이 확산되었고, 일부 부실 발행과 뱅크런을 거쳐 1863년 국법은행법을 중심으로 통화체계가 재편되었습니다.</p><p>오늘날 스테이블코인 발행 주체 논의도 민간 혁신과 지급결제 시스템의 안정성 사이에서 적정한 규율 수준을 정하는 문제로 해석할 수 있습니다.</p></div></div></div>
 
       <div class="acc"><button>③ 시장 규모와 '시뇨리지' 수익 구조<span class="pl">+</span></button>
-        <div class="body"><div class="inner"><p>현장 발표자는 당시 시가총액·거래량과 달러 기반 코인의 높은 비중을 제시하며 시장의 규모를 설명했다. 이 수치는 발표 시점의 자료이므로 최신 원자료 확인이 필요하다.</p><p><b>핵심 수익 구조는 준비자산 운용수익.</b> 발행사가 받은 자금을 단기 국채 등 준비자산으로 운용해 수익을 얻는 구조가 사업모델의 핵심이라는 취지로 설명했다.</p></div></div></div>
+        <div class="body"><div class="inner"><p>현장 발표자는 당시 시가총액·거래량과 달러 기반 코인의 높은 비중을 제시하며 시장 규모를 설명했습니다. 이 수치는 발표 시점의 자료이므로 최신 원자료 확인이 필요합니다.</p><p><b>준비자산 운용수익이 주요 수익원으로 제시되었습니다.</b> 발행사가 받은 자금을 단기 국채 등 준비자산으로 운용해 수익을 얻는 구조가 사업모델의 핵심이라는 취지였습니다.</p></div></div></div>
 
-      <div class="acc"><button>④ 미국 3대 법안과 진짜 의도 — 국채 소화<span class="pl">+</span></button>
-        <div class="body"><div class="inner"><p>발표에서는 미국의 스테이블코인 규율, 디지털자산 시장구조 논의, CBDC 제한 논의를 서로 구분해 소개했다. 각 법안의 통과·시행 상태는 계속 변할 수 있어 최신 법령을 확인해야 한다.</p><p>준비자산이 단기 미 국채 수요를 늘리고 달러 기반 결제망을 확장할 수 있다는 것이 발표자의 주요 해석이었다.</p></div></div></div>
+      <div class="acc"><button>④ 미국의 제도 논의와 정책적 배경<span class="pl">+</span></button>
+        <div class="body"><div class="inner"><p>발표에서는 미국의 스테이블코인 규율, 디지털자산 시장구조 논의, CBDC 제한 논의를 서로 구분해 소개했습니다. 각 법안의 통과·시행 상태는 계속 변할 수 있어 최신 법령을 확인해야 합니다.</p><p>준비자산이 단기 미 국채 수요를 늘리고 달러 기반 결제망을 확장할 수 있다는 것이 발표자의 주요 해석이었습니다.</p></div></div></div>
 
       <div class="acc"><button>⑤ 결론 — '관리된 공존'과 원화 스테이블코인<span class="pl">+</span></button>
-        <div class="body"><div class="inner"><p>발표자는 CBDC를 도매 정산, 스테이블코인을 민간 소매·송금 영역에 활용하는 역할 분담 가능성을 제시했다. 비용과 처리시간 개선 수치는 적용 국가·사업자·규율에 따라 달라진다.</p><p>원화 기반 디지털자산 생태계를 조기에 검토해야 한다는 의견과 함께 K-콘텐츠·관광자산의 토큰화 가능성을 제안했다. 특정 기업의 발행 가능성은 전망에 불과하며 확정 사실이 아니다.</p></div></div></div>
+        <div class="body"><div class="inner"><p>발표자는 CBDC를 도매 정산에, 스테이블코인을 민간 소매·송금 영역에 활용하는 역할 분담 가능성을 제시했습니다. 비용과 처리시간 개선 수치는 적용 국가·사업자·규율에 따라 달라집니다.</p><p>원화 기반 디지털자산 생태계를 조기에 검토해야 한다는 의견과 함께 K-콘텐츠·관광자산의 토큰화 가능성을 제안했습니다. 특정 기업의 발행 가능성은 전망에 불과하며 확정된 사실이 아닙니다.</p></div></div></div>
     </div>
   </div>
 </section>
@@ -282,16 +286,16 @@ nav .wrap{height:52px}
 <section class="sec" id="world">
   <div class="wrap reveal">
     <span class="eyebrow">Global Strategy</span>
-    <h2>세계는 어떻게 움직이나</h2>
+    <h2>주요국의 제도 대응</h2>
     <div class="grid3" style="margin-top:20px">
-      <div class="ctry c-us"><div class="flag">US</div><h3>미국 — 민간 주도</h3><p>지니어스법으로 민간 스테이블코인 양성. 준비금=미 국채 → 달러 패권의 디지털 연장.</p></div>
-      <div class="ctry c-cn"><div class="flag">CN</div><h3>중국 — 국가 CBDC</h3><p>민간 코인 금지, 디지털 위안(지갑 18억). 일대일로 결제·데이터 주권.</p></div>
-      <div class="ctry c-eu"><div class="flag">EU</div><h3>EU — 규제 방어막</h3><p>세계 최초 포괄규제 MiCA. ECB 디지털 유로. 미·중 사이 권역 보호.</p></div>
-      <div class="ctry c-jp"><div class="flag">JP</div><h3>일본 — 빠른 전환</h3><p>엔화 스테이블코인(JPYC), 암호화폐 세금 55%→20%, 전담 사무처.</p></div>
-      <div class="ctry c-kr"><div class="flag">KR</div><h3>한국 — 프로젝트 한강</h3><p>한국은행 예금토큰 실증(2025.4~6). 이중구조. 발행주체 논쟁으로 입법 교착.</p></div>
+      <div class="ctry c-us"><div class="flag">US</div><h3>미국 — 민간 발행과 연방 규율</h3><p>GENIUS법은 지급형 스테이블코인의 발행, 준비자산, 상환에 관한 연방 규율을 마련했습니다. 발표에서는 달러 기반 결제망과 미 국채 수요의 연계 가능성이 함께 논의됐습니다.</p></div>
+      <div class="ctry c-cn"><div class="flag">CN</div><h3>중국 — 국가 주도 CBDC</h3><p>민간 가상자산 거래를 제한하고 디지털 위안화를 중심으로 국내외 지급결제 활용을 실험하고 있습니다.</p></div>
+      <div class="ctry c-eu"><div class="flag">EU</div><h3>EU — MiCA와 디지털 유로</h3><p>MiCA를 통해 가상자산 발행자와 서비스 제공자를 규율하고, 별도로 디지털 유로 도입을 준비하고 있습니다.</p></div>
+      <div class="ctry c-jp"><div class="flag">JP</div><h3>일본 — 발행·중개 규율 정비</h3><p>자금결제법을 중심으로 스테이블코인의 발행과 중개 체계를 정비하고 엔화 기반 서비스의 실증을 이어가고 있습니다.</p></div>
+      <div class="ctry c-kr"><div class="flag">KR</div><h3>한국 — 프로젝트 한강과 제도 논의</h3><p>한국은행은 예금토큰 활용을 실증했으며, 원화 스테이블코인의 발행 주체·준비자산·상환 규율에 관한 논의가 이어지고 있습니다.</p></div>
       <div class="card" style="display:flex;flex-direction:column;justify-content:center">
         <span class="tag">국제 협력</span>
-        <p style="margin-top:6px;font-size:.92rem"><b>mBridge</b>와 <b>프로젝트 아고라</b>는 서로 다른 국경 간 디지털 결제 실험이다. 한국은 프로젝트 아고라에 참여하고 있으며, 핵심 과제는 상호운용성과 KYC·AML 기준 정합성이다.</p>
+        <p style="margin-top:6px;font-size:.92rem"><b>mBridge</b>와 <b>프로젝트 아고라</b>는 서로 다른 국경 간 디지털 결제 실험입니다. 한국은 프로젝트 아고라에 참여하고 있으며, 핵심 과제는 상호운용성과 KYC·AML 기준의 정합성입니다.</p>
       </div>
     </div>
   </div>
@@ -301,16 +305,17 @@ nav .wrap{height:52px}
 <section class="sec" id="sessions">
   <div class="wrap reveal">
     <span class="eyebrow">Sessions</span>
-    <h2>현업 발표 — 4개의 목소리</h2>
+    <h2>실무 발표 — 네 가지 관점</h2>
+    <p class="lead">소속과 직함은 행사일인 2026년 6월 25일 기준입니다.</p>
     <div class="grid2" style="margin-top:20px">
       <div class="card ses"><span class="who">케이뱅크 · 최재욱 팀장</span><h3>스테이블코인과 은행의 역할</h3>
-        <ul><li>국내 결제 인프라가 이미 효율적인 만큼 <b>해외송금</b>이 우선 활용처로 제시됐다.</li><li>포럼 발표에서는 외국인 노동자 송금 시장을 연 10조원 규모로 제시하고, '샌드위치 모델'·특허 9건·태국 카시콘은행과의 시범 적용(PoC)을 소개했다.</li><li>은행의 경쟁력으로는 <b>컴플라이언스 역량</b>(AML·트래블룰·준비금 증명)이 강조됐다.</li></ul></div>
-      <div class="card ses"><span class="who">투이컨설팅 · 김준석 이사</span><h3>금융추천 투명성을 위한 CoT 데이터셋</h3>
-        <ul><li>AI는 답을 내더라도 판단 근거를 사람이 검토하기 어려울 수 있어 <b>설명가능 AI(XAI)</b>가 필요하다.</li><li>발표에서는 금융추천 설명 데이터 구축 사례를 소개했다.</li><li>데이터 표준과 검증 절차로 생성형 AI의 오류 가능성을 낮추자는 취지였다.</li></ul></div>
-      <div class="card ses"><span class="who">비단(BDAN) · 이지훈 본부장</span><h3>디지털 금융 허브, 답은 부산</h3>
-        <ul><li>부산=블록체인 규제자유특구·금융특구·환적항 세계 2위.</li><li>커피 원두를 1,000~2,000원 단위 <b>조각투자</b>(RWA) 출시.</li><li>가상자산거래소 '플라이빗' 인수 → RWA·STO·거래소 3대 인프라.</li></ul></div>
+        <ul><li>국내 결제 인프라가 이미 효율적인 만큼 <b>해외송금</b>이 우선 활용처로 제시되었습니다.</li><li>포럼 발표에서는 외국인 노동자 송금 시장을 연 10조 원 규모로 제시하고, '샌드위치 모델'·특허 9건·태국 카시콘은행과의 시범 적용(PoC)을 소개했습니다. 해당 수치는 현장 발표자료 기준입니다.</li><li>은행의 경쟁력으로는 <b>컴플라이언스 역량</b>(AML·트래블룰·준비금 증명)이 강조되었습니다.</li></ul></div>
+      <div class="card ses"><span class="who">투이컨설팅 · 김준석 이사</span><h3>금융 추천의 투명성을 위한 CoT 데이터셋</h3>
+        <ul><li>AI의 판단 근거를 사람이 검토하기 어려울 수 있어 <b>설명 가능한 AI(XAI)</b>가 필요하다는 의견이 제시되었습니다.</li><li>발표에서는 금융 추천 설명 데이터 구축 사례를 소개했습니다.</li><li>데이터 표준과 검증 절차로 생성형 AI의 오류 가능성을 낮추자는 취지였습니다.</li></ul></div>
+      <div class="card ses"><span class="who">비단(BDAN) · 이지훈 본부장</span><h3>부산의 디지털 금융 허브 가능성</h3>
+        <ul><li>블록체인 규제자유특구·금융중심지·항만 물류 기반을 부산의 강점으로 제시했습니다.</li><li>커피 원두를 기초자산으로 한 소액 조각투자(RWA) 사례를 소개했습니다.</li><li>RWA·토큰증권·거래 인프라를 연계한 사업 구상을 설명했습니다.</li></ul></div>
       <div class="card ses"><span class="who">BNK부산은행 · 김철수 부장</span><h3>한국은행 CBDC '프로젝트 한강' 실증</h3>
-        <ul><li>1단계(2025.4~6): 발표자료 기준 7개 은행과 전자지갑·장학금 활용 사례를 실증했다.</li><li>발표자는 기존 결제 인프라가 편리해 소매 결제 확산 유인이 제한적이라고 평가했다.</li><li>스테이블코인 PoC에서는 가스비·처리속도·이용자 유인이 과제로 제시됐다.</li></ul></div>
+        <ul><li>1단계(2025.4~6)에서는 현장 발표자료 기준 7개 은행과 전자지갑·장학금 활용 사례를 실증했습니다.</li><li>발표자는 기존 결제 인프라가 편리해 소매 결제 확산 유인이 제한적이라고 평가했습니다.</li><li>스테이블코인 PoC에서는 가스비·처리속도·이용자 유인이 과제로 제시되었습니다.</li></ul></div>
     </div>
   </div>
 </section>
@@ -321,13 +326,13 @@ nav .wrap{height:52px}
     <span class="eyebrow">Panel</span>
     <h2>패널 토론 — 기술·법률·생태계</h2>
     <div class="grid3" style="margin-top:20px">
-      <div class="card"><span class="tag">기술 · 박성혁 교수</span><h3 style="margin-top:6px">달러 연동 구조의 배경</h3><p style="font-size:.92rem;color:#33445f;margin-top:6px">발표자는 블록체인의 처리성능과 알고리즘형 스테이블코인의 구조적 취약성을 지적했다. SVB 사태 당시 USDC가 일시적으로 1달러 아래로 하락한 사례를 들어 기술만으로 제거하기 어려운 준비자산 위험을 설명했다.</p></div>
-      <div class="card"><span class="tag">법률 · 이승민 변호사</span><h3 style="margin-top:6px">발행자와 운영 규칙</h3><p style="font-size:.92rem;color:#33445f;margin-top:6px">발행주체·이자 지급·해외코인 규율이 핵심 쟁점으로 제시됐다. 발표자는 발행자 제한뿐 아니라 준비자산·상환·공시 등 <b>운영 규칙</b>을 정교하게 설계해야 한다는 취지로 설명했다.</p></div>
-      <div class="card"><span class="tag">생태계 · 김의석 교수</span><h3 style="margin-top:6px">비타민이 아닌 아스피린</h3><p style="font-size:.92rem;color:#33445f;margin-top:6px">발표자는 국내 결제비용 구조와 네트워크 효과를 근거로 스테이블코인이 실제 비용을 줄이는 문제 해결 수단이어야 한다고 강조했다. 구체적인 비용 수치는 적용 범위와 산정 방식 확인이 필요하다.</p></div>
+      <div class="card"><span class="tag">기술 · 박성혁 교수</span><h3 style="margin-top:6px">달러 연동 구조의 배경</h3><p style="font-size:.92rem;color:#33445f;margin-top:6px">발표자는 블록체인의 처리성능과 알고리즘형 스테이블코인의 구조적 취약성을 지적했습니다. SVB 사태 당시 USDC가 일시적으로 1달러 아래로 하락한 사례를 들어 기술만으로 제거하기 어려운 준비자산 위험을 설명했습니다.</p></div>
+      <div class="card"><span class="tag">법률 · 이승민 변호사</span><h3 style="margin-top:6px">발행자와 운영 규칙</h3><p style="font-size:.92rem;color:#33445f;margin-top:6px">발행 주체·이자 지급·해외 코인 규율이 핵심 쟁점으로 제시되었습니다. 발표자는 발행자 제한뿐 아니라 준비자산·상환·공시 등 <b>운영 규칙</b>을 정교하게 설계해야 한다는 취지로 설명했습니다.</p></div>
+      <div class="card"><span class="tag">생태계 · 김의석 교수</span><h3 style="margin-top:6px">문제 해결 수단으로서의 효용</h3><p style="font-size:.92rem;color:#33445f;margin-top:6px">발표자는 국내 결제비용 구조와 네트워크 효과를 근거로, 스테이블코인이 실제 비용을 줄이는 문제 해결 수단이어야 한다고 강조했습니다. 구체적인 비용 수치는 적용 범위와 산정 방식을 확인해야 합니다.</p></div>
     </div>
     <div class="card" style="margin-top:16px;background:var(--navy);color:#e9eefb;border:0">
-      <span class="tag" style="color:var(--gold2)">공통 결론</span>
-      <p style="margin-top:6px;color:#dde6f7">포럼 토론을 종합하면, 도입 속도뿐 아니라 <b style="color:#fff">준비자산·상환·공시·감독</b>의 운영 규칙을 견고히 하고 실제 수요가 있는 활용처부터 검증해야 한다.</p>
+      <span class="tag" style="color:var(--gold2)">토론 요약</span>
+      <p style="margin-top:6px;color:#dde6f7">포럼 토론은 도입 속도뿐 아니라 <b style="color:#fff">준비자산·상환·공시·감독</b>의 운영 규칙을 구체화하고, 실제 수요가 있는 활용처부터 검증할 필요가 있다는 의견으로 요약됩니다.</p>
     </div>
   </div>
 </section>
@@ -336,13 +341,13 @@ nav .wrap{height:52px}
 <section class="sec" id="issues">
   <div class="wrap reveal">
     <span class="eyebrow">Key Issues</span>
-    <h2>핵심 쟁점 & 한국의 과제</h2>
+    <h2>핵심 쟁점과 한국의 과제</h2>
     <div class="grid2" style="margin-top:18px">
       <div class="card"><h3>발행 주체 논쟁</h3>
-        <p style="margin-top:8px;font-size:.93rem"><b style="color:var(--blue)">은행 중심론</b> (한국은행·일부): 통화안정과 준비자산 신뢰를 이유로 은행 중심 컨소시엄 방안이 논의됐다. 구체적 지분요건은 확정 제도가 아니다.</p>
-        <p style="margin-top:8px;font-size:.93rem"><b style="color:var(--bad)">개방론</b> (핀테크·법조): 미국도 은행만 하지 않는다. 발행자보다 '운영 규칙'을 규제. 글로벌 신뢰엔 차라리 삼성·업비트.</p></div>
-      <div class="card"><h3>한국의 현실적 효용 순위</h3>
-        <p style="margin-top:8px;font-size:.93rem">① 해외송금·외국인 노동자 송금(환마진↓)<br>② 국경 간 B2B 무역결제<br>③ 자산 토큰화(RWA)·STO<br>④ 디파이 담보·이자<br><span style="color:var(--mut)">— 국내 결제용은 후순위(인프라가 이미 우수)</span></p></div>
+        <p style="margin-top:8px;font-size:.93rem"><b style="color:var(--blue)">은행 중심 발행 방안</b>: 통화안정과 준비자산 신뢰를 이유로 은행 중심 컨소시엄 방안이 논의되었습니다. 구체적인 지분 요건은 확정된 제도가 아닙니다.</p>
+        <p style="margin-top:8px;font-size:.93rem"><b style="color:var(--bad)">비은행 참여 허용 방안</b>: 비은행 발행을 허용하는 해외 사례를 바탕으로, 발행자의 업권보다 준비자산·상환·공시 등 운영 규칙을 중심으로 규율해야 한다는 견해가 제시되었습니다. 높은 이용자 신뢰와 기술 역량을 갖춘 민간 사업자의 참여 가능성도 언급되었습니다.</p></div>
+      <div class="card"><h3>현장에서 제시된 주요 활용 영역</h3>
+        <ul class="use-list"><li>해외송금과 외국인 근로자 송금의 비용 절감</li><li>국경 간 기업 간 무역결제</li><li>실물자산 토큰화(RWA)와 토큰증권</li><li>디파이 담보와 관련 금융서비스</li></ul><p class="use-note">국내 일반 결제는 기존 인프라의 효율성을 고려해 상대적으로 낮은 우선순위로 논의됐습니다.</p></div>
     </div>
   </div>
 </section>
@@ -356,20 +361,20 @@ nav .wrap{height:52px}
     <div class="terms" id="terms">
       <div class="term"><b>스테이블코인</b><span>가치를 법정화폐(주로 1달러)에 연동한 민간 디지털자산. 준비자산과 상환 구조가 신뢰의 기반이 된다.</span></div>
       <div class="term"><b>CBDC</b><span>중앙은행이 발행하는 디지털 법정화폐. 발행 주체와 법적 지위에서 민간 스테이블코인과 구분된다.</span></div>
-      <div class="term"><b>시뇨리지(화폐주조차익)</b><span>화폐 발행에서 발생하는 경제적 이익. 스테이블코인 발행자는 준비자산 운용수익을 얻을 수 있다.</span></div>
-      <div class="term"><b>지니어스(GENIUS)법</b><span>미국 스테이블코인 법(2025.7 제정·시행 전). 준비금 100%를 현금·미 국채로.</span></div>
-      <div class="term"><b>MiCA</b><span>EU의 포괄적 가상자산 규제법.</span></div>
-      <div class="term"><b>프로젝트 한강</b><span>한국은행 주도 예금토큰 기반 CBDC 실증사업.</span></div>
-      <div class="term"><b>mBridge / 아고라</b><span>BIS 주도 국경 간 디지털 결제 프로젝트(중앙은행 / 예금토큰).</span></div>
-      <div class="term"><b>예금토큰</b><span>은행 예금을 블록체인 토큰으로 만든 것.</span></div>
-      <div class="term"><b>RWA(실물자산 토큰화)</b><span>부동산·저작권·원두 등 실물을 쪼개 디지털로 거래.</span></div>
-      <div class="term"><b>디페그(De-peg)</b><span>1달러=1코인 같은 목표 가격에서 일시적 또는 지속적으로 벗어나는 현상.</span></div>
-      <div class="term"><b>TPS</b><span>초당 거래 처리 건수. 블록체인의 결제 성능 한계 지표.</span></div>
-      <div class="term"><b>트래블룰 / AML / KYC</b><span>자금세탁방지·고객확인 등 컴플라이언스 규칙.</span></div>
-      <div class="term"><b>온체인 / 온·오프램프</b><span>블록체인 위 거래 / 법정화폐↔코인 전환.</span></div>
-      <div class="term"><b>영지식증명(ZKP)</b><span>데이터를 공개하지 않고도 사실을 증명하는 기술(프라이버시 해법).</span></div>
-      <div class="term"><b>CoT(Chain of Thought)</b><span>AI의 사고 과정. 추론 경로를 학습시켜 설명가능성을 높임.</span></div>
-      <div class="term"><b>STO</b><span>증권형 토큰 발행. 증권으로 분류되어 SEC 관할.</span></div>
+      <div class="term"><b>시뇨리지(화폐 주조 차익)</b><span>화폐 발행에서 발생하는 경제적 이익. 스테이블코인 발행자는 준비자산 운용수익을 얻을 수 있다.</span></div>
+      <div class="term"><b>지니어스(GENIUS)법</b><span>미국의 지급형 스테이블코인 발행자, 준비자산, 상환, 감독 체계를 규정한 연방법.</span></div>
+      <div class="term"><b>MiCA</b><span>EU의 가상자산 발행자와 서비스 제공자를 포괄적으로 규율하는 법체계.</span></div>
+      <div class="term"><b>프로젝트 한강</b><span>한국은행이 금융기관과 추진한 예금토큰 기반 디지털화폐 활용성 실증사업.</span></div>
+      <div class="term"><b>mBridge / 아고라</b><span>중앙은행 디지털화폐와 토큰화된 상업은행 예금을 각각 활용하는 서로 다른 국경 간 결제 프로젝트.</span></div>
+      <div class="term"><b>예금토큰</b><span>은행 예금에 대한 청구권을 분산원장 기반 토큰 형태로 표현한 지급수단.</span></div>
+      <div class="term"><b>RWA(실물자산 토큰화)</b><span>실물·금융자산에서 발생하는 권리를 디지털 토큰 형태로 표현하고 거래하는 구조.</span></div>
+      <div class="term"><b>디페그(De-peg)</b><span>스테이블코인의 시장가격이 기준자산과의 목표 교환가치에서 일시적 또는 지속적으로 벗어나는 현상.</span></div>
+      <div class="term"><b>TPS</b><span>시스템이 초당 처리할 수 있는 거래 건수를 나타내는 성능 지표.</span></div>
+      <div class="term"><b>트래블룰 / AML / KYC</b><span>가상자산 이전 정보 관리, 자금세탁방지, 고객확인에 관한 규율과 절차.</span></div>
+      <div class="term"><b>온체인 / 온·오프램프</b><span>분산원장에 기록되는 거래와 법정화폐·디지털자산 간 전환 경로.</span></div>
+      <div class="term"><b>영지식증명(ZKP)</b><span>구체적인 데이터를 공개하지 않고도 특정 명제가 참임을 검증하는 암호 기술.</span></div>
+      <div class="term"><b>CoT(Chain of Thought)</b><span>복잡한 문제를 단계적으로 분해해 답변 구조를 구성하는 접근. 공개되는 설명이 모델 내부 판단 전체와 동일한 것은 아니다.</span></div>
+      <div class="term"><b>STO</b><span>자본시장법상 증권에 해당하는 권리를 분산원장 기반 토큰 형태로 발행·관리하는 구조.</span></div>
     </div>
   </div>
 </section>
@@ -379,17 +384,34 @@ nav .wrap{height:52px}
   <div class="wrap reveal">
     <span class="eyebrow">On-Site</span>
     <h2>현장 스케치</h2>
-    <p class="lead">개회식 · 축사 · 시상식 · 패널토론 · 만찬 — 그랜드 조선 부산 (2026.6.25)</p>
-    <div class="gal" style="margin-top:20px"><figure><img loading="lazy" alt="제7회 디지털금융포럼 포럼장 · 그랜드 조선 부산 (해운대 오션뷰)" src="assets/images/forum/venue.webp" width="1800" height="1350" decoding="async"><figcaption>포럼장 · 그랜드 조선 부산 (해운대 오션뷰)</figcaption></figure><figure><img loading="lazy" alt="제7회 디지털금융포럼 개회식 · 환영사" src="assets/images/forum/opening-welcome.webp" width="1800" height="1350" decoding="async"><figcaption>개회식 · 환영사</figcaption></figure><figure><img loading="lazy" alt="제7회 디지털금융포럼 축사 · 한인구 대한민국학술원 회원" src="assets/images/forum/congratulatory-han-ingu.webp" width="1800" height="1350" decoding="async"><figcaption>축사 · 한인구 대한민국학술원 회원</figcaption></figure><figure><img loading="lazy" alt="제7회 디지털금융포럼 축사 · 김영재 부산연구원장" src="assets/images/forum/congratulatory-kim-youngjae.webp" width="1800" height="1350" decoding="async"><figcaption>축사 · 김영재 부산연구원장</figcaption></figure><figure><img loading="lazy" alt="제7회 디지털금융포럼 축사 · 이명호 부산국제금융진흥원장" src="assets/images/forum/congratulatory-lee-myeongho.webp" width="1800" height="1350" decoding="async"><figcaption>축사 · 이명호 부산국제금융진흥원장</figcaption></figure><figure><img loading="lazy" alt="제7회 디지털금융포럼 디지털금융 대상 시상식" src="assets/images/forum/digital-finance-awards.webp" width="1800" height="1350" decoding="async"><figcaption>디지털금융 대상 시상식</figcaption></figure><figure><img loading="lazy" alt="제7회 디지털금융포럼 시상식 현장" src="assets/images/forum/awards-stage.webp" width="1800" height="1350" decoding="async"><figcaption>시상식 현장</figcaption></figure><figure><img loading="lazy" alt="제7회 디지털금융포럼 패널토론 · 김의석·박성혁 교수(KAIST)·이승민 변호사(세움)" src="assets/images/forum/panel-discussion.webp" width="760" height="570" decoding="async"><figcaption>패널토론 · 김의석·박성혁 교수(KAIST)·이승민 변호사(세움)</figcaption></figure><figure><img loading="lazy" alt="제7회 디지털금융포럼 포럼 만찬 · 네트워킹" src="assets/images/forum/networking-dinner.webp" width="760" height="570" decoding="async"><figcaption>포럼 만찬 · 네트워킹</figcaption></figure></div>
+    <p class="lead">개회식 · 축사 · 시상식 · 패널 토론 · 만찬 — 그랜드 조선 부산 (2026.6.25)</p>
+    <div class="gal" style="margin-top:20px">
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 포럼장 · 그랜드 조선 부산 해운대 오션뷰" src="assets/images/forum/venue.webp" width="1800" height="1350" decoding="async"><figcaption>포럼장 · 그랜드 조선 부산</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 참가 좌석에 놓인 이름표와 행사 자료" src="assets/images/forum/attendee-place-card.webp" width="1350" height="1800" decoding="async"><figcaption>행사 자료와 참가 좌석</figcaption></figure>
+      <figure><img loading="lazy" alt="포럼장 창밖으로 보이는 해운대 바다" src="assets/images/forum/ocean-venue-view.webp" width="1800" height="1350" decoding="async"><figcaption>포럼장에서 바라본 해운대</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 행사 시작 전 포럼장 전경" src="assets/images/forum/pre-event-room.webp" width="1800" height="1350" decoding="async"><figcaption>행사 시작 전 포럼장</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 개회사를 듣기 위해 자리를 채운 참가자들의 행사장 전경" src="assets/images/forum/opening-room-wide.webp" width="1800" height="1350" decoding="async"><figcaption>참가자들이 함께한 개회 현장</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 개회식 · 환영사" src="assets/images/forum/opening-welcome.webp" width="1800" height="1350" decoding="async"><figcaption>개회식 · 환영사</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 행사 화면 앞에서 발표를 진행하는 연사" src="assets/images/forum/keynote-stage.webp" width="1350" height="1800" decoding="async"><figcaption>디지털금융포럼 발표 현장</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 축사 · 한인구 대한민국학술원 회원" src="assets/images/forum/congratulatory-han-ingu.webp" width="1800" height="1350" decoding="async"><figcaption>축사 · 한인구 대한민국학술원 회원</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 축사 · 김영재 부산연구원장" src="assets/images/forum/congratulatory-kim-youngjae.webp" width="1800" height="1350" decoding="async"><figcaption>축사 · 김영재 부산연구원장</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 축사 · 이명호 부산국제금융진흥원장" src="assets/images/forum/congratulatory-lee-myeongho.webp" width="1800" height="1350" decoding="async"><figcaption>축사 · 이명호 부산국제금융진흥원장</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 디지털금융 대상 시상식" src="assets/images/forum/digital-finance-awards.webp" width="1800" height="1350" decoding="async"><figcaption>디지털금융 대상 시상식</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 시상식 현장" src="assets/images/forum/awards-stage.webp" width="1800" height="1350" decoding="async"><figcaption>시상식 현장</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 패널 토론 · 김의석·박성혁 교수와 이승민 변호사" src="assets/images/forum/panel-discussion.webp" width="760" height="570" decoding="async"><figcaption>패널 토론 · 쟁점별 의견 교환</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 만족도 조사 안내와 참가자들이 보이는 포럼장 전경" src="assets/images/forum/participant-survey.webp" width="1800" height="1350" decoding="async"><figcaption>세션 종료 후 참가자들의 모습</figcaption></figure>
+      <figure><img loading="lazy" alt="제7회 디지털금융포럼 만찬과 참가자 간 대화가 이어지는 현장" src="assets/images/forum/networking-dinner.webp" width="760" height="570" decoding="async"><figcaption>포럼 만찬 · 대화와 교류</figcaption></figure>
+    </div>
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap">
     <div style="font-size:1.1rem;font-weight:800;color:#fff">핀로그 · FinLog</div>
-    <div>제7회 디지털 금융 포럼 내용 정리 — 비참여자도 이해할 수 있도록</div>
-    <div style="font-size:.84rem;color:#8fa3c8;margin-top:10px">학습플러스코칭 동아리 · 부산대학교 · 2026년 &nbsp;|&nbsp; 본 자료는 행사 승인 아래 현장 발표를 요약하고 공개자료로 교차 확인해 제작했습니다.</div>
-    <div style="font-size:.8rem;color:#7088ad">발표자 견해와 현장 제시 수치는 확정된 제도·최신 통계·투자 권유가 아닙니다. 인용부호를 줄이고 요약문으로 정리했으며, 활용 전 원자료를 다시 확인해야 합니다. · <a href="sources.html" style="color:#94bedc">출처·검증 원장</a></div>
+    <div>제7회 디지털 금융 포럼의 현장 발표와 토론을 이해하기 위한 요약 기록</div>
+    <div style="font-size:.84rem;color:#8fa3c8;margin-top:10px">학습플러스코칭 동아리 · 부산대학교 · 2026년 &nbsp;|&nbsp; 행사 주최 측의 현장 기록·공개 허락 범위에서 작성했으며, 본문의 요약과 해석은 핀로그의 책임입니다.</div>
+    <div style="font-size:.8rem;color:#7088ad">발표자 견해와 현장 제시 수치는 확정된 제도·최신 통계·투자 권유가 아닙니다. 공개 URL이 없는 현장 발표자료와 메모를 바탕으로 취지를 요약했으므로, 수치를 다시 활용할 때에는 행사 원자료를 별도로 확인해야 합니다. · <a href="sources.html" style="color:#94bedc">출처·검증 원장</a></div>
   </div>
 </footer>
 

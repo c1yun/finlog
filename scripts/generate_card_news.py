@@ -1,61 +1,68 @@
 #!/usr/bin/env python3
-"""Generate FinLog's 24 x 7 editorial card-news system.
+"""Render FinLog's 24 x 7 card-news system from its original structured data.
 
-The cards are intentionally generated from structured Korean copy instead of
-being flattened into an uneditable design file. This keeps wording, layout,
-and visual consistency reproducible for later cohorts.
+The renderer never rewrites editorial copy. Every title, explanation, signal,
+and conclusion is read from cards_content.json and placed into a reproducible
+banking-research visual system.
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
-from typing import Iterable
 
 from PIL import Image, ImageDraw, ImageFont
+from PIL.PngImagePlugin import PngInfo
 
 
 SIZE = 1080
-MARGIN = 76
-NAVY = (7, 23, 45)
-NAVY_2 = (12, 34, 64)
-INK = (13, 30, 53)
-MUTED = (83, 101, 123)
-PAPER = (247, 245, 239)
+RAIL = 42
+LEFT = 82
+RIGHT = 78
+CONTENT_W = SIZE - LEFT - RIGHT
+
+MIDNIGHT = (8, 24, 43)
+NAVY = (14, 38, 66)
+INK = (19, 35, 51)
+SLATE = (82, 98, 113)
+PAPER = (247, 246, 242)
+CLOUD = (237, 241, 243)
 WHITE = (255, 255, 255)
-LINE = (216, 222, 228)
-CYAN = (89, 185, 223)
-GOLD = (231, 177, 67)
-GREEN = (44, 145, 115)
-RED = (202, 76, 73)
+LINE = (207, 214, 218)
+GOLD = (188, 148, 77)
+GREEN = (49, 124, 99)
+RED = (169, 76, 72)
+CYAN = (73, 151, 183)
+RENDERER_VERSION = "finlog-research-note-2.1"
 
 FONT_REGULAR = Path("C:/Windows/Fonts/NotoSansKR-Regular.ttf")
 FONT_MEDIUM = Path("C:/Windows/Fonts/NotoSansKR-Medium.ttf")
 FONT_BOLD = Path("C:/Windows/Fonts/NotoSansKR-Bold.ttf")
 
 CATEGORY_ACCENTS = {
-    "플랫폼·규제": (90, 185, 223),
-    "정책·기후금융": (67, 166, 130),
-    "사회·금융포용": (217, 150, 82),
-    "자본시장": (87, 145, 224),
-    "무역·거시경제": (225, 153, 73),
-    "사회·조직": (178, 113, 186),
-    "자본시장 인프라": (57, 169, 183),
-    "디지털금융": (97, 128, 226),
-    "커리어 인사이트": (222, 171, 70),
-    "현장·자본시장": (82, 166, 140),
-    "산업·기업금융": (76, 145, 222),
-    "ESG·기후금융": (57, 155, 115),
-    "기업가치·거버넌스": (191, 137, 65),
-    "노동·거시경제": (206, 112, 84),
-    "AI·금융윤리": (128, 108, 220),
-    "AI·시장감시": (73, 160, 202),
-    "신용·금융포용": (58, 157, 131),
-    "파생·리스크관리": (202, 98, 91),
-    "회계·기업분석": (68, 139, 194),
-    "레그테크·준법": (101, 137, 207),
-    "현장·디지털금융": (69, 166, 164),
+    "플랫폼·규제": (71, 139, 166),
+    "정책·기후금융": (62, 133, 105),
+    "사회·금융포용": (178, 126, 72),
+    "자본시장": (67, 113, 169),
+    "무역·거시경제": (175, 123, 68),
+    "사회·조직": (137, 96, 145),
+    "자본시장 인프라": (54, 136, 144),
+    "디지털금융": (81, 105, 172),
+    "커리어 인사이트": (166, 129, 65),
+    "현장·자본시장": (65, 133, 112),
+    "산업·기업금융": (66, 116, 170),
+    "ESG·기후금융": (53, 128, 91),
+    "기업가치·거버넌스": (151, 111, 60),
+    "노동·거시경제": (164, 91, 69),
+    "AI·금융윤리": (104, 88, 173),
+    "AI·시장감시": (58, 127, 158),
+    "신용·금융포용": (48, 129, 106),
+    "파생·리스크관리": (158, 78, 75),
+    "회계·기업분석": (58, 111, 153),
+    "레그테크·준법": (80, 105, 159),
+    "현장·디지털금융": (55, 132, 132),
 }
 
 
@@ -71,22 +78,29 @@ def text_width(draw: ImageDraw.ImageDraw, value: str, face: ImageFont.FreeTypeFo
     return box[2] - box[0]
 
 
+def mix(a: tuple[int, int, int], b: tuple[int, int, int], amount: float):
+    return tuple(round(a[i] * (1 - amount) + b[i] * amount) for i in range(3))
+
+
+def rounded(draw: ImageDraw.ImageDraw, box, radius, fill, outline=None, width=1):
+    draw.rounded_rectangle(box, radius=radius, fill=fill, outline=outline, width=width)
+
+
 def wrap_text(draw: ImageDraw.ImageDraw, value: str, face: ImageFont.FreeTypeFont, width: int) -> list[str]:
     lines: list[str] = []
     for paragraph in value.split("\n"):
         if not paragraph:
             lines.append("")
             continue
-        words = paragraph.split(" ")
         current = ""
-        for word in words:
+        for word in paragraph.split(" "):
             candidate = word if not current else f"{current} {word}"
             if text_width(draw, candidate, face) <= width:
                 current = candidate
                 continue
             if current:
                 lines.append(current)
-                current = ""
+            current = ""
             if text_width(draw, word, face) <= width:
                 current = word
                 continue
@@ -112,38 +126,39 @@ def fit_text(
     start_size: int,
     min_size: int,
     weight: str = "bold",
-    spacing_ratio: float = 0.28,
+    gap_ratio: float = 0.16,
 ) -> tuple[ImageFont.FreeTypeFont, list[str], int]:
     for size in range(start_size, min_size - 1, -2):
         face = font(size, weight)
         lines = wrap_text(draw, value, face, width)
-        spacing = max(8, int(size * spacing_ratio))
-        line_height = int(size * 1.16)
-        height = len(lines) * line_height + max(0, len(lines) - 1) * spacing
+        gap = max(6, int(size * gap_ratio))
+        height = len(lines) * int(size * 1.16) + max(0, len(lines) - 1) * gap
         if height <= max_height:
-            return face, lines, spacing
+            return face, lines, gap
     face = font(min_size, weight)
-    return face, wrap_text(draw, value, face, width), max(8, int(min_size * spacing_ratio))
+    return face, wrap_text(draw, value, face, width), max(6, int(min_size * gap_ratio))
 
 
-def draw_lines(
+def draw_fitted(
     draw: ImageDraw.ImageDraw,
+    value: str,
     xy: tuple[int, int],
-    lines: Iterable[str],
-    face: ImageFont.FreeTypeFont,
-    fill: tuple[int, int, int],
-    spacing: int,
-    line_height: int | None = None,
+    width: int,
+    max_height: int,
+    start_size: int,
+    min_size: int,
+    fill,
+    weight: str = "bold",
+    gap_ratio: float = 0.16,
 ) -> int:
-    x, y = xy
-    step = line_height or int(face.size * 1.16)
-    last_y = y
+    face, lines, gap = fit_text(draw, value, width, max_height, start_size, min_size, weight, gap_ratio)
+    y = xy[1]
     for idx, line in enumerate(lines):
-        draw.text((x, last_y), line, font=face, fill=fill)
-        last_y += step
-        if idx < len(list(lines)) - 1:
-            last_y += spacing
-    return last_y
+        draw.text((xy[0], y), line, font=face, fill=fill)
+        y += int(face.size * 1.16)
+        if idx < len(lines) - 1:
+            y += gap
+    return y
 
 
 def draw_wrapped(
@@ -152,251 +167,240 @@ def draw_wrapped(
     xy: tuple[int, int],
     width: int,
     size: int,
-    fill: tuple[int, int, int],
+    fill,
     weight: str = "regular",
-    spacing: int | None = None,
+    gap: int = 7,
 ) -> int:
     face = font(size, weight)
     lines = wrap_text(draw, value, face, width)
-    line_gap = spacing if spacing is not None else max(8, int(size * 0.26))
-    step = int(size * 1.16)
     y = xy[1]
     for idx, line in enumerate(lines):
         draw.text((xy[0], y), line, font=face, fill=fill)
-        y += step
+        y += int(size * 1.16)
         if idx < len(lines) - 1:
-            y += line_gap
+            y += gap
     return y
 
 
-def rounded(draw: ImageDraw.ImageDraw, box, radius, fill, outline=None, width=1):
-    draw.rounded_rectangle(box, radius=radius, fill=fill, outline=outline, width=width)
-
-
-def mix(a, b, amount: float):
-    return tuple(round(a[i] * (1 - amount) + b[i] * amount) for i in range(3))
-
-
-def make_canvas(background: tuple[int, int, int]) -> tuple[Image.Image, ImageDraw.ImageDraw]:
+def canvas(background):
     image = Image.new("RGB", (SIZE, SIZE), background)
     return image, ImageDraw.Draw(image)
 
 
-def draw_grid(draw: ImageDraw.ImageDraw, color, step=68, alpha_mix=0.0):
-    line = mix(color, NAVY if alpha_mix else WHITE, alpha_mix) if alpha_mix else color
-    for x in range(0, SIZE + 1, step):
-        draw.line((x, 0, x, SIZE), fill=line, width=1)
-    for y in range(0, SIZE + 1, step):
-        draw.line((0, y, SIZE, y), fill=line, width=1)
+def grid(draw: ImageDraw.ImageDraw, color, step=62, area=(0, 0, SIZE, SIZE)):
+    left, top, right, bottom = area
+    for x in range(left, right + 1, step):
+        draw.line((x, top, x, bottom), fill=color, width=1)
+    for y in range(top, bottom + 1, step):
+        draw.line((left, y, right, y), fill=color, width=1)
 
 
-def header(draw: ImageDraw.ImageDraw, item: dict, number: int, dark: bool, accent):
+def chrome(draw: ImageDraw.ImageDraw, item: dict, number: int, dark: bool, accent):
     base = WHITE if dark else INK
-    muted = mix(base, NAVY if dark else WHITE, 0.45)
-    draw.text((MARGIN, 58), "FINLOG / EDITORIAL INTELLIGENCE", font=font(24, "bold"), fill=base)
-    tag_face = font(22, "medium")
-    tag = item["category"]
-    tag_w = text_width(draw, tag, tag_face) + 38
-    rounded(draw, (MARGIN, 106, MARGIN + tag_w, 152), 23, accent)
-    draw.text((MARGIN + 19, 114), tag, font=tag_face, fill=NAVY)
+    muted = (164, 181, 196) if dark else SLATE
+    draw.rectangle((0, 0, RAIL, SIZE), fill=accent)
+    draw.text((LEFT, 54), "FINLOG / RESEARCH NOTE", font=font(23, "bold"), fill=base)
+    issue = f"ISSUE {item['_index']:02d}"
+    draw.text((LEFT, 92), issue, font=font(16, "bold"), fill=muted)
+
     page = f"{number:02d} / 07"
-    draw.text((SIZE - MARGIN - text_width(draw, page, font(24, "bold")), 66), page, font=font(24, "bold"), fill=base)
-    draw.line((MARGIN, 181, SIZE - MARGIN, 181), fill=muted, width=2)
+    page_face = font(23, "bold")
+    draw.text((SIZE - RIGHT - text_width(draw, page, page_face), 56), page, font=page_face, fill=base)
+    draw.line((LEFT, 137, SIZE - RIGHT, 137), fill=(50, 70, 90) if dark else LINE, width=2)
+
+    tag_face = font(18, "medium")
+    tag_w = text_width(draw, item["category"], tag_face) + 34
+    rounded(draw, (LEFT, 157, LEFT + tag_w, 197), 8, mix(accent, WHITE, 0.08) if dark else mix(accent, WHITE, 0.82))
+    draw.text((LEFT + 17, 165), item["category"], font=tag_face, fill=WHITE if dark else INK)
+
+
+def section(draw: ImageDraw.ImageDraw, eyebrow: str, title: str, dark: bool, accent, y=224):
+    base = WHITE if dark else INK
+    draw.rectangle((LEFT, y + 3, LEFT + 7, y + 31), fill=accent)
+    draw.text((LEFT + 22, y), eyebrow, font=font(18, "bold"), fill=accent)
+    draw.text((LEFT + 22, y + 37), title, font=font(27, "bold"), fill=base)
+
+
+def sequence(draw: ImageDraw.ImageDraw, active: int, dark: bool, accent, y=927):
+    inactive = (65, 84, 103) if dark else (198, 205, 209)
+    base = WHITE if dark else INK
+    width = 76
+    gap = 14
+    for idx in range(7):
+        x = LEFT + idx * (width + gap)
+        fill = accent if idx + 1 == active else inactive
+        draw.rectangle((x, y, x + width, y + 5), fill=fill)
+        draw.text((x, y + 14), f"0{idx + 1}", font=font(15, "bold"), fill=base if idx + 1 == active else inactive)
 
 
 def footer(draw: ImageDraw.ImageDraw, item: dict, dark: bool):
-    base = WHITE if dark else INK
-    muted = mix(base, NAVY if dark else WHITE, 0.5)
-    y = 1021
-    draw.line((MARGIN, 997, SIZE - MARGIN, 997), fill=muted, width=1)
-    draw.text((MARGIN, y), "PNU × FINLOG · 금융을 번역하는 사람들", font=font(19, "medium"), fill=muted)
+    base = (154, 173, 190) if dark else SLATE
+    draw.line((LEFT, 1004, SIZE - RIGHT, 1004), fill=(49, 69, 88) if dark else LINE, width=1)
+    source_note = f"자료 ID {item['slug']} · 검토 2026.07.16 · 투자 권유 아님"
+    draw.text((LEFT, 1022), source_note, font=font(16, "medium"), fill=base)
     right = item["week"]
-    draw.text((SIZE - MARGIN - text_width(draw, right, font(19, "medium")), y), right, font=font(19, "medium"), fill=muted)
-
-
-def section_label(draw, text, xy, accent, dark=False):
-    draw.ellipse((xy[0], xy[1] + 7, xy[0] + 14, xy[1] + 21), fill=accent)
-    draw.text((xy[0] + 28, xy[1]), text, font=font(24, "bold"), fill=WHITE if dark else INK)
+    right_face = font(16, "medium")
+    draw.text((SIZE - RIGHT - text_width(draw, right, right_face), 1022), right, font=right_face, fill=base)
 
 
 def render_cover(item: dict, accent) -> Image.Image:
-    image, draw = make_canvas(NAVY)
-    draw_grid(draw, (19, 43, 72), 72)
-    # Structured editorial motif: two precise orbits and a data rail.
-    draw.ellipse((610, 535, 1115, 1040), outline=mix(accent, NAVY, 0.2), width=4)
-    draw.ellipse((735, 660, 990, 915), outline=mix(accent, NAVY, 0.55), width=2)
-    for idx, height in enumerate((95, 160, 240, 125, 205)):
-        x = 636 + idx * 74
-        draw.rounded_rectangle((x, 928 - height, x + 30, 928), radius=15, fill=mix(accent, NAVY, idx * 0.08))
-    header(draw, item, 1, True, accent)
-    draw.text((MARGIN, 228), "RESEARCH CARD / 2026", font=font(24, "bold"), fill=accent)
-    face, lines, spacing = fit_text(draw, item["title"], 820, 300, 78, 58, "bold", 0.16)
-    y = 279
-    for idx, line in enumerate(lines):
-        draw.text((MARGIN, y), line, font=face, fill=WHITE)
-        y += int(face.size * 1.12) + (spacing if idx < len(lines) - 1 else 0)
-    draw.line((MARGIN, y + 35, MARGIN + 148, y + 35), fill=accent, width=8)
-    draw_wrapped(draw, item["deck"], (MARGIN, y + 73), 700, 31, (205, 218, 231), "regular", 9)
-    issue_no = f"{int(item['_index']):02d}"
-    draw.text((MARGIN, 817), issue_no, font=font(104, "bold"), fill=mix(accent, NAVY, 0.24))
-    draw.text((MARGIN + 155, 856), "ISSUE SERIES", font=font(27, "bold"), fill=WHITE)
+    image, draw = canvas(MIDNIGHT)
+    grid(draw, (15, 39, 62), 66, (510, 205, SIZE, 875))
+    draw.rectangle((510, 205, SIZE, 875), outline=(34, 57, 79), width=2)
+    draw.text((594, 232), f"{item['_index']:02d}", font=font(310, "bold"), fill=mix(accent, MIDNIGHT, 0.68))
+    for idx, value in enumerate((0.35, 0.62, 0.48, 0.78, 0.57)):
+        x = 640 + idx * 65
+        top = 738 - int(value * 170)
+        draw.rectangle((x, top, x + 22, 738), fill=mix(accent, MIDNIGHT, 0.2 + idx * 0.08))
+    chrome(draw, item, 1, True, accent)
+    draw.text((LEFT, 231), "ORIGINAL DATA BRIEF", font=font(19, "bold"), fill=accent)
+    y = draw_fitted(draw, item["title"], (LEFT, 282), 785, 265, 76, 55, WHITE)
+    draw.rectangle((LEFT, y + 24, LEFT + 118, y + 31), fill=accent)
+    draw_wrapped(draw, item["deck"], (LEFT, y + 60), 720, 29, (205, 216, 227), "regular", 8)
+
+    rounded(draw, (LEFT, 787, 488, 868), 12, NAVY, (48, 69, 91), 1)
+    draw.text((LEFT + 22, 805), "DATA LINEAGE", font=font(16, "bold"), fill=accent)
+    draw.text((LEFT + 22, 836), "cards_content.json / 7-card system", font=font(18, "medium"), fill=WHITE)
+    sequence(draw, 1, True, accent)
     footer(draw, item, True)
     return image
 
 
 def render_question(item: dict, accent) -> Image.Image:
-    image, draw = make_canvas(PAPER)
-    draw.text((735, 190), "02", font=font(230, "bold"), fill=(232, 230, 223))
-    header(draw, item, 2, False, accent)
-    section_label(draw, "THE QUESTION", (MARGIN, 225), accent)
+    image, draw = canvas(PAPER)
+    chrome(draw, item, 2, False, accent)
+    section(draw, "01 / ISSUE DEFINITION", "무엇을 판단해야 하는가", False, accent)
     q = item["question"]
-    face, lines, spacing = fit_text(draw, q["headline"], 820, 210, 61, 48, "bold", 0.13)
-    y = 277
-    for idx, line in enumerate(lines):
-        draw.text((MARGIN, y), line, font=face, fill=INK)
-        y += int(face.size * 1.12) + (spacing if idx < len(lines) - 1 else 0)
-    y = draw_wrapped(draw, q["body"], (MARGIN, y + 34), 820, 29, MUTED, "regular", 8)
-    y += 44
+    y = draw_fitted(draw, q["headline"], (LEFT, 325), CONTENT_W, 156, 58, 44, INK)
+    rounded(draw, (LEFT, y + 25, SIZE - RIGHT, y + 142), 12, WHITE, LINE, 1)
+    draw.text((LEFT + 22, y + 43), "CONTEXT", font=font(16, "bold"), fill=accent)
+    draw_wrapped(draw, q["body"], (LEFT + 132, y + 40), CONTENT_W - 165, 25, SLATE, "regular", 6)
+
+    top = max(600, y + 177)
     for idx, bullet in enumerate(q["bullets"]):
-        box_y = y + idx * 102
-        rounded(draw, (MARGIN, box_y, SIZE - MARGIN, box_y + 82), 18, WHITE, LINE)
-        rounded(draw, (MARGIN + 18, box_y + 16, MARGIN + 68, box_y + 66), 14, accent)
-        num = str(idx + 1)
-        draw.text((MARGIN + 36 - text_width(draw, num, font(22, "bold")) / 2, box_y + 24), num, font=font(22, "bold"), fill=NAVY)
-        draw.text((MARGIN + 92, box_y + 22), bullet, font=font(27, "medium"), fill=INK)
+        box_y = top + idx * 92
+        draw.line((LEFT, box_y + 78, SIZE - RIGHT, box_y + 78), fill=LINE, width=1)
+        rounded(draw, (LEFT, box_y, LEFT + 62, box_y + 62), 10, mix(accent, WHITE, 0.82))
+        draw.text((LEFT + 17, box_y + 13), f"0{idx + 1}", font=font(20, "bold"), fill=accent)
+        draw_wrapped(draw, bullet, (LEFT + 87, box_y + 8), CONTENT_W - 87, 26, INK, "medium", 5)
+    sequence(draw, 2, False, accent)
     footer(draw, item, False)
     return image
 
 
 def render_concept(item: dict, accent) -> Image.Image:
-    image, draw = make_canvas(NAVY_2)
-    draw_grid(draw, (22, 50, 83), 72)
-    header(draw, item, 3, True, accent)
-    section_label(draw, "HOW IT WORKS", (MARGIN, 225), accent, True)
+    image, draw = canvas(CLOUD)
+    chrome(draw, item, 3, False, accent)
+    section(draw, "02 / MECHANISM", "구조와 작동 원리", False, accent)
     c = item["concept"]
-    face, lines, spacing = fit_text(draw, c["headline"], 850, 170, 60, 47, "bold", 0.14)
-    y = 276
-    for idx, line in enumerate(lines):
-        draw.text((MARGIN, y), line, font=face, fill=WHITE)
-        y += int(face.size * 1.12) + (spacing if idx < len(lines) - 1 else 0)
-    y = draw_wrapped(draw, c["body"], (MARGIN, y + 28), 850, 28, (191, 207, 224), "regular", 7)
-    card_top = max(610, y + 52)
-    card_w = 272
-    gap = 55
+    y = draw_fitted(draw, c["headline"], (LEFT, 325), CONTENT_W, 145, 56, 43, INK)
+    y = draw_wrapped(draw, c["body"], (LEFT, y + 18), CONTENT_W, 25, SLATE, "regular", 6)
+    top = max(575, y + 32)
     for idx, step in enumerate(c["steps"]):
-        x = MARGIN + idx * (card_w + gap)
-        rounded(draw, (x, card_top, x + card_w, 912), 25, (16, 44, 76), mix(accent, NAVY, 0.35), 2)
-        draw.text((x + 26, card_top + 28), f"0{idx + 1}", font=font(25, "bold"), fill=accent)
-        draw.text((x + 26, card_top + 82), step["title"], font=font(28, "bold"), fill=WHITE)
-        draw_wrapped(draw, step["body"], (x + 26, card_top + 139), card_w - 52, 23, (190, 207, 225), "regular", 6)
+        box_y = top + idx * 108
+        rounded(draw, (LEFT, box_y, SIZE - RIGHT, box_y + 88), 12, WHITE, LINE, 1)
+        draw.rectangle((LEFT, box_y, LEFT + 13, box_y + 88), fill=accent)
+        draw.text((LEFT + 34, box_y + 17), f"0{idx + 1}", font=font(19, "bold"), fill=accent)
+        draw.text((LEFT + 105, box_y + 13), step["title"], font=font(26, "bold"), fill=INK)
+        draw_wrapped(draw, step["body"], (LEFT + 290, box_y + 13), CONTENT_W - 315, 22, SLATE, "regular", 5)
         if idx < 2:
-            arrow_x = x + card_w + 12
-            draw.line((arrow_x, card_top + 145, arrow_x + 29, card_top + 145), fill=accent, width=3)
-            draw.polygon([(arrow_x + 29, card_top + 145), (arrow_x + 19, card_top + 137), (arrow_x + 19, card_top + 153)], fill=accent)
-    footer(draw, item, True)
+            draw.line((LEFT + 64, box_y + 88, LEFT + 64, box_y + 108), fill=accent, width=3)
+    sequence(draw, 3, False, accent)
+    footer(draw, item, False)
     return image
 
 
 def render_balance(item: dict, accent) -> Image.Image:
-    image, draw = make_canvas(PAPER)
-    header(draw, item, 4, False, accent)
-    section_label(draw, "THE TRADE-OFF", (MARGIN, 225), accent)
-    draw.text((MARGIN, 278), "기회와 위험을\n같은 화면에 놓기", font=font(58, "bold"), fill=INK, spacing=10)
-    top = 470
-    gap = 28
-    col_w = (SIZE - 2 * MARGIN - gap) // 2
+    image, draw = canvas(PAPER)
+    chrome(draw, item, 4, False, accent)
+    section(draw, "03 / BALANCE SHEET", "기회와 위험을 함께 읽기", False, accent)
+    draw_wrapped(draw, "한 방향의 주장보다 조건과 상충관계를 함께 확인합니다.", (LEFT, 323), CONTENT_W, 28, SLATE, "regular", 7)
+
+    gap = 24
+    top = 410
+    col_w = (CONTENT_W - gap) // 2
     columns = [
-        ("OPPORTUNITY", "기회", item["balance"]["opportunity"], GREEN, mix(GREEN, WHITE, 0.9)),
-        ("RISK", "위험", item["balance"]["risk"], RED, mix(RED, WHITE, 0.9)),
+        ("OPPORTUNITY", "기회", item["balance"]["opportunity"], GREEN),
+        ("RISK", "위험", item["balance"]["risk"], RED),
     ]
-    for idx, (eng, kor, bullets, color, bg) in enumerate(columns):
-        x = MARGIN + idx * (col_w + gap)
-        rounded(draw, (x, top, x + col_w, 918), 28, bg, mix(color, WHITE, 0.5), 2)
-        draw.text((x + 30, top + 28), eng, font=font(21, "bold"), fill=color)
-        draw.text((x + 30, top + 71), kor, font=font(40, "bold"), fill=INK)
-        draw.line((x + 30, top + 133, x + col_w - 30, top + 133), fill=mix(color, WHITE, 0.5), width=2)
-        y = top + 174
+    for idx, (eng, kor, bullets, color) in enumerate(columns):
+        x = LEFT + idx * (col_w + gap)
+        rounded(draw, (x, top, x + col_w, 882), 16, WHITE, mix(color, WHITE, 0.58), 2)
+        draw.rectangle((x, top, x + col_w, top + 10), fill=color)
+        draw.text((x + 26, top + 31), eng, font=font(17, "bold"), fill=color)
+        draw.text((x + 26, top + 66), kor, font=font(40, "bold"), fill=INK)
+        draw.line((x + 26, top + 127, x + col_w - 26, top + 127), fill=LINE, width=1)
+        item_y = top + 161
         for bidx, bullet in enumerate(bullets):
-            draw.ellipse((x + 31, y + 7, x + 45, y + 21), fill=color)
-            y = draw_wrapped(draw, bullet, (x + 62, y), col_w - 94, 27, INK, "medium", 7) + 45
+            draw.text((x + 27, item_y), f"0{bidx + 1}", font=font(18, "bold"), fill=color)
+            item_y = draw_wrapped(draw, bullet, (x + 77, item_y - 3), col_w - 104, 25, INK, "medium", 6) + 50
+    sequence(draw, 4, False, accent)
     footer(draw, item, False)
     return image
 
 
 def render_signals(item: dict, accent) -> Image.Image:
-    image, draw = make_canvas(NAVY)
-    header(draw, item, 5, True, accent)
-    section_label(draw, "DECISION SIGNALS", (MARGIN, 225), accent, True)
+    image, draw = canvas(MIDNIGHT)
+    grid(draw, (14, 37, 59), 66, (580, 0, SIZE, SIZE))
+    chrome(draw, item, 5, True, accent)
+    section(draw, "04 / REVIEW GRID", "판단 전에 확인할 신호", True, accent)
     s = item["signals"]
-    face, lines, spacing = fit_text(draw, s["headline"], 850, 165, 59, 47, "bold", 0.12)
-    y = 278
-    for idx, line in enumerate(lines):
-        draw.text((MARGIN, y), line, font=face, fill=WHITE)
-        y += int(face.size * 1.12) + (spacing if idx < len(lines) - 1 else 0)
-    y += 45
+    y = draw_fitted(draw, s["headline"], (LEFT, 325), CONTENT_W, 145, 55, 43, WHITE)
+    top = max(535, y + 30)
     for idx, signal in enumerate(s["items"]):
-        box_y = y + idx * 155
-        rounded(draw, (MARGIN, box_y, SIZE - MARGIN, box_y + 128), 22, (14, 40, 70), (37, 66, 96), 2)
-        draw.text((MARGIN + 29, box_y + 23), f"0{idx + 1}", font=font(22, "bold"), fill=accent)
-        label_x = MARGIN + 87
-        draw.text((label_x, box_y + 19), signal["label"], font=font(25, "bold"), fill=WHITE)
-        draw_wrapped(draw, signal["text"], (label_x, box_y + 61), 740, 24, (190, 207, 225), "regular", 5)
+        box_y = top + idx * 121
+        rounded(draw, (LEFT, box_y, SIZE - RIGHT, box_y + 100), 12, NAVY, (45, 68, 89), 1)
+        draw.text((LEFT + 24, box_y + 21), f"CHECK {idx + 1:02d}", font=font(16, "bold"), fill=accent)
+        draw.text((LEFT + 155, box_y + 17), signal["label"], font=font(23, "bold"), fill=WHITE)
+        draw_wrapped(draw, signal["text"], (LEFT + 335, box_y + 16), CONTENT_W - 360, 21, (194, 207, 219), "regular", 5)
+    sequence(draw, 5, True, accent)
     footer(draw, item, True)
     return image
 
 
 def render_career(item: dict, accent) -> Image.Image:
-    image, draw = make_canvas(PAPER)
-    header(draw, item, 6, False, accent)
-    section_label(draw, "ROLE TRANSLATION", (MARGIN, 225), accent)
+    image, draw = canvas(PAPER)
+    chrome(draw, item, 6, False, accent)
+    section(draw, "05 / ROLE LENS", "금융 직무의 언어로 연결하기", False, accent)
     c = item["career"]
-    face, lines, spacing = fit_text(draw, c["headline"], 835, 176, 58, 46, "bold", 0.14)
-    y = 278
-    for idx, line in enumerate(lines):
-        draw.text((MARGIN, y), line, font=face, fill=INK)
-        y += int(face.size * 1.12) + (spacing if idx < len(lines) - 1 else 0)
-    y = draw_wrapped(draw, c["body"], (MARGIN, y + 28), 835, 28, MUTED, "regular", 7)
-    y += 52
-    rail_x = MARGIN + 24
-    draw.line((rail_x, y + 18, rail_x, y + 300), fill=mix(accent, WHITE, 0.45), width=4)
+    y = draw_fitted(draw, c["headline"], (LEFT, 325), CONTENT_W, 140, 55, 43, INK)
+    y = draw_wrapped(draw, c["body"], (LEFT, y + 20), CONTENT_W, 24, SLATE, "regular", 6)
+    top = max(595, y + 36)
     for idx, action in enumerate(c["actions"]):
-        cy = y + idx * 105
-        draw.ellipse((rail_x - 14, cy, rail_x + 14, cy + 28), fill=accent)
-        draw.text((MARGIN + 76, cy - 4), f"0{idx + 1}", font=font(22, "bold"), fill=accent)
-        draw_wrapped(draw, action, (MARGIN + 135, cy - 7), 710, 28, INK, "medium", 7)
-    rounded(draw, (MARGIN, 900, SIZE - MARGIN, 946), 23, INK)
-    draw.text((MARGIN + 24, 910), "KNOWLEDGE → JUDGMENT → OUTPUT", font=font(21, "bold"), fill=WHITE)
+        box_y = top + idx * 88
+        draw.text((LEFT, box_y + 6), f"0{idx + 1}", font=font(18, "bold"), fill=accent)
+        draw.line((LEFT + 52, box_y + 17, LEFT + 103, box_y + 17), fill=accent, width=3)
+        draw_wrapped(draw, action, (LEFT + 130, box_y), CONTENT_W - 130, 26, INK, "medium", 5)
+    rounded(draw, (LEFT, 861, SIZE - RIGHT, 909), 8, INK)
+    draw.text((LEFT + 20, 873), "KNOWLEDGE   →   JUDGMENT   →   COMMUNICATION", font=font(18, "bold"), fill=WHITE)
+    sequence(draw, 6, False, accent)
     footer(draw, item, False)
     return image
 
 
 def render_view(item: dict, accent) -> Image.Image:
-    image, draw = make_canvas(NAVY_2)
-    draw.ellipse((735, 150, 1140, 555), outline=mix(accent, NAVY, 0.35), width=3)
-    draw.ellipse((810, 225, 1065, 480), outline=mix(accent, NAVY, 0.58), width=2)
-    header(draw, item, 7, True, accent)
-    section_label(draw, "FINLOG VIEW", (MARGIN, 225), accent, True)
+    image, draw = canvas(NAVY)
+    grid(draw, (19, 46, 75), 66, (620, 190, SIZE, 740))
+    chrome(draw, item, 7, True, accent)
+    section(draw, "06 / FINLOG VIEW", "정리와 핵심 용어", True, accent)
     v = item["view"]
-    face, lines, spacing = fit_text(draw, v["conclusion"], 860, 195, 57, 44, "bold", 0.14)
-    y = 278
-    for idx, line in enumerate(lines):
-        draw.text((MARGIN, y), line, font=face, fill=WHITE)
-        y += int(face.size * 1.12) + (spacing if idx < len(lines) - 1 else 0)
-    y += 35
-    draw.line((MARGIN, y, MARGIN + 132, y), fill=accent, width=7)
-    y += 35
+    y = draw_fitted(draw, v["conclusion"], (LEFT, 325), CONTENT_W, 175, 54, 41, WHITE)
+    draw.rectangle((LEFT, y + 19, LEFT + 110, y + 25), fill=GOLD)
+    take_y = y + 52
     for idx, takeaway in enumerate(v["takeaways"]):
-        draw.text((MARGIN, y), f"0{idx + 1}", font=font(22, "bold"), fill=accent)
-        y = draw_wrapped(draw, takeaway, (MARGIN + 66, y - 3), 790, 25, (211, 223, 234), "medium", 6) + 18
-    terms_y = 760
-    draw.text((MARGIN, terms_y), "KEY TERMS", font=font(21, "bold"), fill=accent)
-    draw.line((MARGIN, terms_y + 40, SIZE - MARGIN, terms_y + 40), fill=(48, 75, 102), width=1)
-    col_w = (SIZE - 2 * MARGIN - 30) // 3
+        draw.text((LEFT, take_y + 2), f"0{idx + 1}", font=font(18, "bold"), fill=accent)
+        take_y = draw_wrapped(draw, takeaway, (LEFT + 56, take_y), CONTENT_W - 56, 23, (213, 223, 232), "medium", 5) + 14
+
+    terms_top = 748
+    draw.text((LEFT, terms_top), "KEY TERMS / ORIGINAL DATA", font=font(17, "bold"), fill=GOLD)
+    draw.line((LEFT, terms_top + 35, SIZE - RIGHT, terms_top + 35), fill=(55, 78, 99), width=1)
+    col_gap = 18
+    col_w = (CONTENT_W - col_gap * 2) // 3
     for idx, term in enumerate(v["terms"]):
-        x = MARGIN + idx * (col_w + 15)
-        draw.text((x, terms_y + 61), term["term"], font=font(20, "bold"), fill=WHITE)
-        draw_wrapped(draw, term["definition"], (x, terms_y + 98), col_w - 10, 19, (161, 183, 204), "regular", 5)
-    draw.text((MARGIN, 960), "학습용 요약 · 기준시점 2026년 상반기 · 투자 권유 아님", font=font(18, "medium"), fill=(131, 155, 179))
+        x = LEFT + idx * (col_w + col_gap)
+        draw.text((x, terms_top + 57), term["term"], font=font(18, "bold"), fill=WHITE)
+        draw_wrapped(draw, term["definition"], (x, terms_top + 92), col_w - 8, 17, (164, 183, 199), "regular", 4)
+    sequence(draw, 7, True, accent)
     footer(draw, item, True)
     return image
 
@@ -422,19 +426,46 @@ def validate_content(items: list[dict]) -> None:
         if len(item["career"]["actions"]) != 3:
             raise ValueError(f"{item['slug']}: career needs 3 actions")
         if len(item["view"]["takeaways"]) != 3 or len(item["view"]["terms"]) != 3:
-            raise ValueError(f"{item['slug']}: view needs 3 takeaways and terms")
+            raise ValueError(f"{item['slug']}: view needs 3 takeaways and 3 terms")
+
+
+def png_metadata(item: dict, card_no: int, source_hash: str) -> PngInfo:
+    info = PngInfo()
+    info.add_text("Title", item["title"])
+    info.add_text("Source", f"cards_content.json#{item['slug']}")
+    info.add_text("SourceSHA256", source_hash)
+    info.add_text("Card", f"{card_no}/7")
+    info.add_text("Renderer", RENDERER_VERSION)
+    return info
+
+
+def write_manifest(project: Path, source_hash: str, items: list[dict]):
+    manifest = {
+        "schema_version": RENDERER_VERSION,
+        "source": "cards_content.json",
+        "source_sha256": source_hash,
+        "sets": len(items),
+        "cards_per_set": len(RENDERERS),
+        "rendered_cards": len(items) * len(RENDERERS),
+        "dimensions": [SIZE, SIZE],
+        "copy_policy": "verbatim-from-structured-source",
+    }
+    (project / "cards_manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--only", help="Render one slug for visual iteration")
-    parser.add_argument("--quality", type=int, default=92, help="Reserved for future WebP output")
     args = parser.parse_args()
 
     project = Path(__file__).resolve().parents[1]
     data_path = project / "cards_content.json"
     out_dir = project / "cards"
-    items = json.loads(data_path.read_text(encoding="utf-8"))
+    source_bytes = data_path.read_bytes()
+    source_hash = hashlib.sha256(source_bytes).hexdigest()
+    items = json.loads(source_bytes.decode("utf-8"))
     validate_content(items)
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -447,9 +478,29 @@ def main() -> int:
         for card_no, renderer in enumerate(RENDERERS, start=1):
             image = renderer(item, accent)
             output = out_dir / f"{item['slug']}_{card_no:02d}.png"
-            image.save(output, format="PNG", optimize=True, compress_level=9)
+            image.save(
+                output,
+                format="PNG",
+                optimize=True,
+                compress_level=9,
+                pnginfo=png_metadata(item, card_no, source_hash),
+            )
+            if card_no == 1:
+                thumb_dir = out_dir / "thumbs"
+                thumb_dir.mkdir(parents=True, exist_ok=True)
+                thumb = image.copy()
+                thumb.thumbnail((560, 560), Image.Resampling.LANCZOS)
+                thumb.convert("RGB").save(
+                    thumb_dir / f"{item['slug']}_01.webp",
+                    format="WEBP",
+                    quality=84,
+                    method=6,
+                )
             rendered += 1
-    print(f"Rendered {rendered} cards to {out_dir}")
+
+    if not args.only:
+        write_manifest(project, source_hash, items)
+    print(f"Rendered {rendered} cards from cards_content.json with {RENDERER_VERSION}")
     return 0
 
 

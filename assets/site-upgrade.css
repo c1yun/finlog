@@ -7,6 +7,19 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+:where(p, li, figcaption, blockquote, dd, small, .lead, .sub, .desc, .standard-note) {
+  text-wrap: pretty;
+}
+
 :focus-visible {
   outline: 3px solid var(--finlog-focus) !important;
   outline-offset: 3px !important;

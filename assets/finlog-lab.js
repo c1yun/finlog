@@ -11,9 +11,42 @@
 
   onReady(() => {
     const body = document.body;
-    if (!body.classList.contains('finlog-lab')) return;
+    if (!body.classList.contains('finlog-classic')) return;
 
     body.classList.add('lab-is-ready');
+
+    const contributionDialog = document.getElementById('contribution-voice');
+
+    if (contributionDialog) {
+      const openButton = document.querySelector('[data-contribution-dialog-open]');
+      const closeButton = contributionDialog.querySelector('[data-contribution-dialog-close]');
+
+      const openDialog = () => {
+        if (contributionDialog.open) return;
+
+        if (typeof contributionDialog.showModal === 'function') {
+          contributionDialog.showModal();
+        } else {
+          contributionDialog.setAttribute('open', '');
+        }
+      };
+
+      const closeDialog = () => {
+        if (!contributionDialog.open && !contributionDialog.hasAttribute('open')) return;
+
+        if (typeof contributionDialog.close === 'function') {
+          contributionDialog.close();
+        } else {
+          contributionDialog.removeAttribute('open');
+        }
+      };
+
+      openButton?.addEventListener('click', openDialog);
+      closeButton?.addEventListener('click', closeDialog);
+      contributionDialog.addEventListener('click', (event) => {
+        if (event.target === contributionDialog) closeDialog();
+      });
+    }
 
     if (!body.classList.contains('standalone-chatbot')) {
       const commandEntries = [
@@ -22,13 +55,13 @@
         { label: 'AI 검증 보조 체계', detail: '자료 탐색·반론·문장 점검 원칙', href: 'index.html#ai', keys: '인공지능 ai 프롬프트 검증' },
         { label: '금융·시사 21개 주제', detail: '분석 주제 전체 목록', href: 'index.html#topics', keys: '이슈 금융 시사 토론' },
         { label: '산출물 아카이브', detail: '보고서·카드뉴스·챗봇·웹', href: 'index.html#works', keys: '포트폴리오 결과물' },
-        { label: '기술 구현 증거', detail: '검색·데이터·이미지·자동 검사', href: 'index.html#technology', keys: '기술 개발 코드 품질 접근성' },
-        { label: '팀과 개인 기여', detail: '협업 구조와 담당 범위', href: 'index.html#team', keys: '정시윤 역할 기여 팀' },
+        { label: '웹 운영 기록', detail: '검색·데이터·이미지·품질 관리 보조 기록', href: 'index.html#technology', keys: '기술 개발 코드 품질 접근성' },
+        { label: '협업과 담당 역할', detail: '팀의 협업 구조와 담당 범위', href: 'index.html#team', keys: '정시윤 역할 협업 팀' },
         { label: '금융 챗봇', detail: '108개 용어·63개 FAQ', href: 'chatbot.html', keys: '검색 질문 지식베이스' },
-        { label: '용어 번역과정', detail: '전문 개념과 비전공자 해설 비교', href: 'translator.html', keys: '번역 설명 경제용어' },
+        { label: '용어 번역 과정', detail: '전문 개념과 독자 관점의 해설 비교', href: 'translator.html', keys: '번역 설명 경제용어' },
         { label: '카드뉴스', detail: '24세트·168장 에디토리얼', href: 'cards.html', keys: '이미지 인스타 아카이브' },
-        { label: '활동 보고서', detail: '통합 기록 95쪽', href: 'report.html', keys: 'pdf 보고서 문서' },
-        { label: '최종 발표자료', detail: '발표 슬라이드 22장', href: 'deck.html', keys: 'ppt deck 발표' },
+        { label: '활동 보고서', detail: '웹 공개본 86쪽', href: 'report.html', keys: 'pdf 보고서 문서' },
+        { label: '핀로그 결과 발표 자료', detail: '웹 공개본 17장', href: 'deck.html', keys: 'ppt deck 발표' },
         { label: '디지털 금융 포럼', detail: '스테이블코인·CBDC 현장 리포트', href: 'forum.html', keys: '포럼 현장 토큰증권' },
         { label: '금융 분석 노트', detail: '원화 스테이블코인 개인 분석', href: 'insight.html', keys: '칼럼 인사이트 정시윤' },
         { label: '출처·검증 원장', detail: '공식 출처와 기준일 확인', href: 'sources.html', keys: '근거 팩트 출처 날짜 법령' }
@@ -39,11 +72,11 @@
       command.setAttribute('aria-label', '핀로그 전체 아카이브 검색');
       command.innerHTML = `
         <div class="lab-command__head">
-          <span>SEARCH</span>
+          <span>전체 기록 찾기</span>
           <input type="search" aria-label="전체 아카이브 검색어" placeholder="콘텐츠·기술·근거 자료 검색">
           <button class="lab-command__close" type="button" aria-label="검색 닫기">×</button>
         </div>
-        <div class="lab-command__meta"><span>FINLOG ARCHIVE</span><span class="lab-command__count"></span></div>
+        <div class="lab-command__meta"><span>핀로그 기록</span><span class="lab-command__count"></span></div>
         <div class="lab-command__results" aria-live="polite"></div>`;
       document.body.appendChild(command);
 
@@ -57,13 +90,13 @@
           const haystack = `${entry.label} ${entry.detail} ${entry.keys}`.toLocaleLowerCase('ko');
           return !query || query.split(/\s+/).every((term) => haystack.includes(term));
         });
-        commandCount.textContent = `${matches.length} RESULTS`;
+        commandCount.textContent = `${matches.length}개`;
         commandResults.innerHTML = matches.length
           ? matches.map((entry, index) => `
               <a class="lab-command__result" href="${entry.href}">
                 <i>${String(index + 1).padStart(2, '0')}</i>
                 <span><b>${entry.label}</b><small>${entry.detail}</small></span>
-                <span>OPEN ↗</span>
+                <span>보기 ↗</span>
               </a>`).join('')
           : '<div class="lab-command__empty">일치하는 항목이 없습니다.</div>';
       };
@@ -87,7 +120,7 @@
       commandTrigger.type = 'button';
       commandTrigger.className = 'lab-command-trigger';
       commandTrigger.setAttribute('aria-label', '전체 아카이브 검색 열기');
-      commandTrigger.innerHTML = '<span>⌕</span> SEARCH <kbd>CTRL K</kbd>';
+      commandTrigger.innerHTML = '<span>⌕</span> 기록 찾기';
       document.body.appendChild(commandTrigger);
 
       commandTrigger.addEventListener('click', openCommand);
@@ -149,7 +182,8 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    const page = body.dataset.finlogPage;
+    const page = body.dataset.finlogEnhancementPage;
+
     if (page === 'index' && 'IntersectionObserver' in window) {
       const sections = [...document.querySelectorAll('section[id]')];
       const hashLinks = [...document.querySelectorAll('nav a[href^="#"]')];

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="strict-origin-when-cross-origin"><meta property="og:title" content="핀로그 용어 번역과정"><meta property="og:description" content="전문 금융용어를 비전공자의 관점에서 명료한 설명으로 재구성하는 인터랙티브 도구">
+<meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="strict-origin-when-cross-origin"><meta property="og:title" content="핀로그 용어 번역 과정"><meta property="og:description" content="전문 금융 용어를 독자의 관점에서 명료한 설명으로 재구성하는 인터랙티브 도구">
 <link rel="icon" href="assets/images/brand/finlog-mark.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FinLog 용어 번역과정 · 전문 개념을 명료한 설명으로</title>
-<meta name="description" content="금융·시사 21개 주제의 전문 개념을 비전공자의 관점에서 명료한 설명으로 재구성한 인터랙티브 번역과정입니다.">
+<title>FinLog 용어 번역 과정 · 전문 개념을 명료한 설명으로</title>
+<meta name="description" content="금융·시사 21개 주제의 전문 개념을 독자의 관점에서 명료한 설명으로 재구성한 인터랙티브 번역 과정입니다.">
 <link rel="stylesheet" href="assets/site-upgrade.css">
 <script defer src="assets/site-upgrade.js"></script>
 <style>
@@ -27,7 +27,7 @@ h1 .a{background:linear-gradient(100deg,var(--go2),var(--cy2));-webkit-backgroun
 .cat:hover{border-color:var(--cy);color:#fff}
 .cat.on{background:var(--go);border-color:var(--go);color:#241a04}
 .picker{display:grid;grid-template-columns:repeat(auto-fill,minmax(142px,1fr));gap:8px;margin:14px 0 8px}
-.tch{background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:9px 8px;font-size:.82rem;font-weight:600;color:#cfdcf3;cursor:pointer;transition:.16s;text-align:center;white-space:nowrap}
+.tch{width:100%;background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:9px 8px;font:inherit;font-size:.82rem;font-weight:600;color:#cfdcf3;cursor:pointer;transition:.16s;text-align:center;white-space:nowrap}
 .tch:hover{border-color:var(--cy);color:#fff;transform:translateY(-2px)}
 .tch.on{background:var(--cy);color:#06203c;border-color:var(--cy)}
 .tch.hide{display:none}
@@ -65,7 +65,7 @@ footer{text-align:center;color:var(--grd);font-size:.84rem;padding:30px 0 50px;b
 footer b{color:var(--go2)}
 </style>
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://c1yun.github.io/finlog/">
+<link rel="canonical" href="https://c1yun.github.io/finlog/translator.html"><meta property="og:url" content="https://c1yun.github.io/finlog/translator.html">
 <meta property="og:image" content="https://c1yun.github.io/finlog/og-v2.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -74,12 +74,12 @@ footer b{color:var(--go2)}
 <link rel="stylesheet" href="assets/finlog-lab.css">
 <script defer src="assets/finlog-lab.js"></script>
 </head>
-<body class="finlog-lab" data-finlog-page="translator">
-<div class="pillnav" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:99999;display:flex;gap:2px;align-items:center;background:rgba(10,27,58,.94);backdrop-filter:blur(8px);padding:5px 6px;border-radius:100px;border:1px solid #2c4570;font-family:Pretendard,Malgun Gothic,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.38)"><a href="index.html" title="FinLog 홈" style="display:flex;align-items:center;align-self:center;padding:0 4px 0 1px;text-decoration:none"><img src="assets/images/brand/finlog-mark-small.png" alt="FinLog" style="height:23px;width:23px;border-radius:50%;display:block" width="46" height="46" decoding="async"></a><a href="index.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">홈</a><a href="chatbot.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">챗봇</a><a href="forum.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">포럼</a><a href="translator.html" style="background:#e6b34d;color:#10254a;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">번역과정</a><a href="cards.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">카드뉴스</a><a href="report.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">보고서</a></div>
+<body class="finlog-classic" data-finlog-enhancement-page="translator">
+<div class="pillnav" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:99999;display:flex;gap:2px;align-items:center;background:rgba(10,27,58,.94);backdrop-filter:blur(8px);padding:5px 6px;border-radius:100px;border:1px solid #2c4570;font-family:Pretendard,Malgun Gothic,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.38)"><a href="index.html" title="FinLog 홈" style="display:flex;align-items:center;align-self:center;padding:0 4px 0 1px;text-decoration:none"><img src="assets/images/brand/finlog-mark-small.png" alt="FinLog" style="height:23px;width:23px;border-radius:50%;display:block" width="46" height="46" decoding="async"></a><a href="index.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">홈</a><a href="chatbot.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">챗봇</a><a href="forum.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">포럼</a><a href="translator.html" style="background:#e6b34d;color:#10254a;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">번역 과정</a><a href="cards.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">카드뉴스</a><a href="report.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">보고서</a></div>
 <header>
-  <h1>용어 <span class="a">번역과정</span></h1>
-  <p class="sub">전문 금융용어를 비전공자의 관점에서 명료한 설명으로 재구성했습니다.</p>
-  <p class="tagline">전문 개념을 명료하게 설명하는 금융 커뮤니케이션 연습 · 금융·시사 21개 주제</p>
+  <h1>금융 용어를 <span class="a">풀어 쓰는 과정</span></h1>
+  <p class="sub">전문 금융 용어를 처음 접하는 독자도 이해할 수 있도록 풀어 썼습니다.</p>
+  <p class="tagline">핵심 개념과 배경을 함께 살펴보는 금융·시사 21개 주제</p>
 </header>
 
 <div class="wrap">
@@ -95,9 +95,9 @@ footer b{color:var(--go2)}
       <div class="lab">전문 개념 · 핵심 용어</div>
       <div id="terms"></div>
     </div>
-    <div class="tr">↓ 직관적 해설</div>
+    <div class="tr">↓ 핵심 해설</div>
     <div class="panel fil">
-      <div class="lab">비전공자 관점 · 핵심 해설</div>
+      <div class="lab">독자 관점의 해설</div>
       <div class="easy" id="easy"></div>
       <div class="tmap" id="tmap"></div>
     </div>
@@ -111,19 +111,93 @@ footer b{color:var(--go2)}
 </div>
 
 <footer>
-  핀로그 · <b>FinLog</b> 용어 번역과정 — 어려운 금융을 비전공자도 이해할 수 있는 언어로<br>
+  핀로그 · <b>FinLog</b> 용어 번역 과정 — 전문 금융 개념을 독자가 명확히 이해할 수 있는 표현으로 재구성합니다.<br>
   부산대학교 학습플러스코칭 동아리 · 활동 진행 중 · 금융·시사 21개 주제<br>
   <span style="font-size:.82rem;color:#7184a8">학습·정보 제공 목적이며 투자 권유나 투자자문이 아닙니다. 수치·법령은 기준일 이후 변경될 수 있습니다. · <a href="sources.html" style="color:#9fdff2">출처·검증 원장</a></span>
 </footer>
 
 <script>
 const D = [{"n": 1, "label": "빅테크 규제", "title": "빅테크 독점과 플랫폼 규제", "cat": "soc", "eco": "양면시장(Two-sided Market) — 성격이 다른 두 이용자 집단을 하나의 플랫폼이 연결하고, 한쪽의 참여가 다른 쪽의 효용에 영향을 주는 시장 구조.", "dig": "자사우대(Self-preferencing) — 플랫폼이 검색·노출·거래 조건에서 자사 또는 계열 서비스에 경쟁사보다 유리한 지위를 부여하는 행위.", "bi": "플랫폼은 시장 진입로를 관리하는 문지기와 유사하다. 이용자와 입점업체가 충분히 모이면 네트워크 효과와 전환비용이 커져, 수수료 인상이나 자사 서비스 우대가 시장경쟁에 미치는 영향도 확대된다.", "flow": "공정거래위원회는 거대 플랫폼의 자사우대·끼워팔기·최혜대우 강요 등을 사전에 막는 '플랫폼 규제' 입법을 추진해 왔고, EU의 디지털시장법(DMA)을 한국형으로 다듬는 논의가 이어지고 있다. 구글·애플의 인앱결제 강제와 카카오·네이버 등 국내 플랫폼의 시장지배력이 반복적으로 도마에 올랐다.", "em": "이용자와 입점업체를 연결하는 양면시장", "dm": "검색·노출에서 계열 서비스를 우대하는 행위"}, {"n": 2, "label": "탄소세", "title": "탄소세 도입 논쟁", "cat": "soc", "eco": "외부효과(Externality) — 한 경제주체의 활동이 시장가격에 충분히 반영되지 않은 비용이나 편익을 제3자에게 발생시키는 현상.", "dig": "탄소국경조정제도(CBAM) — 수입품의 생산 과정에서 발생한 탄소배출량에 상응하는 비용을 국경에서 조정하는 EU 제도.", "bi": "탄소 배출 비용이 가격에 반영되지 않으면 피해는 사회가 부담한다. 탄소세는 이 외부비용을 배출자의 비용으로 전환해 감축 유인을 만드는 제도다.", "flow": "EU의 CBAM이 본격 시행 단계로 들어서면서, 철강·알루미늄 등 한국 수출기업의 '탄소 비용' 부담이 현실화되고 있다. 국내에서도 탄소세 도입과 배출권거래제(ETS) 강화를 둘러싼 논쟁이 이어지고, 탄소중립 목표와 산업 경쟁력 사이의 균형이 핵심 화두로 떠올랐다.", "em": "시장가격에 반영되지 않은 사회적 비용", "dm": "수입품의 탄소배출량에 상응하는 조정 비용"}, {"n": 3, "label": "기준금리", "title": "기준금리 인상의 파급효과", "cat": "fin", "eco": "기준금리(Base Rate) — 한국은행이 통화정책을 운용할 때 기준으로 삼는 정책금리로, 금융시장 전반의 금리와 자금조달 비용에 영향을 준다.", "dig": "통화정책 파급경로(Transmission Mechanism) — 기준금리 변화가 금융시장과 신용, 환율, 자산가격을 거쳐 소비·투자·물가에 전달되는 과정.", "bi": "기준금리는 금융시장 전반의 자금비용을 조절하는 기준점이다. 변화는 예금·대출·환율·자산가격을 거쳐 소비와 투자에 전달된다.", "flow": "한국은행은 2026년 5월 28일 기준금리를 연 2.50%로 유지했다. 통화정책 판단에는 물가·성장·환율·가계부채와 금융안정 여건이 함께 반영된다. 이 문장은 기준일 현재의 사실을 정리한 것이며 향후 금리 방향을 단정하지 않는다.", "em": "금융시장 전반의 금리 기준점", "dm": "기준금리 변화가 실물경제로 전달되는 경로"}, {"n": 4, "label": "보호무역", "title": "보호무역과 자유무역 — 공급망 법제", "cat": "soc", "eco": "비교우위(Comparative Advantage) — 각 경제주체가 상대적으로 기회비용이 낮은 분야에 특화할 때 교환의 편익이 커진다는 원리.", "dig": "공급망 법제 — 핵심 원자재와 소재·부품·장비의 공급 위험을 관리하고 위기 대응과 다변화를 지원하는 법·제도 체계.", "bi": "자유무역은 비교우위에 따른 효율을, 보호무역은 공급망 안정과 산업기반 보호를 중시한다. 공급망 정책은 효율과 회복력 사이의 균형을 설계하는 과정이다.", "flow": "미·중 관세 갈등과 반도체·이차전지 공급망 재편이 이어지면서, '효율'보다 '안정'을 앞세운 보호무역·경제안보 기조가 강해지고 있다. 한국은 수출 의존도가 높아(5월 수출 전년比 급증, 1~5월 무역흑자 1,000억 달러대) 자유무역의 수혜국이면서도, 핵심 광물·소재의 특정국 의존이라는 공급망 리스크를 안고 있어 두 노선 사이에서 균형을 모색 중이다.", "em": "비교우위에 따른 분업과 교환", "dm": "핵심 품목의 공급 중단에 대비한 안전망"}, {"n": 5, "label": "기술특례상장", "title": "기술특례상장과 파두", "cat": "fin", "eco": "기업공개(IPO) — 비상장기업이 주식을 일반 투자자에게 공개하고 거래소 상장을 통해 자금을 조달하는 절차.", "dig": "기술특례상장 — 현재의 매출·이익 요건 대신 기술성과 성장 가능성에 대한 평가를 중심으로 코스닥 상장 기회를 부여하는 제도.", "bi": "기술특례상장은 현재 실적보다 기술성과 성장 가능성을 중심으로 상장 기회를 부여한다. 따라서 투자자 보호를 위해 기술평가와 매출 전망, 주관사의 실사 책임을 함께 살펴야 한다. 파두 사건은 공소사실과 회사의 반론을 구분해 확인할 필요가 있다.", "flow": "2024년 12월 검찰이 파두 경영진 3명과 법인을 자본시장법 위반 등으로 불구속 기소했고, 2026년 들어 공판 절차가 진행 중이다. 회사 측은 \"반도체 불황에 따른 실적 부진일 뿐 은폐는 없었다\"며 혐의를 전면 부인하고 있다. 사건은 기술특례상장 전반의 신뢰와 증권사(주관사)의 실사 책임 문제로 번졌다.", "em": "기업이 일반 투자자에게 주식을 처음 공개하는 절차", "dm": "기술성과 성장 가능성을 중심으로 한 상장 심사"}, {"n": 6, "label": "공매도", "title": "공매도 재개의 쟁점 — 시장효율과 투자자 보호", "cat": "fin", "eco": "공매도(Short Selling) — 차입한 주식을 먼저 매도한 뒤 나중에 매수해 상환하는 거래로, 가격 하락 시 차익이 발생할 수 있다.", "dig": "NSDS(공매도 중앙점검시스템) — 기관의 잔고와 매매자료를 대조해 무차입 공매도 의심 거래를 사후 상시 점검하는 한국거래소 시스템.", "bi": "공매도는 주식을 빌려 매도한 뒤 나중에 매수해 상환하는 거래다. 가격발견에 기여할 수 있지만 무차입 거래를 막는 사전 잔고관리와 사후 점검이 전제되어야 한다.", "flow": "코로나 이후 부분 금지됐던 공매도가 2025년 3월 31일 전면 재개됐다. 핵심 전제는 개인투자자의 오랜 불만이었던 '기울어진 운동장'을 바로잡기 위한 NSDS 가동이었다. 무차입 공매도를 전산으로 상시 점검·적발하는 체계가 갖춰진 뒤에야 시장 문을 다시 연 것이다.", "em": "차입한 주식을 매도한 뒤 재매수해 상환하는 거래", "dm": "잔고와 매매자료를 대조하는 상시 점검"}, {"n": 7, "label": "스테이블코인", "title": "스테이블코인과 CBDC", "cat": "fin", "eco": "법정화폐(Fiat Money) — 법률에 따라 지급수단으로 인정되고 국가와 중앙은행의 신뢰를 기반으로 유통되는 화폐.", "dig": "스테이블코인·CBDC — 스테이블코인은 민간이 기준자산에 가치를 연동해 발행하는 디지털자산이며, CBDC는 중앙은행이 발행하는 디지털 법정화폐다.", "bi": "스테이블코인은 기준자산과의 교환가치를 유지하도록 설계된 민간 디지털자산이다. 신뢰는 준비자산의 질과 보관, 상환 가능성, 공시의 투명성에 달려 있다. CBDC는 중앙은행이 발행한다는 점에서 구분된다.", "flow": "미국은 2025년 7월 'GENIUS Act(지니어스법)'를 제정해 스테이블코인 규율의 연방 틀을 마련하며(시행 전) '달러 패권의 디지털 확장' 신호를 보냈다. 유럽은 MiCA로 발 빠르게 규율 중이다. 한국은행은 '프로젝트 한강'으로 디지털화폐 활용성 테스트를 진행하며 CBDC 가능성을 실험하고, 동시에 원화 스테이블코인 제도화 논의가 본격화됐다.", "em": "가치 고정의 기준이 되는 법정화폐", "dm": "준비자산과 상환 구조로 유지하는 교환가치"}, {"n": 8, "label": "토큰증권", "title": "토큰증권", "cat": "fin", "eco": "증권(Security) — 투자자에게 지분·채권·수익청구권 등 재산적 권리를 부여하는 금융상품.", "dig": "토큰증권(STO) — 자본시장법상 증권에 해당하는 권리를 분산원장 기술을 활용해 디지털 형태로 발행·관리하는 구조.", "bi": "토큰증권은 부동산·미술품 등 자산의 권리를 디지털 증권으로 분할해 발행·유통하는 구조다. 소액 접근성을 높일 수 있지만 기초자산의 가치, 권리관계, 유통시장 규율을 함께 검토해야 한다.", "flow": "그동안 조각투자·토큰증권은 규제 샌드박스(혁신금융서비스)로만 제한 운영됐는데, 2026년 1월 15일 전자증권법·자본시장법 개정안이 국회 본회의를 통과하며 전면 제도화의 길이 열렸다. 블록체인 분산원장이 공식 전자등록 체계로 편입되고, 조각투자 거래소가 합법적으로 운영될 근거가 마련됐다.", "em": "기초자산에서 발생하는 법적·경제적 권리", "dm": "자산의 권리를 디지털 단위로 분할한 증권"}, {"n": 9, "label": "초과이익 배분", "title": "초과이익 배분 — 임직원 보상과 주주환원", "cat": "fin", "eco": "배당가능이익 — 회사가 자본 유지와 채권자 보호를 위해 법이 정한 한도 안에서 주주에게 배당할 수 있는 이익.", "dig": "OPI(초과이익성과급) — 사업부의 연간 성과가 목표를 웃돌 때 정해진 기준에 따라 임직원에게 지급하는 성과보상 제도.", "bi": "초과이익 배분은 임직원 보상, 세금, 재투자, 주주환원 사이의 우선순위를 정하는 문제다. 어느 한쪽의 몫만으로 단순화하기보다 지속 가능한 인센티브와 자본배분 원칙을 함께 살펴야 한다.", "flow": "정부의 '기업 밸류업'과 상법 개정 흐름 속에서 자사주 의무소각·배당 확대 압박이 커졌다. 동시에 HBM·반도체 인력 이탈을 막기 위한 성과급 경쟁도 치열해, '직원이냐 주주냐'의 이익배분 균형이 핵심 화두로 떠올랐다.", "em": "법률과 재무여건을 고려한 주주환원 가능 범위", "dm": "성과와 목표 달성에 연계된 임직원 보상"}, {"n": 10, "label": "복수거래소", "title": "복수거래소", "cat": "fin", "eco": "유동성 파편화(Liquidity Fragmentation) — 동일 종목의 주문이 여러 시장으로 분산돼 시장별 호가 깊이와 체결 품질이 달라지는 현상.", "dig": "ATS(대체거래소) — 한국거래소 외에서 상장주권의 매매를 체결하는 다자간매매체결회사로, 국내에서는 넥스트레이드가 운영되고 있다.", "bi": "복수거래소 체제에서는 같은 종목의 주문이 여러 시장으로 분산된다. 거래시간과 수수료 경쟁이 확대될 수 있지만, 투자자에게 가장 유리한 시장을 선택하는 최선집행과 통합 감시가 중요해진다.", "flow": "넥스트레이드는 2025년 3월 4일 영업을 개시해 2013년 제도 도입 이후 국내 최초의 ATS가 됐다. 거래시간 연장과 수수료 인하로 거래비용이 줄었지만, 두 시장으로 주문이 갈리면서 '유동성 파편화'와 '최선집행' 관리가 새 과제로 부상했다.", "em": "여러 시장으로 분산된 매수·매도 주문", "dm": "복수 시장의 가격·수수료를 비교하는 주문 라우팅"}, {"n": 11, "label": "밸류업", "title": "기업 밸류업 프로그램과 대리인 비용", "cat": "fin", "eco": "대리인 비용(Agency Cost) — 주주와 경영진의 이해가 일치하지 않을 때 비효율적인 의사결정과 감시 과정에서 발생하는 비용.", "dig": "자사주 소각 — 기업이 보유한 자기주식을 없애 발행주식 수를 줄이는 조치로, 주당 지표에 영향을 줄 수 있으나 주가 상승을 보장하지는 않는다.", "bi": "기업이 보유한 현금은 투자, 재무건전성, 배당, 자사주 소각 등 여러 목적에 배분된다. 밸류업의 핵심은 보유 자체를 문제 삼기보다 자본배분의 근거와 주주가치 제고 계획을 투명하게 설명하는 데 있다.", "flow": "'코리아 디스카운트' 해소를 목표로 정부의 기업 밸류업 프로그램과 배당·자사주 소각 확대, 상법 개정(이사 충실의무 등) 논의가 본격화됐다. 핵심 논리는 '잉여현금을 주주에게 돌려줘 대리인 비용을 줄이자'는 것이다.", "em": "투자와 환원 사이에서 배분해야 하는 잉여현금", "dm": "발행주식 수를 줄이는 자사주 소각"}, {"n": 12, "label": "ESG 공시", "title": "ESG 공시 의무화 로드맵", "cat": "fin", "eco": "좌초자산(Stranded Asset) — 규제·기술·수요 변화로 예상보다 이르게 경제적 가치가 훼손될 수 있는 자산.", "dig": "Scope 3 — 기업의 직접 배출과 구매전력 외에 원료·협력사·물류·제품 사용 등 가치사슬에서 발생하는 간접 배출.", "bi": "ESG 공시는 투자자가 기업의 기후위험과 대응역량을 비교할 수 있도록 비재무 정보를 표준화한다. 특히 Scope 3는 공급망 전체의 데이터를 포함해 측정 부담이 크므로 단계적 적용과 검증체계가 필요하다.", "flow": "금융위원회의 2026년 7월 최종안은 2028년부터 연결자산 10조원 이상 코스피 상장사를 시작으로 지속가능성 공시를 단계적으로 의무화한다. Scope 3는 대상별로 3년 유예하며, 초기 면책과 이후 Safe Harbor를 함께 설계했다.", "em": "규제·기술 변화로 경제적 가치가 낮아질 수 있는 자산", "dm": "협력사와 물류를 포함한 가치사슬 배출"}, {"n": 13, "label": "노란봉투법", "title": "노동권과 거시경제 보호의 조정", "cat": "soc", "eco": "외부효과(Externality) — 쟁의행위나 기업 활동의 영향이 계약 당사자를 넘어 협력업체·소비자·투자자에게 전달되는 현상.", "dig": "긴급조정권 — 쟁의행위가 국민경제나 일상생활에 중대한 위험을 초래할 때 법정 요건과 절차에 따라 일정 기간 중지하도록 하는 제도.", "bi": "노동관계 법제는 실질적 교섭권을 보장하는 동시에 장기 쟁의가 협력업체와 소비자에게 미치는 외부효과도 고려해야 한다. 권리 보장과 국민경제 보호 사이의 기준을 명확히 설계하는 것이 핵심이다.", "flow": "2025년 노조법 2·3조 개정안(이른바 노란봉투법)이 국회를 통과하며 사용자 범위 확대와 손해배상 책임 제한을 둘러싼 논쟁이 재점화됐다. 경영계는 원청 교섭부담·투자 위축을, 노동계는 하청·플랫폼 노동자의 교섭권 사각지대 해소를 강조한다. 외국인 투자자는 노동시장 경직성을 한국 증시 리스크 변수로 주시한다.", "em": "쟁의행위가 제3자에게 미치는 경제적 영향", "dm": "국민경제에 중대한 위험이 있을 때 적용하는 비상 조정"}, {"n": 14, "label": "WGBI 편입", "title": "세계국채지수", "cat": "fin", "eco": "국채(Government Bond) — 정부가 재정자금을 조달하기 위해 원금과 이자 지급을 약정해 발행하는 채권.", "dig": "WGBI(세계국채지수) — FTSE Russell이 산출하는 글로벌 국채 벤치마크로, 편입 비중은 지수 추종 자금의 자산배분에 참고된다.", "bi": "WGBI 편입은 한국 국채가 글로벌 벤치마크의 구성자산이 된다는 의미다. 지수 추종 수요가 늘 수 있지만 실제 자금 유입은 환율·금리·운용전략에 따라 달라진다.", "flow": "한국 국채는 2026년 4월부터 11월까지 WGBI에 단계적으로 편입된다. FTSE Russell은 완전 편입 시 한국 비중을 WGBI 기준 약 1.75%로 제시했다. 실제 자금 유입 규모와 속도는 환율·글로벌 금리·운용전략에 따라 달라질 수 있다.", "em": "글로벌 채권지수에 포함되는 한국 국채", "dm": "지수 비중을 참고해 국채 보유를 조정하는 수요"}, {"n": 15, "label": "파생상품", "title": "거시 불확실성과 파생상품 리스크 관리", "cat": "fin", "eco": "변동성(Volatility) — 일정 기간 자산가격 수익률이 평균에서 벗어나는 정도를 나타내는 위험 지표.", "dig": "일일정산(Mark-to-Market) — 파생상품 포지션의 손익을 매일 시장가격으로 평가해 증거금과 결제 위험을 관리하는 절차.", "bi": "파생상품은 미래 가격 변동 위험을 다른 주체에게 이전하는 계약이다. 실물 위험을 줄이는 헤지 수단이 될 수 있지만, 레버리지와 증거금 부담이 커지면 손실도 확대될 수 있다.", "flow": "2025~2026년 글로벌 통화정책 경로 불확실성, 지정학 리스크, 환율 변동이 겹치며 파생상품 시장의 변동성 관리 수요가 커졌다. KRX는 코스피200 선물·옵션을 중심으로 실시간 증거금·VaR 기반 리스크 관리를 강화하고 있다.", "em": "가격 변동에 대비해 위험을 이전하는 계약", "dm": "포지션 손익을 매일 평가·정산하는 장치"}, {"n": 16, "label": "기업가치평가", "title": "한국 자본시장 기업가치평가 모형", "cat": "fin", "eco": "현재가치(Present Value) — 미래 현금흐름을 적절한 할인율로 환산한 현재 시점의 가치.", "dig": "기업 밸류업 프로그램 — 상장기업이 자본비용과 수익성, 주주환원, 지배구조 개선 계획을 공시하도록 유도하는 기업가치 제고 정책.", "bi": "기업가치평가는 미래 현금흐름을 현재가치로 환산하거나 유사 기업의 시장배수를 비교하는 작업이다. 모형의 결과는 성장률·할인율·지배구조에 대한 가정에 민감하므로 단일 숫자보다 가정의 타당성을 살펴야 한다.", "flow": "코리아 디스카운트 해소를 위한 밸류업 프로그램이 2024년 본격화된 이후, 2025~2026년에도 주주환원 확대·지배구조 개선이 기업가치평가의 핵심 변수로 자리 잡았다. PBR이 낮은 종목의 재평가 기대와 함께, 펀더멘털 없는 단기 테마에 대한 경계도 공존한다.", "em": "미래 현금흐름을 현재가치로 환산한 값", "dm": "유사 기업의 시장배수와 비교한 상대가치"}, {"n": 17, "label": "레그테크", "title": "레그테크(RegTech)", "cat": "fin", "eco": "AML·KYC — 자금세탁방지는 불법자금의 금융망 유입을 차단하는 체계이며, 고객확인은 거래 당사자의 신원과 위험을 확인하는 절차.", "dig": "AI 기본법 — AI의 위험 수준과 적용 영역에 따라 위험관리, 설명, 이용자 보호, 사람의 감독, 문서화 등 신뢰성 조치를 요구하는 법.", "bi": "레그테크는 규정 준수 절차를 데이터와 소프트웨어로 자동화하는 기술이다. AML·KYC와 이상거래 탐지의 효율을 높일 수 있지만, 오탐 관리와 사람의 재검토가 함께 필요하다.", "flow": "가상자산이용자보호법과 트래블룰 등으로 규정 준수 범위가 넓어지면서 레그테크 수요가 커졌다. AI 기본법상 고영향 AI에 해당하면 위험관리·설명방안·이용자 보호·사람의 감독·문서화 등 신뢰성 조치를 마련해야 한다. 탐지 기준을 지나치게 높이면 정상 거래까지 막는 오탐이 늘 수 있다.", "em": "자금세탁방지와 고객확인에 필요한 규정", "dm": "의심거래를 탐지하고 담당자에게 알리는 자동화"}, {"n": 18, "label": "대안데이터", "title": "대안데이터 신용평가와 씬파일러", "cat": "fin", "eco": "씬파일러(Thin-filer) — 금융거래 이력이 부족해 전통적 신용평가만으로 상환능력을 충분히 판단하기 어려운 고객.", "dig": "설명·이의제기 절차 — 자동화된 의사결정의 근거를 확인하고 오류나 불이익에 대해 재검토를 요청할 수 있게 하는 통제 절차.", "bi": "씬파일러는 신용이 낮다기보다 평가에 활용할 금융이력이 부족한 사람이다. 대안데이터는 통신비·공과금 납부 기록 등을 보조 지표로 활용해 평가 공백을 줄일 수 있으나, 동의·필요성·편향 점검이 전제되어야 한다.", "flow": "통신비·공과금 같은 대안데이터는 금융 이력이 부족한 고객의 상환능력을 평가하는 보조 신호가 될 수 있다. 다만 거주지·소비패턴이 간접차별을 낳을 수 있어 필요성·동의·집단별 결과·설명과 정정 절차를 함께 점검해야 한다. 핀로그는 이를 '포용 vs 공정'의 긴장으로 정리했다.", "em": "전통적 금융이력이 부족한 고객", "dm": "대출심사 결과의 설명과 이의제기 절차"}, {"n": 19, "label": "AI 이상거래", "title": "AI 이상거래탐지와 시장감시", "cat": "fin", "eco": "비지도학습(Unsupervised Learning) — 사전에 정답을 부여하지 않은 데이터에서 구조·군집·이상 패턴을 탐색하는 기계학습 방식.", "dig": "XAI(SHAP·LIME) — 모델이 특정 판단을 내리는 데 영향을 준 변수와 기여도를 사람이 검토할 수 있도록 설명하는 기법.", "bi": "시장감시에서는 대규모 주문 가운데 평소와 다른 패턴을 탐지해야 한다. AI는 의심거래를 선별하는 보조수단이 될 수 있지만, 제재 판단은 설명 가능한 근거와 사람의 검토를 거쳐야 한다.", "flow": "2025년 3월 공매도 재개와 함께 KRX가 NSDS를 가동했다. NSDS는 기관의 잔고와 매매자료를 대조해 무차입 의심 거래를 사후 상시 점검하며, 주문 전 차단은 각 기관의 내부 잔고관리시스템이 맡는다. NSDS 자체를 AI와 동일시하지 않으며, 팀 토론에서는 탐지와 설명·사람의 최종 판단을 함께 강조했다.", "em": "정상 패턴과 다른 거래를 탐지하는 모델", "dm": "이상 판단의 근거를 사람이 검토할 수 있게 하는 설명"}, {"n": 20, "label": "세대격차", "title": "세대갈등 — 연금·자산·금융포용", "cat": "soc", "eco": "연금의 지속가능성 — 장기적인 재정 균형과 세대별 부담·급여의 형평을 함께 유지할 수 있는지를 평가하는 관점.", "dig": "금융포용(Financial Inclusion) — 소득·연령·지역·금융이력과 관계없이 필요한 금융서비스에 합리적으로 접근할 수 있도록 하는 정책 방향.", "bi": "세대갈등은 감정의 문제가 아니라 연금·주거·자산형성 기회를 어떻게 배분할지에 관한 제도 문제다. 어느 한 세대에 부담을 집중하기보다 지속가능성과 형평성을 함께 고려해야 한다.", "flow": "핀로그는 이 시사 주제를 금융감독의 시선으로 재해석했다 — 연금 개혁의 세대별 수용성, 청년의 금융 접근성·자산형성 지원, 고령층의 디지털 금융 소외·금융사기 노출이 모두 금융 이슈다. 팀의 결론은 '누가 옳은가가 아니라 지속가능성과 형평을 동시에'로, 고령층 보호와 청년 자산형성의 균형이 핵심이라고 보았다.", "em": "세대별 부담과 편익의 불균형", "dm": "고령층 보호와 청년 자산형성을 함께 고려한 금융포용"}, {"n": 21, "label": "반도체·HBM", "title": "반도체·HBM 경쟁", "cat": "soc", "eco": "CAPEX(설비투자) — 생산시설·장비·인프라 등 장기간 사용하는 자산을 취득하거나 개선하기 위한 자본적 지출.", "dig": "HBM(고대역폭 메모리) — 여러 D램을 수직 적층해 데이터 전송 대역폭을 높인 고성능 메모리로, AI 연산의 병목 완화에 활용된다.", "bi": "HBM은 AI 연산장치와 메모리 사이의 데이터 전송 병목을 줄이는 고대역폭 메모리다. 기술 경쟁력은 대규모 설비투자, 고객 인증, 공급망과 금융조달 능력에 함께 좌우된다.", "flow": "SK하이닉스·삼성전자가 HBM 기술·고객 확보 경쟁을 벌이고 TSMC와의 협력도 얽히면서, HBM은 수출·국가 안보가 걸린 거시경제 최전선이 됐다. 미·중 갈등 속 공급망 재편·수출 규제, 대규모 설비투자와 인재 확보가 핵심 과제다. 핀로그는 이를 'AI 병목을 누가 푸느냐'의 문제로 보고, 산업은행 등 국책금융의 여신·투자 역할을 함께 짚었다.", "em": "반도체 생산시설과 장비에 필요한 대규모 자본지출", "dm": "데이터 전송 병목을 줄이는 고대역폭 메모리"}];
+const EDITORIAL_REVISIONS = {
+  1: {
+    bi: '플랫폼은 이용자와 입점업체가 시장에 접근하는 경로를 관리한다. 참여자가 충분히 모이면 네트워크 효과와 전환비용이 커져, 수수료와 검색·노출 정책이 시장경쟁에 미치는 영향도 확대된다.',
+    flow: '공정거래위원회는 거대 플랫폼의 자사우대·끼워팔기·최혜대우 요구 등을 규율하는 방안을 논의해 왔으며, EU 디지털시장법(DMA)과 국내 시장 여건을 비교하는 검토도 이어지고 있다. 국내외 주요 플랫폼의 인앱결제와 시장지배력은 경쟁정책의 주요 쟁점이다.'
+  },
+  2: {
+    flow: 'EU 탄소국경조정제도(CBAM)의 적용이 본격화되면서 철강·알루미늄 등 국내 수출기업의 탄소비용 관리 중요성이 커지고 있다. 국내에서는 탄소세와 배출권거래제(ETS)를 둘러싸고 탄소중립 목표, 산업 경쟁력, 분배 부담을 함께 고려해야 한다는 논의가 이어진다.'
+  },
+  4: {
+    flow: '미·중 관세 갈등과 반도체·이차전지 공급망 재편이 이어지면서 효율과 함께 안정성을 중시하는 보호무역·경제안보 정책이 확대되고 있다. 수출 의존도가 높은 한국은 자유무역의 편익을 유지하면서 핵심 광물과 소재의 특정국 의존을 낮추는 균형이 필요하다.'
+  },
+  5: {
+    flow: '검찰은 2024년 12월 파두 경영진과 법인을 자본시장법 위반 등 혐의로 기소했으며, 회사 측은 실적 부진의 은폐가 없었다는 취지로 혐의를 부인하고 있다. 재판 결과가 확정되지 않은 사안이므로 공소사실과 회사의 반론을 구분해야 하며, 제도적으로는 기술평가와 주관사의 실사 책임이 주요 쟁점이다.'
+  },
+  6: {
+    flow: '공매도는 2025년 3월 31일 전면 재개됐다. 재개 과정에서는 기관의 잔고와 매매자료를 대조하는 공매도 중앙점검시스템(NSDS), 기관별 내부 잔고관리, 개인·기관 간 거래조건 정비가 함께 추진됐다. 핵심은 시장의 가격발견 기능과 무차입 공매도 방지를 함께 확보하는 데 있다.'
+  },
+  7: {
+    flow: '미국은 2025년 7월 GENIUS법을 제정해 지급형 스테이블코인의 발행자, 준비자산, 상환에 관한 연방 규율을 마련했다. EU는 MiCA를 적용하고 있으며, 한국에서는 프로젝트 한강의 예금토큰 실증과 원화 스테이블코인 제도화 논의가 병행되고 있다.'
+  },
+  8: {
+    flow: '전자증권법·자본시장법 개정은 토큰증권의 제도화 근거를 마련했다. 실제 발행과 유통에는 증권성 판단, 전자등록, 투자자 보호, 유통시장 인가 등 관련 법령과 하위 규정을 함께 확인해야 한다.'
+  },
+  9: {
+    flow: '기업 밸류업과 주주환원 확대 논의가 이어지는 가운데, 반도체 등 핵심 산업에서는 인재 확보를 위한 성과보상도 중요한 과제로 부상했다. 따라서 초과이익 배분은 임직원 보상, 재투자, 재무건전성, 주주환원을 함께 고려하는 자본배분의 문제로 검토할 필요가 있다.'
+  },
+  11: {
+    flow: '기업 밸류업 프로그램과 주주환원·지배구조 개선 논의의 핵심은 잉여현금의 보유 자체보다 투자, 배당, 자사주 소각 등 자본배분의 기준을 명확히 설명하는 데 있다. 각 조치의 효과는 기업의 재무여건과 실행 방식에 따라 달라진다.'
+  },
+  12: {
+    flow: '금융위원회가 2026년 7월 발표한 최종안은 2028년부터 연결자산 10조 원 이상 코스피 상장사를 시작으로 지속가능성 공시를 단계적으로 적용한다. Scope 3는 대상별로 3년 유예되며, 실제 적용 때에는 최신 법령과 공시기준을 다시 확인해야 한다.'
+  },
+  16: {
+    flow: '기업 밸류업 프로그램이 본격화된 이후 주주환원과 지배구조 개선은 기업가치평가의 주요 변수로 자리 잡았다. 다만 낮은 시장배수만으로 재평가를 단정하기보다 현금흐름, 자본비용, 성장성, 지배구조를 함께 검토해야 한다.'
+  },
+  18: {
+    flow: '통신비·공과금 등 대안데이터는 금융이력이 부족한 고객의 상환능력을 평가하는 보조 지표가 될 수 있다. 다만 거주지와 소비패턴이 간접차별로 이어질 수 있으므로 필요성·동의·집단별 결과·설명·정정 절차를 함께 점검해야 한다. 이는 금융포용과 평가의 공정성을 함께 확보하는 문제다.'
+  },
+  20: {
+    flow: '연금 개혁의 세대별 수용성, 청년의 금융 접근성과 자산형성, 고령층의 디지털 금융 소외와 금융사기 노출은 모두 금융정책의 과제다. 핀로그는 특정 세대의 책임을 묻기보다 지속가능성과 형평성을 함께 고려하는 방향으로 논의를 정리했다.'
+  },
+  21: {
+    flow: 'HBM 경쟁은 기술력뿐 아니라 대규모 설비투자, 고객 인증, 공급망 재편, 수출 규제와 연결된다. 핀로그는 이를 산업 경쟁력과 금융조달의 문제로 보고, 민간 투자와 정책금융의 역할을 함께 검토했다.'
+  }
+};
+const PLAIN_EXPLANATIONS = {
+  1: '한 플랫폼의 이용자가 많아지면 가게와 소비자도 그곳에 더 모이게 된다. 영향력이 커진 플랫폼이 검색이나 노출에서 자기 회사의 서비스를 지나치게 우대하면 새로운 경쟁자의 진입이 어려워질 수 있다. 플랫폼 규제는 이러한 불공정 행위를 살피는 제도다.',
+  2: '공장과 자동차에서 나온 탄소는 기후변화를 심화시킨다. 탄소세는 탄소를 많이 배출할수록 더 많은 비용을 부담하게 해 기업과 개인이 배출을 줄이도록 유도하는 제도다.',
+  3: '기준금리는 한국은행이 정하는 대표 금리다. 기준금리가 오르면 예금과 대출 금리도 오를 수 있어 소비와 투자가 줄어들 수 있다. 반대로 기준금리가 내리면 돈을 빌리는 부담이 낮아질 수 있다.',
+  4: '자유무역은 나라 사이의 상품 거래를 가급적 제한하지 않는 방식이다. 보호무역은 관세나 수입 규제를 통해 국내 산업을 보호하는 방식이다. 공급망 정책은 필요한 물품을 안정적으로 확보하면서 가격 부담이 지나치게 커지지 않도록 균형을 찾는 일이다.',
+  5: '상장은 회사의 주식을 공개 시장에서 거래할 수 있게 하는 절차다. 기술특례상장은 현재 매출이 적더라도 기술력과 성장 가능성을 평가해 상장 기회를 주는 제도다. 투자자를 보호하려면 회사가 제시한 기술과 매출 전망을 꼼꼼히 확인해야 한다.',
+  6: '공매도는 주식을 빌려 먼저 판 뒤, 나중에 다시 사서 갚는 거래다. 주가가 내리면 이익을 얻을 수 있지만, 주가가 오르면 손실이 커질 수 있다.',
+  7: '스테이블코인은 달러처럼 기준이 되는 자산과 비슷한 가치를 유지하도록 설계한 민간 디지털자산이다. CBDC는 중앙은행이 직접 발행하는 디지털 화폐다. 누가 발행하고 어떤 방식으로 가치를 보장하는지가 가장 큰 차이다.',
+  8: '토큰증권은 건물이나 미술품 같은 자산의 권리를 작은 단위로 나누어 디지털 형태로 발행한 증권이다. 적은 금액으로 투자할 기회를 넓힐 수 있지만, 어떤 권리를 사는지와 가격이 적절한지를 먼저 확인해야 한다.',
+  9: '회사가 번 돈을 직원 보상, 새 투자, 빚 상환, 주주 배당 등에 어떻게 나눌지 정하는 문제다. 회사가 오래 성장하려면 어느 한쪽에 치우치지 않고 배분 기준을 분명히 설명해야 한다.',
+  10: '복수거래소는 같은 주식을 둘 이상의 시장에서 거래할 수 있게 한 제도다. 거래시간이 늘고 수수료가 낮아질 수 있지만, 시장마다 가격과 거래 조건이 다를 수 있어 투자자에게 가장 유리한 곳을 선택하는 절차가 중요하다.',
+  11: '기업 밸류업은 회사의 가치를 높이기 위한 계획이다. 회사가 자금을 어디에 투자하고, 주주에게 어떻게 돌려주며, 의사결정을 얼마나 투명하게 할지 밝히는 과정이 포함된다.',
+  12: 'ESG 공시는 기업이 탄소를 얼마나 배출하고 기후변화에 어떻게 대비하는지 공개하는 제도다. 투자자는 이 정보를 바탕으로 기업의 위험과 대응 능력을 비교할 수 있다. 협력업체의 자료까지 포함해야 할 수 있어 정확한 측정과 검토가 중요하다.',
+  13: '노동관계 제도는 노동자가 회사와 대화하고 협상할 권리를 보장하면서, 파업이 협력업체와 소비자에게 미치는 영향도 함께 살핀다. 누구와 무엇을 협상할지, 손해에 대한 책임을 어떻게 나눌지를 명확히 정하는 것이 중요하다.',
+  14: '국채는 정부가 필요한 자금을 마련하기 위해 발행하는 채권이다. WGBI는 여러 나라의 국채로 구성된 세계적인 채권지수다. 한국 국채가 이 지수에 포함되면 지수를 따라 투자하는 자금이 유입될 수 있지만, 실제 규모는 금리와 환율 등에 따라 달라진다.',
+  15: '파생상품은 주식·환율·원자재 등의 미래 가격에 따라 가치가 달라지는 계약이다. 가격 변동 위험을 줄이는 데 활용할 수 있지만, 적은 돈으로 큰 규모를 거래하면 손실도 커질 수 있다.',
+  16: '기업가치평가는 회사가 앞으로 벌 것으로 예상되는 돈을 현재의 가치로 계산하는 작업이다. 예상 성장률이나 금리를 조금만 바꿔도 결과가 달라질 수 있으므로, 최종 숫자뿐 아니라 계산에 사용한 가정도 함께 살펴야 한다.',
+  17: '레그테크는 금융회사가 법과 규정을 잘 지키도록 데이터와 소프트웨어로 업무를 돕는 기술이다. 의심스러운 거래를 빠르게 찾을 수 있지만, 정상 거래를 잘못 판단하지 않도록 사람이 다시 확인해야 한다.',
+  18: '씬파일러는 금융 거래 기록이 적어 기존 방식으로 신용을 평가하기 어려운 사람을 뜻한다. 통신비나 공과금 납부 기록을 함께 활용하면 평가에 도움이 될 수 있지만, 개인정보 침해나 차별이 생기지 않도록 주의해야 한다.',
+  19: 'AI는 많은 거래 가운데 평소와 다른 움직임을 찾아 담당자에게 알릴 수 있다. 다만 의심 거래로 탐지되었다는 이유만으로 바로 제재해서는 안 되며, 사람이 근거를 확인한 뒤 최종 판단해야 한다.',
+  20: '세대 갈등은 젊은 세대와 고령 세대 가운데 누가 옳은지를 가리는 문제가 아니다. 연금, 주거, 금융서비스의 기회와 부담을 세대 사이에 어떻게 공정하게 나눌지 정하는 문제다.',
+  21: 'HBM은 AI 반도체가 많은 데이터를 빠르게 주고받도록 돕는 고성능 메모리다. 생산에는 대규모 공장과 장비, 기술 인력, 자금이 필요하므로 기업의 투자와 금융회사의 자금 지원에도 영향을 준다.'
+};
+D.forEach(item => {
+  Object.assign(item, EDITORIAL_REVISIONS[item.n] || {});
+  if (PLAIN_EXPLANATIONS[item.n]) item.bi = PLAIN_EXPLANATIONS[item.n];
+});
+
 let idx = 0;
 const $ = id => document.getElementById(id);
 const picker = $('picker');
 const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 D.forEach((t,i)=>{
-  const c=document.createElement('div');
+  const c=document.createElement('button');
+  c.type='button';
   c.className='tch'; c.dataset.cat=t.cat;
   c.innerHTML='<b>'+String(t.n).padStart(2,'0')+'</b>'+esc(t.label);
   c.onclick=()=>load(i);
@@ -149,12 +223,12 @@ function load(i){
     '<div class="term"><span class="tk">'+esc(b[0])+'</span><span class="tv">'+esc(b[1])+'</span></div>';
   $('easy').textContent=t.bi;
   const th=s=>splitTerm(s)[0].split('(')[0].trim();
-  $('tmap').innerHTML=(t.em||t.dm)?('<div class="tmt">이 비유가 번역한 것</div>'+
+$('tmap').innerHTML=(t.em||t.dm)?('<div class="tmt">핵심 개념과 해설</div>'+
     '<div class="tmr"><b>'+esc(th(t.eco))+'</b><span>'+esc(t.em||'')+'</span></div>'+
     '<div class="tmr"><b>'+esc(th(t.dig))+'</b><span>'+esc(t.dm||'')+'</span></div>'):'';
   $('flow').textContent=t.flow;
   $('count').textContent=(idx+1)+' / '+D.length;
-  picker.querySelectorAll('.tch').forEach((c,j)=>c.classList.toggle('on',j===idx));
+  picker.querySelectorAll('.tch').forEach((c,j)=>{c.classList.toggle('on',j===idx);c.setAttribute('aria-pressed',j===idx?'true':'false');});
 }
 $('prev').onclick=()=>load(idx-1);
 $('next').onclick=()=>load(idx+1);

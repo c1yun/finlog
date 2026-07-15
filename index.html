@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="description" content="부산대학교 핀로그의 금융 학습 포트폴리오 — 21개 주제 분석, 108개 용어 지식베이스, 168장 카드뉴스, 95쪽 보고서와 웹 시스템 구현 기록."><meta property="og:title" content="FinLog — 검증 가능한 금융 콘텐츠 아카이브"><meta property="og:description" content="공식 자료, AI 보조, 팀 교차 검토를 거쳐 금융 학습 결과를 검색 가능한 웹 자산으로 구조화했습니다.">
+<meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="description" content="부산대학교 핀로그가 금융 주제를 공부하고 토론하며 남긴 활동 사진과 결과물 기록."><meta property="og:title" content="FinLog — 금융을 읽고 기록한 학습 아카이브"><meta property="og:description" content="서로 다른 전공의 여섯 구성원이 금융 주제를 탐구하며 남긴 과정과 결과물입니다.">
 <link rel="icon" href="assets/images/brand/finlog-mark.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FinLog · 핀로그 포트폴리오</title>
+<title>FinLog · 금융 학습 아카이브</title>
 <link rel="stylesheet" href="assets/site-upgrade.css">
 <script defer src="assets/site-upgrade.js"></script>
 <style>
@@ -40,18 +40,52 @@ nav a.l:hover{background:rgba(91,176,232,.16);color:#fff}
 .hero .glow{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5}
 .hero .g1{width:380px;height:380px;background:#1d4e9b;top:-80px;right:6%}
 .hero .g2{width:300px;height:300px;background:#9a7b2e;bottom:-60px;left:2%}
-.hero .wrap{position:relative;z-index:2;padding:80px 24px}
+.hero .wrap{position:relative;z-index:2;width:100%;padding:80px 24px}
+.hero-overview{display:grid;grid-template-columns:minmax(0,.9fr) minmax(540px,1.1fr);gap:44px;align-items:center;width:100%}
+.hero-copy{min-width:0}
 .htag{display:inline-flex;align-items:center;gap:8px;background:rgba(91,176,232,.14);border:1px solid rgba(91,176,232,.4);color:var(--cyan2);font-weight:700;font-size:.84rem;padding:7px 15px;border-radius:30px}
-.hero h1{font-size:clamp(1.9rem,8vw,4.6rem);white-space:nowrap;font-weight:900;letter-spacing:-.035em;line-height:1.05;margin:30px 0 18px;color:#fff}
+.hero h1{font-size:clamp(2.25rem,5vw,4.25rem);white-space:normal;text-wrap:balance;font-weight:900;letter-spacing:-.035em;line-height:1.05;margin:26px 0 18px;color:#fff}
 .hero h1 .a{background:linear-gradient(100deg,var(--gold2),var(--cyan2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .sub{font-size:clamp(1.05rem,2.5vw,1.5rem);color:#d6e1f5;font-weight:600;max-width:720px;margin-top:18px}
 .hero .desc{color:var(--gray);max-width:640px;margin-top:26px;font-size:1.02rem}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:42px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
 .btn{padding:13px 24px;border-radius:30px;font-weight:700;font-size:.95rem;transition:.2s;cursor:pointer;border:1px solid transparent}
 .btn.p{background:var(--gold);color:#241a04}.btn.p:hover{background:var(--gold2)}
 .btn.s{background:transparent;border-color:var(--bd);color:#dce6f8}.btn.s:hover{border-color:var(--cyan);color:#fff}
+.hero-results{position:relative;overflow:hidden;padding:20px;border:1px solid rgba(134,200,245,.3);border-radius:22px;background:linear-gradient(155deg,rgba(20,47,91,.88),rgba(7,23,48,.9));box-shadow:0 28px 70px rgba(0,0,0,.32);backdrop-filter:blur(12px)}
+.hero-results::after{position:absolute;inset:-30% auto -30% -42%;z-index:3;width:24%;content:"";pointer-events:none;opacity:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),rgba(134,200,245,.24),transparent);filter:blur(2px);transform:skewX(-14deg)}
+.hero-results__head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:14px;padding:0 2px}
+.hero-results__head span{display:block;color:var(--gold2);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.hero-results__head h2{margin-top:3px;font-size:1.25rem;letter-spacing:-.02em}
+.hero-results__head p{color:#91a5c4;font-size:.73rem;white-space:nowrap}
+.hero-output-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.hero-output{display:grid;grid-template-rows:auto 1fr;min-width:0;min-height:0;overflow:hidden;border:1px solid rgba(134,200,245,.18);border-radius:13px;background:rgba(7,23,48,.74);transition:transform .22s ease,border-color .22s ease,background .22s ease}
+.hero-output:hover{transform:translateY(-2px);border-color:rgba(240,205,122,.58);background:rgba(16,43,82,.94)}
+.hero-output img{width:100%;height:auto;aspect-ratio:16/9;min-height:0;display:block;object-fit:cover;object-position:center;border-bottom:1px solid rgba(134,200,245,.16);background:#06162e}
+.hero-output--contain img{object-fit:cover}
+.hero-output__body{display:flex;min-width:0;min-height:76px;flex-direction:column;justify-content:center;padding:10px 11px}
+.hero-output__body strong{color:#fff;font-size:.9rem;line-height:1.25}
+.hero-output__body small{margin-top:5px;color:#9fb1cb;font-size:.7rem;line-height:1.35}
+.hero-output__body b{color:var(--cyan2);font-weight:800}
+.hero-output:focus-visible,.hero-results__more:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
+.hero-results__more{display:flex;align-items:center;gap:9px;margin-top:11px;padding:10px 12px;border:1px solid rgba(134,200,245,.14);border-radius:11px;color:#aebed3;background:rgba(5,19,41,.56);font-size:.69rem;line-height:1.35}
+.hero-results__more>span{color:var(--gold2);font-weight:800;white-space:nowrap}
+.hero-results__more>b{color:#dce7f6;font-weight:700;white-space:nowrap}
+.hero-results__more>i{width:3px;height:3px;flex:0 0 auto;border-radius:50%;background:#587194}
+.hero-results__more>strong{margin-left:auto;color:var(--cyan2);font-size:.68rem;white-space:nowrap}
+@keyframes hero-card-sweep{from{opacity:0;transform:translateX(34px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes hero-light-pass{0%{left:-42%;opacity:0}14%{opacity:1}72%{opacity:.72}100%{left:126%;opacity:0}}
+.lab-is-ready .hero-results::after{animation:hero-light-pass .95s cubic-bezier(.22,.72,.22,1) .12s both}
+.lab-is-ready .hero-output{animation:hero-card-sweep .34s cubic-bezier(.2,.76,.25,1) backwards}
+.lab-is-ready .hero-output:nth-child(1){animation-delay:.12s}
+.lab-is-ready .hero-output:nth-child(2){animation-delay:.19s}
+.lab-is-ready .hero-output:nth-child(3){animation-delay:.26s}
+.lab-is-ready .hero-output:nth-child(4){animation-delay:.33s}
+.lab-is-ready .hero-output:nth-child(5){animation-delay:.4s}
+.lab-is-ready .hero-output:nth-child(6){animation-delay:.47s}
 .hstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px;max-width:740px}
 .hstat .n{font-size:1.9rem;font-weight:900;color:var(--gold2);line-height:1}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .hstat .l{font-size:.8rem;color:var(--gray);margin-top:6px}
 
 /* generic cards */
@@ -80,16 +114,18 @@ nav a.l:hover{background:rgba(91,176,232,.16);color:#fff}
 .ba .easy{color:var(--teal);font-weight:600;font-size:.94rem}
 
 /* AI tools */
-.ai{display:flex;gap:16px;align-items:flex-start}
+.ai{display:flex;gap:16px;align-items:center}
 .ai .num{flex:0 0 52px;height:52px;border-radius:14px;background:linear-gradient(150deg,var(--cyan),var(--navy3));display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:1.3rem}
-.ai h3{font-size:1.15rem;color:#fff}.ai .k{color:var(--cyan2);font-size:.82rem;font-weight:700}
+.ai>div:last-child{min-width:0}.ai h3{color:#fff;font-size:1.08rem;line-height:1.35;word-break:keep-all}.ai .k{color:var(--cyan2);font-size:.82rem;font-weight:700}
 .ai p{color:var(--gray);font-size:.92rem;margin-top:6px}
 
 /* timeline */
 .tl{position:relative;margin-top:30px;padding-left:6px}
-.tl::before{content:'';position:absolute;left:18px;top:8px;bottom:8px;width:3px;background:linear-gradient(var(--cyan),var(--gold),var(--coral))}
+.tl::before{content:none}
 .tw{position:relative;padding:14px 16px 14px 56px;margin-bottom:10px;margin-left:34px;background:var(--card);border:1px solid var(--bd);border-radius:12px}
-.tw .dot{position:absolute;left:-26px;top:18px;width:24px;height:24px;border-radius:50%;background:var(--navy);border:3px solid var(--gold);box-shadow:0 0 0 4px rgba(226,176,74,.15)}
+.tw:not(:last-child)::before{content:'';position:absolute;left:-15px;top:30px;width:2px;height:calc(100% + 10px);border-radius:999px;background:linear-gradient(180deg,rgba(91,176,232,.65),rgba(226,176,74,.58));z-index:0}
+.tw .dot{position:absolute;left:-24px;top:20px;z-index:1;width:20px;height:20px;border-radius:50%;background:var(--navy);border:3px solid var(--gold2);box-shadow:0 0 0 3px #0a1c3c,0 0 0 5px rgba(226,176,74,.12)}
+.tw:last-child{margin-bottom:0}
 .tw .wk{font-size:.78rem;font-weight:800;color:var(--gold2);letter-spacing:.05em}
 .tw h4{color:#fff;font-size:1.05rem;margin:2px 0 3px}
 .tw p{color:var(--gray);font-size:.9rem}
@@ -151,10 +187,40 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
 .thk p{color:var(--gray);font-size:.85rem;line-height:1.5}
 @media(max-width:860px){.thook{grid-template-columns:1fr}}
 @media(max-width:860px){.grid2,.grid3,.grid4,.deliv,.team,.hub,.ef{grid-template-columns:1fr}.ef{display:block}.vs{height:40px}.gal{grid-template-columns:1fr 1fr}.hstats,.bstats{grid-template-columns:1fr 1fr}.ba{grid-template-columns:1fr}.ba .arrow{display:none}}
+@media(max-width:980px){
+  .hero{min-height:auto}
+  .hero .wrap{padding-top:58px;padding-bottom:58px}
+  .hero-overview{grid-template-columns:1fr;gap:28px}
+  .hero-copy{max-width:760px}
+  .hero .desc{margin-top:18px}
+  .hero-output-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero-output{grid-template-columns:1fr}
+  .hero-output img{width:100%;height:auto;aspect-ratio:16/9;min-height:0;border-right:0;border-bottom:1px solid rgba(134,200,245,.16)}
+  .hero-output__body{min-height:74px}
+}
+@media(max-width:640px){
+  .hero .wrap{padding:42px 18px 38px}
+  .hero h1{font-size:clamp(2.2rem,12vw,3.25rem);margin-top:22px}
+  .hero .sub{font-size:1rem;line-height:1.55}
+  .hero .desc{font-size:.86rem;line-height:1.65}
+  .hero .cta{display:grid;grid-template-columns:1fr 1fr;margin-top:22px}
+  .hero .btn{padding:11px 14px;text-align:center;font-size:.82rem}
+  .hero-results{padding:14px;border-radius:17px}
+  .hero-results__head{align-items:flex-start;flex-direction:column;gap:2px;margin-bottom:11px}
+  .hero-results__head h2{font-size:1.08rem}
+  .hero-results__head p{font-size:.68rem;white-space:normal}
+  .hero-output-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .hero-output img{height:auto;aspect-ratio:16/9}
+  .hero-output__body{min-height:72px;padding:9px 10px}
+  .hero-output__body strong{font-size:.78rem}
+  .hero-output__body small{font-size:.64rem}
+  .hero-results__more{flex-wrap:wrap;gap:5px 8px;padding:9px 10px;font-size:.63rem}
+  .hero-results__more>strong{width:100%;margin-left:0;margin-top:2px}
+}
 </style>
 <style>body{word-break:keep-all;overflow-wrap:break-word}</style>
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://c1yun.github.io/finlog/">
+<link rel="canonical" href="https://c1yun.github.io/finlog/"><meta property="og:url" content="https://c1yun.github.io/finlog/">
 <meta property="og:image" content="https://c1yun.github.io/finlog/og-v2.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -162,166 +228,199 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
 <link rel="stylesheet" href="assets/finlog-lab.css">
 <script defer src="assets/finlog-lab.js"></script>
 </head>
-<body class="finlog-lab" data-finlog-page="index">
+<body class="finlog-classic" data-finlog-enhancement-page="index">
 
 <nav><div class="wrap">
   <span class="logo"><img src="assets/images/brand/finlog-mark-small.png" alt="FinLog" style="height:1.35em;width:1.35em;border-radius:50%;vertical-align:middle;margin-right:7px" width="46" height="46" decoding="async">Fin<b>Log</b></span>
-  <a class="l" href="chatbot.html" style="color:#ffd97a">금융챗봇</a><a class="l" href="forum.html" style="color:#ffd97a">포럼 리포트</a><a class="l" href="translator.html" style="color:#ffd97a">번역과정</a><a class="l" href="cards.html" style="color:#ffd97a">카드뉴스</a><a class="l" href="report.html" style="color:#ffd97a">보고서</a>
-  <a class="l" href="#about">소개</a>
-  <a class="l" href="#collab">협업모델</a>
+  <a class="l" href="chatbot.html" style="color:#ffd97a">금융 챗봇</a><a class="l" href="forum.html" style="color:#ffd97a">포럼 리포트</a><a class="l" href="translator.html" style="color:#ffd97a">번역 과정</a><a class="l" href="cards.html" style="color:#ffd97a">카드뉴스</a><a class="l" href="report.html" style="color:#ffd97a">보고서</a>
+  <a class="l" href="#activity-album">활동 앨범</a>
+  <a class="l" href="#collab">검토 방식</a>
   <a class="l" href="#ai">AI 활용</a>
   <a class="l" href="#journey">활동 구조</a>
   <a class="l" href="#topics">금융 이슈</a>
   <a class="l" href="#works">산출물</a>
   <a class="l" href="#field">현장</a>
-  <a class="l" href="#team">팀</a>
+  <a class="l" href="#team">구성</a>
   <a class="l" href="#hub">콘텐츠 허브</a></div></nav>
+<main id="main-content">
 
 <header class="hero">
   <div class="glow g1"></div><div class="glow g2"></div>
   <div class="wrap">
-    <span class="htag">FINANCIAL TRANSLATION × AI · PNU · ONGOING</span>
-    <h1>복잡한 금융을,<br><span class="a">검증 가능한 콘텐츠</span>로 번역합니다</h1>
-    <div class="sub">금융 이슈 분석부터 지식베이스, 카드뉴스, 인터랙티브 웹까지.</div>
-    <p class="desc">핀로그(FinLog = Finance + Log)는 금융권 취업을 목표로 한 다학제 학습 공동체입니다. 팀은 금융·시사 주제를 함께 학습·토론하고 있으며, 그 결과를 108개 용어 지식베이스·168장 카드뉴스·95쪽 보고서·웹 아카이브로 지속해서 구조화하고 있습니다.</p>
-    <div class="cta">
-      <a class="btn p" href="chatbot.html">금융 챗봇 체험하기</a>
-      <a class="btn p" href="translator.html">번역 과정 살펴보기</a>
-      <a class="btn s" href="#works">산출물 보기</a>
-      <a class="btn s" href="insight.html">금융 분석 읽기</a>
-    </div>
-    <aside class="lab-console" aria-label="프로젝트 검증 체계 요약">
-      <div class="lab-console__head"><span>RESEARCH SYSTEM / FINLOG</span><strong><i></i> VERIFIED</strong></div>
-      <div class="lab-console__body">
-        <div class="lab-readout"><span>KNOWLEDGE BASE</span><b>108 TERMS</b></div>
-        <div class="lab-readout"><span>EDITORIAL OUTPUT</span><b>168 CARDS</b></div>
-        <div class="lab-readout"><span>DOCUMENTATION</span><b>95 PAGES</b></div>
-        <div class="lab-readout"><span>CROSS REVIEW</span><b>6 MEMBERS</b></div>
-        <div class="lab-pipeline" aria-label="자료 검증 흐름"><span>SOURCE</span><span>AI ASSIST</span><span>REVIEW</span><span>PUBLISH</span></div>
-        <p>공식 자료를 우선 확인하고, AI 보조 결과는 팀의 교차 검토를 거쳐 기준시점과 함께 기록합니다.</p>
+    <div class="hero-overview">
+      <div class="hero-copy">
+        <span class="htag">2026년 부산대학교 학습플러스코칭 공식 동아리</span>
+        <h1>금융을 공부하고, <span class="a">기록으로 남겼습니다</span></h1>
+        <div class="sub">서로 다른 전공의 여섯 사람이 금융·시사 주제를 읽고 토론하며 결과물을 만들고 있습니다.</div>
+        <p class="desc">핀로그는 자료 조사와 토론, 현장 학습에서 얻은 내용을 보고서·카드뉴스·챗봇·웹 기록으로 정리하는 금융 학습 모임입니다.</p>
+        <div class="cta">
+          <a class="btn p" href="#activity-album">활동 과정 보기</a>
+          <a class="btn s" href="#works">결과물 전체 보기</a>
+        </div>
       </div>
-    </aside>
-    <div class="hstats">
-      <div class="hstat"><div class="n" data-n="6" data-suf="명">6명</div><div class="l">다학제 팀 협업</div></div>
-      <div class="hstat"><div class="n" data-n="21" data-suf="개">21개</div><div class="l">금융·시사 주제 분석</div></div>
-      <div class="hstat"><div class="n" data-n="108" data-suf="개">108개</div><div class="l">금융용어 지식베이스</div></div>
-      <div class="hstat"><div class="n" data-n="168" data-suf="장">168장</div><div class="l">카드뉴스</div></div>
+      <div class="hero-results" aria-label="핀로그 주요 결과물">
+        <div class="hero-results__head"><div><span>FinLog archive</span><h2>주요 결과물</h2></div><p>각 항목을 선택하면 바로 확인할 수 있습니다.</p></div>
+        <div class="hero-output-grid">
+          <a class="hero-output" href="report.html"><img src="assets/images/portfolio/topic-reports.webp" alt="핀로그 구성원들이 함께 보고서를 검토하는 활동 사진" width="820" height="410" style="object-position:center 42%" decoding="async"><span class="hero-output__body"><strong>활동 보고서</strong><small><b>86쪽 공개본</b> · 학습·토론·현장 기록</small></span></a>
+          <a class="hero-output" href="cards.html"><img src="cards/stablecoin_01.png" alt="핀로그 스테이블코인 카드뉴스 표지" width="1080" height="1080" style="object-position:center 39%" decoding="async"><span class="hero-output__body"><strong>3분 금융 카드뉴스</strong><small><b>24세트·168장</b> · 주제별 해설</small></span></a>
+          <a class="hero-output" href="chatbot.html"><img src="assets/images/portfolio/finance-chatbot.webp" alt="핀로그 금융 챗봇 화면 미리보기" width="820" height="410" decoding="async"><span class="hero-output__body"><strong>금융 지식 챗봇</strong><small><b>108개 용어</b> · 지식베이스 검색</small></span></a>
+          <a class="hero-output" href="forum.html"><img src="assets/images/forum/opening-room-wide.webp" alt="디지털 금융 포럼 발표와 토론이 진행된 현장" width="1800" height="1350" style="object-position:center 44%" decoding="async"><span class="hero-output__body"><strong>디지털 금융 포럼</strong><small><b>현장 기록</b> · 발표와 토론 정리</small></span></a>
+          <a class="hero-output" href="deck.html"><img src="docs/deck/d001.jpg" alt="핀로그 결과 발표 자료 표지" width="1441" height="810" decoding="async"><span class="hero-output__body"><strong>결과 발표 자료</strong><small><b>17장 공개본</b> · 활동과 결과 요약</small></span></a>
+          <a class="hero-output" href="#activity-album"><img src="assets/images/activity/team-session-cafe.webp" alt="핀로그 구성원들이 카페에서 노트북과 태블릿을 펼쳐 놓고 함께 작업한 모습" width="1800" height="1350" style="object-position:center 43%" decoding="async"><span class="hero-output__body"><strong>활동 사진 앨범</strong><small><b>모임·현장</b> · 과정의 주요 장면</small></span></a>
+        </div>
+        <a class="hero-results__more" href="#works"><span>그 밖에 남긴 기록</span><b>금융·시사 21개 주제</b><i></i><b>블로그 24편</b><i></i><b>숏폼 5편</b><i></i><b>현직자 인터뷰 4인</b><strong>전체 보기 →</strong></a>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="recruiter-brief" aria-labelledby="recruiter-brief-title"><div class="wrap">
-  <div class="brief-intro"><span>RECRUITER BRIEF</span><h2 id="recruiter-brief-title">한눈에 보는<br>핀로그의 실행 방식</h2></div>
-  <div class="brief-item"><small>01 / OBJECTIVE</small><p>복잡한 금융 정보를 근거와 맥락이 드러나는 콘텐츠로 구조화합니다.</p></div>
-  <div class="brief-item"><small>02 / VALIDATION</small><p>공식 자료 확인, AI 보조, 전공 간 교차 검토를 순차적으로 거칩니다.</p></div>
-  <div class="brief-item"><small>03 / OUTPUT</small><p>108개 지식베이스, 168장 카드뉴스, 95쪽 보고서와 웹 아카이브를 축적했습니다.</p></div>
-  <div class="brief-item"><small>04 / COLLABORATION</small><p>상경·비상경 6인이 질문과 검토를 나누며 공동으로 학습하고 발행합니다.</p></div>
+<section id="activity-album" class="activity-album"><div class="wrap reveal">
+  <span class="eyebrow">Activity album</span>
+  <div class="bar"></div>
+  <h2>학습의 과정과 현장을 <span class="a">기록했습니다</span></h2>
+  <p class="lead">대면 모임과 온라인 검토, 현장 학습과 결과물 점검까지 활동의 주요 장면을 시간의 흐름에 따라 담았습니다.</p>
+  <div class="album-grid">
+    <figure class="album-shot album-shot--hero">
+      <img src="assets/images/activity/team-session-cafe.webp" alt="카페 테이블에 노트북과 태블릿을 펼쳐 두고 함께 학습하는 핀로그 구성원들" width="1800" height="1350" decoding="async">
+      <figcaption><b>정기 학습 세션</b><span>자료를 나누어 읽고, 해석이 엇갈린 부분을 함께 확인했습니다.</span></figcaption>
+    </figure>
+    <figure class="album-shot album-shot--portrait">
+      <img src="assets/images/activity/chatbot-qa.webp" alt="스마트폰 화면에서 금융 챗봇의 공매도 설명을 점검하는 모습" width="828" height="1800" loading="lazy" decoding="async">
+      <figcaption><b>결과물 점검</b><span>처음 읽는 사람도 이해할 수 있는지 직접 확인했습니다.</span></figcaption>
+    </figure>
+    <figure class="album-shot">
+      <img src="assets/images/activity/team-session-review.webp" alt="노트북과 태블릿으로 공동 문서를 검토하는 핀로그 구성원들" width="1800" height="1350" loading="lazy" decoding="async">
+      <figcaption><b>문서 검토</b><span>각자 맡은 내용을 공유하고 문장과 근거를 다듬었습니다.</span></figcaption>
+    </figure>
+    <figure class="album-shot album-shot--wide">
+      <img src="assets/images/activity/remote-review.webp" alt="온라인 회의에서 화면을 켜고 의견을 나누는 핀로그 구성원들" width="1800" height="1011" loading="lazy" decoding="async">
+      <figcaption><b>온라인 점검</b><span>온라인으로 진행 상황을 공유하고 검토를 이어갔습니다.</span></figcaption>
+    </figure>
+    <figure class="album-shot">
+      <img src="assets/images/activity/krx-history-exhibit.webp" alt="자본시장역사박물관에서 증권시장의 역사를 살펴본 전시 공간" width="1800" height="1350" loading="lazy" decoding="async">
+      <figcaption><b>현장 학습</b><span>제도와 시장의 역사를 직접 살펴보며 토론의 배경을 넓혔습니다.</span></figcaption>
+    </figure>
+    <figure class="album-shot">
+      <img src="assets/images/activity/krx-listing-plaque.webp" alt="한국거래소 체험 전시에서 핀로그 이름으로 만든 상장기념패" width="1800" height="1350" loading="lazy" decoding="async">
+      <figcaption><b>현장 체험</b><span>KRX 체험 전시에서 만든 기념패로, 실제 상장과는 무관합니다.</span></figcaption>
+    </figure>
+    <figure class="album-shot">
+      <img src="assets/images/forum/attendee-place-card.webp" alt="제7회 디지털금융포럼 참가 좌석에 놓인 정시윤 이름표와 행사 자료" width="1350" height="1800" loading="lazy" decoding="async">
+      <figcaption><b>포럼 참여</b><span>담당 교수님의 초대로 포럼에 참석해 주요 발표와 토론을 경청했습니다.</span></figcaption>
+    </figure>
+    <figure class="album-shot album-shot--full">
+      <img src="assets/images/forum/participant-survey.webp" alt="제7회 디지털금융포럼 세션을 마친 뒤 참가자들이 대화를 나누는 행사장 전경" width="1800" height="1350" loading="lazy" decoding="async">
+      <figcaption><b>현장 기록</b><span>주요 논의를 메모하고 팀과 공유할 수 있도록 다시 정리했습니다.</span></figcaption>
+    </figure>
+  </div>
 </div></section>
 
 <section id="about"><div class="wrap reveal">
-  <span class="eyebrow">Who we are</span>
+  <span class="eyebrow">What shaped the work</span>
   <div class="bar"></div>
-  <h2>우리는 <span class="a">금융 번역가</span>입니다</h2>
-  <p class="lead">금융 정보는 전문성과 시의성을 함께 요구합니다. 핀로그는 최신성, 논리적 설명, 학습 기록의 지속성이라는 세 과제를 <b style="color:#fff">AI 원데이 스프린트</b>와 <b style="color:#fff">네 가지 결과물(보고서·카드뉴스·챗봇·블로그) 발행</b>으로 보완했습니다. 정기 모임에서 토론, 원고 작성, 데이터베이스 반영을 하나의 흐름으로 운영합니다.</p>
+  <h2>서로 다른 전공의 질문으로 <span class="a">내용을 넓혔습니다</span></h2>
+  <p class="lead">전공과 금융 지식의 출발점이 서로 달랐습니다. 관련 지식이 있는 구성원은 충분히 설명하고, 처음 접하는 구성원의 질문은 내용을 다시 살피는 기준이 되었습니다. 역할을 나누되 중요한 판단과 최종 확인에는 모두가 참여했습니다.</p>
   <div class="grid3" style="margin-top:28px">
-    <div class="card"><div class="tag" style="color:var(--cyan2)">Mission</div><h3 style="color:#fff;margin:8px 0;font-size:1.2rem">명료하고 정확하게</h3><p style="color:var(--gray);font-size:.94rem">복잡한 금융 개념을 맥락과 근거가 드러나는 콘텐츠로 정리합니다.</p></div>
-    <div class="card"><div class="tag" style="color:var(--gold2)">Method</div><h3 style="color:#fff;margin:8px 0;font-size:1.2rem">원데이 스프린트</h3><p style="color:var(--gray);font-size:.94rem">하루 2시간, 토론부터 기록까지 그날 안에 완결합니다.</p></div>
-    <div class="card"><div class="tag" style="color:var(--teal)">Target</div><h3 style="color:#fff;margin:8px 0;font-size:1.2rem">금융권</h3><p style="color:var(--gray);font-size:.94rem">은행, 증권사, 금융공기업 등 금융권 취업을 향한 실전 역량.</p></div>
+    <div class="card"><div class="tag" style="color:var(--cyan2)">관점</div><h3 style="color:#fff;margin:8px 0;font-size:1.2rem">서로의 관점 듣기</h3><p style="color:var(--gray);font-size:.94rem">익숙한 주제에서도 다른 전공의 관점과 질문을 먼저 들었습니다.</p></div>
+    <div class="card"><div class="tag" style="color:var(--gold2)">설명</div><h3 style="color:#fff;margin:8px 0;font-size:1.2rem">설명의 기준 세우기</h3><p style="color:var(--gray);font-size:.94rem">전문 지식을 일방적으로 전달하지 않고 이해할 수 있는 표현으로 다시 설명했습니다.</p></div>
+    <div class="card"><div class="tag" style="color:var(--teal)">기록</div><h3 style="color:#fff;margin:8px 0;font-size:1.2rem">기록을 꾸준히 보완하기</h3><p style="color:var(--gray);font-size:.94rem">맡은 부분을 책임 있게 확인하고, 공개한 기록도 꾸준히 보완하고 있습니다.</p></div>
   </div>
 </div></section>
 
 <section id="collab" style="background:#0a1c3c"><div class="wrap reveal">
-  <span class="eyebrow">Differentiator ①</span>
+  <span class="eyebrow">Review structure</span>
   <div class="bar"></div>
-  <h2>전공자 × 비전공자 <span class="a">번역 협업</span></h2>
-  <p class="lead">단순한 찬반을 넘어, 전공별 관점을 반영한 이해관계자 역할 토론으로 논의를 확장합니다. 전공자가 분석의 구조를 세우고 비전공자가 전달의 명료성을 점검하는 <b style="color:#fff">교차 검토 과정</b>을 거칩니다.</p>
+  <h2>전공의 차이를 <span class="a">검토 기준으로 활용했습니다</span></h2>
+  <p class="lead">단순한 찬반을 넘어 전공별 관점을 반영한 역할 토론으로 논의를 확장했습니다. 분석 구조와 전달의 명료성을 각자의 관점에서 점검했습니다.</p>
   <div class="ef">
-    <div class="efc eng"><div class="who">전공자 · 상경계열 (경영2·경제1)</div><h3>논리의 뼈대</h3><p>자본시장 구조·유동성·정책 파급 효과를 분석해 탄탄한 논리적 골격을 세웁니다.</p></div>
+      <div class="efc eng"><div class="who">상경계열 (경영2·경제1)</div><h3>분석 구조</h3><p>자본시장 구조·유동성·정책 파급 효과를 분석해 논리적 근거를 구성합니다.</p></div>
     <div class="vs">×</div>
-    <div class="efc fil"><div class="who">비전공자 · 비상경 (철학·도시공학·영문)</div><h3>명료한 해설</h3><p>소비자 보호·금융 윤리 관점을 더하고, 전문 용어를 비전공자도 이해할 수 있는 언어로 정리합니다.</p></div>
+      <div class="efc fil"><div class="who">비상경계열 (철학·도시공학·영문)</div><h3>독자 관점의 해설</h3><p>소비자 보호·금융 윤리 관점을 더하고, 전문 용어를 독자가 명확히 이해할 수 있는 표현으로 정리합니다.</p></div>
   </div>
   <div class="flow">
-    <div class="tag" style="color:var(--gold2);margin-bottom:10px">실제 '번역' 결과 — Before ▶ After</div>
-    <div class="ba"><span class="term">공매도</span><span class="arrow">▶</span><span class="easy">차입한 주식을 먼저 매도한 뒤 재매수해 상환하는 거래</span></div>
-    <div class="ba"><span class="term">스테이블코인</span><span class="arrow">▶</span><span class="easy">기준자산과의 교환가치를 유지하도록 설계된 디지털자산</span></div>
-    <div class="ba"><span class="term">토큰증권(STO)</span><span class="arrow">▶</span><span class="easy">실물·금융자산의 권리를 디지털 단위로 분할한 증권</span></div>
-    <div class="ba"><span class="term">기업 밸류업</span><span class="arrow">▶</span><span class="easy">자본배분과 주주환원 계획을 통한 기업가치 제고 전략</span></div>
+    <div class="tag" style="color:var(--gold2);margin-bottom:10px">전문 개념의 재구성 — Before ▶ After</div>
+    <div class="ba"><span class="term">공매도</span><span class="arrow">▶</span><span class="easy">주식을 빌려 먼저 판 뒤, 나중에 다시 사서 갚는 거래</span></div>
+    <div class="ba"><span class="term">스테이블코인</span><span class="arrow">▶</span><span class="easy">달러처럼 기준이 되는 자산과 비슷한 가치를 유지하도록 설계한 디지털자산</span></div>
+    <div class="ba"><span class="term">토큰증권(STO)</span><span class="arrow">▶</span><span class="easy">건물이나 미술품 같은 자산의 권리를 작은 단위로 나누어 디지털 형태로 발행한 증권</span></div>
+    <div class="ba"><span class="term">기업 밸류업</span><span class="arrow">▶</span><span class="easy">회사의 가치를 높이기 위해 자금을 어디에 투자하고 주주환원을 어떻게 실행할지 밝히는 계획</span></div>
     <div class="ba"><span class="term">WGBI 편입</span><span class="arrow">▶</span><span class="easy">한국 국채가 글로벌 채권 벤치마크에 포함되는 절차</span></div>
   </div>
 </div></section>
 
 <section id="ai"><div class="wrap reveal">
-  <span class="eyebrow">Differentiator ②</span>
+  <span class="eyebrow">How we reviewed</span>
   <div class="bar"></div>
-  <h2>AI를 <span class="a">검증 보조 체계</span>로 활용합니다</h2>
-  <p class="lead">AI는 자료 탐색, 반론 도출, 문장 점검을 돕는 보조 수단으로 활용합니다. 프롬프트 기법을 정기적으로 공유하되, 사실 판단과 최종 검토의 책임은 사람이 맡는다는 원칙을 지킵니다.</p>
+  <h2>AI를 <span class="a">자료 검토의 보조 도구</span>로 활용합니다</h2>
+  <p class="lead">AI는 자료 탐색과 반론 도출, 문장 점검을 보조합니다. 활용 방법은 정기적으로 공유하되, 사실 확인과 최종 판단은 구성원이 직접 맡는다는 원칙을 지킵니다.</p>
   <div class="grid3" style="margin-top:28px">
-    <div class="card"><div class="ai"><div class="num">1</div><div><h3>제3자 관점의 반론 검토</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">토론이 한쪽으로 치우치지 않도록 AI로 반론과 누락된 관점을 탐색하고, 팀이 논리의 타당성을 다시 검토합니다.</p></div>
-    <div class="card"><div class="ai"><div class="num">2</div><div><h3>설명 방식의 확장</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">설명이 어려운 전문용어에 적합한 비유와 사례를 탐색해, 비전공자의 이해 가능성을 높입니다.</p></div>
-    <div class="card"><div class="ai"><div class="num">3</div><div><h3>문해력 스캐너</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">완성한 글을 비전공자 관점에서 검수해, 불필요한 전문용어와 모호한 문장을 정비합니다.</p></div>
+    <div class="card"><div class="ai"><div class="num">1</div><div><h3>반론·누락 점검</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">토론이 한쪽으로 치우치지 않도록 반론과 누락된 관점을 탐색하고, 팀이 논리의 타당성을 다시 검토합니다.</p></div>
+    <div class="card"><div class="ai"><div class="num">2</div><div><h3>비유·사례 탐색</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">전문 용어를 설명하는 데 적합한 비유와 사례 후보를 찾고, 내용의 정확성과 적절성을 다시 확인합니다.</p></div>
+    <div class="card"><div class="ai"><div class="num">3</div><div><h3>용어·문장 점검</h3></div></div><p style="color:var(--gray);font-size:.94rem;margin-top:14px">완성한 글을 독자의 관점에서 다시 읽고, 불필요한 전문 용어와 뜻이 모호한 문장을 찾아 정비합니다.</p></div>
   </div>
   <div class="flow" style="margin-top:22px">
-    <div class="tag" style="color:var(--gold2);margin-bottom:10px">AI QUALITY GATE · 공개 전 검증 흐름</div>
-    <div class="ba"><span class="term">1 · 원자료</span><span class="arrow">→</span><span class="easy">공식 자료와 현장 기록에서 사실 후보를 수집</span></div>
-    <div class="ba"><span class="term">2 · AI 보조</span><span class="arrow">→</span><span class="easy">반론·비유·누락 관점을 확장하되 정답으로 간주하지 않음</span></div>
-    <div class="ba"><span class="term">3 · 사람 검증</span><span class="arrow">→</span><span class="easy">전공자×비전공자 교차검토로 수치·용어·문해력을 확인</span></div>
-    <div class="ba"><span class="term">4 · 공개</span><span class="arrow">→</span><span class="easy">기준시점과 면책을 표시하고 수정 가능한 웹 자산으로 발행</span></div>
+    <div class="tag" style="color:var(--gold2);margin-bottom:10px">공개 전 검토 절차</div>
+    <div class="ba"><span class="term">1 · 원자료</span><span class="arrow">→</span><span class="easy">공식 자료와 현장 기록에서 확인이 필요한 사실과 수치를 수집</span></div>
+    <div class="ba"><span class="term">2 · AI 보조</span><span class="arrow">→</span><span class="easy">반론·비유·누락된 관점을 탐색하되 참고 자료로 한정</span></div>
+    <div class="ba"><span class="term">3 · 내용 검토</span><span class="arrow">→</span><span class="easy">전공별 관점에서 수치·용어·표현의 명료성을 점검</span></div>
+    <div class="ba"><span class="term">4 · 공개</span><span class="arrow">→</span><span class="easy">기준일·출처·이용 유의사항을 밝히고 수정 가능한 웹 문서로 공개</span></div>
   </div>
 </div></section>
 
 <section id="journey" style="background:#0a1c3c"><div class="wrap reveal">
   <span class="eyebrow">PROJECT FLOW</span>
   <div class="bar"></div>
-  <h2>활동의 <span class="a">구조</span></h2>
+  <h2>학습과 제작의 <span class="a">흐름</span></h2>
+  <h3 class="sr-only">단계별 활동</h3>
   <div class="tl">
-    <div class="tw"><div class="dot"></div><div class="wk">PHASE 01</div><h4>AI 워크플로 구축 · 논술 기초</h4><p>빅테크 독점·탄소세·기준금리·세대갈등으로 논술 체계 확립</p></div>
+    <div class="tw"><div class="dot"></div><div class="wk">PHASE 01</div><h4>AI 작업 흐름 구축 · 논술 기초</h4><p>빅테크 독점·탄소세·기준금리·세대갈등을 바탕으로 분석 문장과 근거 제시 방식을 연습</p></div>
     <div class="tw"><div class="dot"></div><div class="wk">PHASE 02</div><h4>자본시장 제도 분석</h4><p>공급망 정책·기술특례상장·공매도·시장 인프라 현안 종합</p></div>
     <div class="tw"><div class="dot"></div><div class="wk">PHASE 03</div><h4>디지털 금융 심화</h4><p>가상자산·블록체인·스테이블코인·CBDC·토큰증권</p></div>
-    <div class="tw"><div class="dot"></div><div class="wk">PHASE 04</div><h4>현장학습 · 현직자 인터뷰</h4><p>KRX 자본시장역사박물관 견학과 현직자 4인 인터뷰</p></div>
+    <div class="tw"><div class="dot"></div><div class="wk">PHASE 04</div><h4>현장 학습 · 현직자 인터뷰</h4><p>KRX 자본시장역사박물관 견학과 현직자 4인 인터뷰</p></div>
     <div class="tw"><div class="dot"></div><div class="wk">PHASE 05</div><h4>기업·시장 구조 심화</h4><p>대체거래소·밸류업·ESG 공시·거버넌스·파생상품 분석</p></div>
-    <div class="tw"><div class="dot"></div><div class="wk">PHASE 06</div><h4>퍼블리싱 · 결과 공유</h4><p>보고서·챗봇·카드뉴스·웹 아카이브 제작과 검증</p></div>
+    <div class="tw"><div class="dot"></div><div class="wk">PHASE 06</div><h4>발행 · 결과 공유</h4><p>보고서·챗봇·카드뉴스·웹 아카이브 제작과 검토</p></div>
   </div>
 </div></section>
 
 <section id="topics"><div class="wrap reveal">
   <span class="eyebrow">21 Topics</span>
   <div class="bar"></div>
-  <h2>금융·시사 이슈 <span class="a">21선</span></h2>
-  <p class="lead">각 주제는 'A4 분석 보고서 + 3분 핵심 해설 + 전공자×비전공자 토론'으로 정리했습니다.</p>
+  <h2>금융·시사 <span class="a">21개 주제</span></h2>
+  <p class="lead">각 주제는 분석 기록과 핵심 해설, 전공별 관점의 토론을 연계해 정리했습니다.</p>
+  <h3 class="sr-only">살펴본 주제 목록</h3>
   <div class="thook"><div class="thk"><div class="n">ISSUE 01</div><h4>빅테크 독점·플랫폼 규제</h4><p>네트워크 효과와 전환비용이 커질수록 플랫폼의 수수료·노출 정책이 시장경쟁에 미치는 영향도 확대된다.</p></div><div class="thk"><div class="n">ISSUE 02</div><h4>탄소세</h4><p>탄소 배출의 사회적 비용을 가격에 반영할 때 산업 경쟁력과 분배 부담을 함께 검토해야 한다.</p></div><div class="thk"><div class="n">ISSUE 03</div><h4>기준금리</h4><p>기준금리 변화는 대출·환율·자산가격을 거쳐 소비와 투자에 전달된다.</p></div><div class="thk"><div class="n">ISSUE 04</div><h4>보호무역·공급망 법제</h4><p>효율을 중시하는 자유무역과 회복력을 중시하는 공급망 정책 사이의 균형을 살폈다.</p></div><div class="thk"><div class="n">ISSUE 05</div><h4>기술특례상장·파두</h4><p>기술성과와 성장 가능성 중심의 상장 제도가 투자자 보호와 주관사 실사 책임에 던지는 과제를 검토했다.</p></div><div class="thk"><div class="n">ISSUE 06</div><h4>공매도 재개</h4><p>공매도의 가격발견 기능과 무차입 거래 방지를 위한 시장 감시 체계를 함께 분석했다.</p></div><div class="thk"><div class="n">ISSUE 07</div><h4>스테이블코인·CBDC</h4><p>가치 고정의 신뢰를 좌우하는 준비자산·상환·공시 구조를 중심으로 비교했다.</p></div><div class="thk"><div class="n">ISSUE 08</div><h4>토큰증권(STO)</h4><p>실물자산의 권리를 디지털 증권으로 분할할 때 발생하는 접근성과 투자자 보호 문제를 살폈다.</p></div><div class="thk"><div class="n">ISSUE 09</div><h4>초과이익 배분</h4><p>임직원 보상, 재투자, 주주환원 사이에서 지속 가능한 자본배분 원칙을 검토했다.</p></div><div class="thk"><div class="n">ISSUE 10</div><h4>복수거래소(NXT)</h4><p>복수거래소 도입이 거래비용·최선집행·시장감시에 미치는 영향을 정리했다.</p></div><div class="thk"><div class="n">ISSUE 11</div><h4>밸류업·대리인비용</h4><p>잉여현금의 투자·배당·자사주 소각 결정이 주주가치와 대리인 비용에 미치는 영향을 분석했다.</p></div><div class="thk"><div class="n">ISSUE 12</div><h4>ESG 공시</h4><p>기후위험 공시와 Scope 3 측정 부담, 단계적 제도 도입의 필요성을 검토했다.</p></div><div class="thk"><div class="n">ISSUE 13</div><h4>노동권과 경제안정</h4><p>실질적 교섭권 보장과 장기 쟁의의 경제적 외부효과 사이의 조정 기준을 살폈다.</p></div><div class="thk"><div class="n">ISSUE 14</div><h4>WGBI 편입</h4><p>국채 수요와 시장 신뢰에 미칠 가능성을 살피되 자금 유입의 불확실성을 구분했다.</p></div><div class="thk"><div class="n">ISSUE 15</div><h4>파생상품 리스크</h4><p>파생상품의 헤지 기능과 레버리지·증거금 위험을 함께 분석했다.</p></div><div class="thk"><div class="n">ISSUE 16</div><h4>기업가치평가</h4><p>현금흐름·시장배수·지배구조 가정이 기업가치평가에 미치는 영향을 정리했다.</p></div><div class="thk"><div class="n">ISSUE 17</div><h4>HBM·AI 반도체</h4><p>HBM 경쟁을 기술력뿐 아니라 설비투자·공급망·금융조달의 관점에서 살폈다.</p></div><div class="thk"><div class="n">ISSUE 18</div><h4>레그테크(RegTech)</h4><p>규정 준수 자동화의 효율과 오탐 관리·사람의 재검토 필요성을 함께 검토했다.</p></div><div class="thk"><div class="n">ISSUE 19</div><h4>대안데이터</h4><p>대안데이터의 금융포용 가능성과 개인정보·간접차별 위험을 함께 살폈다.</p></div><div class="thk"><div class="n">ISSUE 20</div><h4>AI 시장감시</h4><p>AI 시장감시의 탐지 효율과 설명 가능성, 사람의 최종 판단 원칙을 정리했다.</p></div><div class="thk"><div class="n">ISSUE 21</div><h4>세대 격차</h4><p>세대갈등을 연금·주거·자산형성 기회의 배분 문제로 재구성했다.</p></div></div></div></section>
 
 <section id="works" style="background:#0a1c3c"><div class="wrap reveal">
-  <span class="eyebrow">Portfolio</span>
+  <span class="eyebrow">Archive</span>
   <div class="bar"></div>
-  <h2>증거로 남긴 <span class="a">산출물 아카이브</span></h2>
-  <p class="lead">학습 과정과 결과를 다시 확인하고 활용할 수 있는 디지털 자산으로 축적했습니다.</p>
+  <h2>학습 과정에서 남긴 <span class="a">결과물</span></h2>
+  <p class="lead">주제 선정부터 자료 조사, 작성, 검토, 발행까지의 과정을 형식별로 정리했습니다. 이후 학습에서 다시 참고하고 보완할 수 있도록 웹 아카이브로 남겼습니다.</p>
+  <h3 class="sr-only">결과물 목록</h3>
   <div class="deliv">
-    <div class="dcard" role="link" tabindex="0" style="cursor:pointer" onclick="location.href='forum.html'" onkeydown="if(event.key==='Enter')location.href='forum.html'"><div class="ph" style="background-image:url('assets/images/portfolio/digital-finance-forum.webp');background-size:cover;background-position:25% 42%"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="5"/><line x1="19" y1="20" x2="19" y2="9"/></svg></div></div><div class="bd"><h4>디지털 금융 포럼 정리</h4><p>스테이블코인 vs CBDC 종합 정리. 보고서·PPT·웹·교정 전사문.</p><div class="meta">웹 · PPT · PDF · TXT</div></div></div>
-    <div class="dcard" role="link" tabindex="0" style="cursor:pointer" onclick="location.href='cards.html'" onkeydown="if(event.key==='Enter')location.href='cards.html'"><div class="ph" style="background-image:url('assets/images/portfolio/card-news-v2.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="14" height="14" rx="1.5"/><path d="M17 8h4v9a2 2 0 0 1-2 2H6"/><line x1="6" y1="9" x2="11" y2="9"/><line x1="6" y1="12.5" x2="14" y2="12.5"/><line x1="6" y1="16" x2="14" y2="16"/></svg></div></div><div class="bd"><h4>3분 금융 카드뉴스</h4><p>24개 주제를 질문·구조·쟁점·판단 기준의 7컷 에디토리얼로 구성했습니다.</p><div class="meta">24세트 · 168장</div></div></div>
-    <div class="dcard" role="link" tabindex="0" style="cursor:pointer" onclick="location.href='chatbot.html'" onkeydown="if(event.key==='Enter')location.href='chatbot.html'"><div class="ph" style="background-image:url('assets/images/portfolio/finance-chatbot.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><circle cx="8.5" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="15.5" cy="10.5" r="1" fill="currentColor" stroke="none"/></svg></div></div><div class="bd"><h4>금융 챗봇</h4><p>금융용어·사건사례 108개 지식베이스. 오프라인 작동 웹 챗봇.</p><div class="meta">HTML · 108개 용어</div></div></div>
-    <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/topic-reports.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h13a1 1 0 0 1 1 1V19a1 1 0 0 1-1 1H6.5A1.5 1.5 0 0 1 5 18.5z"/><path d="M5 16.5h14"/><line x1="9" y1="4.5" x2="9" y2="16.5"/></svg></div></div><div class="bd"><h4>주제별 보고서집</h4><p>16주제 A4 분석 + 전공자×비전공자 토론. 34쪽.</p><div class="meta">DOCX · PDF · 34p</div></div></div>
+    <a class="dcard" href="forum.html"><div class="ph" style="background-image:url('assets/images/portfolio/digital-finance-forum.webp');background-size:cover;background-position:25% 42%"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="5"/><line x1="19" y1="20" x2="19" y2="9"/></svg></div></div><div class="bd"><h4>디지털 금융 포럼 정리</h4><p>스테이블코인과 CBDC 관련 논의를 보고서·발표 자료·웹 리포트·검토용 전사문으로 정리했습니다.</p><div class="meta">웹 · PPT · PDF · TXT</div></div></a>
+    <a class="dcard" href="cards.html"><div class="ph" style="background-image:url('assets/images/portfolio/card-news-v2.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="14" height="14" rx="1.5"/><path d="M17 8h4v9a2 2 0 0 1-2 2H6"/><line x1="6" y1="9" x2="11" y2="9"/><line x1="6" y1="12.5" x2="14" y2="12.5"/><line x1="6" y1="16" x2="14" y2="16"/></svg></div></div><div class="bd"><h4>3분 금융 카드뉴스</h4><p>24개 주제를 질문·배경과 구조·쟁점·판단 기준에 따라 일곱 장으로 구성했습니다.</p><div class="meta">24세트 · 168장</div></div></a>
+    <a class="dcard" href="chatbot.html"><div class="ph" style="background-image:url('assets/images/portfolio/finance-chatbot.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><circle cx="8.5" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10.5" r="1" fill="currentColor" stroke="none"/><circle cx="15.5" cy="10.5" r="1" fill="currentColor" stroke="none"/></svg></div></div><div class="bd"><h4>금융 챗봇</h4><p>금융 용어와 관련 사례 108개를 담은 지식베이스 기반의 오프라인 웹 챗봇입니다.</p><div class="meta">HTML · 108개 용어</div></div></a>
+    <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/topic-reports.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5h13a1 1 0 0 1 1 1V19a1 1 0 0 1-1 1H6.5A1.5 1.5 0 0 1 5 18.5z"/><path d="M5 16.5h14"/><line x1="9" y1="4.5" x2="9" y2="16.5"/></svg></div></div><div class="bd"><h4>주제별 보고서집</h4><p>16개 주제의 A4 분석과 전공자·비전공자 토론을 34쪽으로 정리했습니다.</p><div class="meta">DOCX · PDF · 34p</div></div></div>
     <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/content-hub.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 5.5l4 4M4 20l1.2-4.2L16 5l3 3L8.2 18.8z"/></svg></div></div><div class="bd"><h4>블로그 · 숏폼</h4><p>콘텐츠 허브 블로그 24편과 1분 대화형 숏폼 대본 5편을 제작했습니다.</p><div class="meta">콘텐츠 허브</div></div></div>
     <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/ai-playbook.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/><rect x="10" y="10" width="4" height="4" rx="1"/><path d="M9 3.5v3M15 3.5v3M9 17.5v3M15 17.5v3M3.5 9h3M3.5 15h3M17.5 9h3M17.5 15h3"/></svg></div></div><div class="bd"><h4>AI 활용 플레이북</h4><p>세 가지 활용 원칙, 실무형 프롬프트 12선, 검증 체크리스트를 정리했습니다.</p><div class="meta">DOCX · PDF · 12p</div></div></div>
-    <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/krx-museum.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h16M12 4l8 5.5H4zM6 10v7M10 10v7M14 10v7M18 10v7M4 20h16"/></svg></div></div><div class="bd"><h4>KRX 박물관 견학기</h4><p>자본시장역사박물관(BIFC 51층) 현장학습 보고서.</p><div class="meta">DOCX · PDF</div></div></div>
-    <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/professional-interviews.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg></div></div><div class="bd"><h4>현직자 인터뷰</h4><p>관세사·회계사·SK하이닉스·기술보증기금 현직자 4인 인터뷰.</p><div class="meta">DOCX · PDF</div></div></div>
-    <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/interview-prep.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div></div><div class="bd"><h4>면접·논술 대비집</h4><p>금융권 인재상 + 논술 12주제 + 면접 30선.</p><div class="meta">DOCX · PDF · 16p</div></div></div>
+    <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/krx-museum.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h16M12 4l8 5.5H4zM6 10v7M10 10v7M14 10v7M18 10v7M4 20h16"/></svg></div></div><div class="bd"><h4>KRX 박물관 견학기</h4><p>자본시장역사박물관(BIFC 51층)에서 진행한 현장 학습을 보고서로 정리했습니다.</p><div class="meta">DOCX · PDF</div></div></div>
+    <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/professional-interviews.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg></div></div><div class="bd"><h4>현직자 인터뷰</h4><p>관세사·회계사·SK하이닉스·기술보증기금 현직자 4인의 실무 관점을 기록했습니다.</p><div class="meta">DOCX · PDF</div></div></div>
+    <div class="dcard"><div class="ph" style="background-image:url('assets/images/portfolio/interview-prep.webp');background-size:cover;background-position:center"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div></div><div class="bd"><h4>면접·논술 대비집</h4><p>금융권 인재상, 논술 12개 주제, 면접 질문 30개를 16쪽으로 구성했습니다.</p><div class="meta">DOCX · PDF · 16p</div></div></div>
   </div>
 </div></section>
 
-<section id="technology"><div class="wrap reveal">
-  <span class="eyebrow">Technical proof</span>
-  <div class="bar"></div>
-  <h2>챗봇 밖에서도 작동하는 <span class="a">기술 체계</span></h2>
-  <p class="lead">기능을 나열하는 데 그치지 않고, 콘텐츠가 수집·구조화·검증·발행되는 전 과정을 웹 기능과 재현 가능한 검사 절차로 구현했습니다.</p>
-  <div class="tech-layout">
+<section id="technology" class="supporting-record"><div class="wrap reveal">
+  <details class="tech-disclosure">
+    <summary><span>보조 기록</span><b>웹 구현과 품질 관리 방식 보기</b><small>팀의 기록을 찾기 쉽고 오래 보존하기 위해 활용한 기술적 지원 내용입니다.</small></summary>
+    <div class="tech-disclosure__body">
+      <div class="tech-layout">
     <div class="tech-capabilities">
       <article class="tech-cap"><span>01 / DISCOVERY</span><h3>전체 아카이브 검색</h3><p>어느 페이지에서든 <kbd>Ctrl</kbd> + <kbd>K</kbd>로 핵심 콘텐츠와 증거 자료를 탐색합니다.</p><button type="button" data-command-palette>검색 패널 열기</button></article>
-      <article class="tech-cap"><span>02 / KNOWLEDGE</span><h3>오프라인 지식 엔진</h3><p>108개 금융용어와 63개 FAQ를 정규화해 외부 API 없이도 검색·응답하도록 구성했습니다.</p></article>
+      <article class="tech-cap"><span>02 / KNOWLEDGE</span><h3>오프라인 지식 엔진</h3><p>108개 금융 용어와 63개 FAQ를 정규화해 외부 API 없이도 검색·응답하도록 구성했습니다.</p></article>
       <article class="tech-cap"><span>03 / ASSET PIPELINE</span><h3>이미지 자산 최적화</h3><p>168장 카드뉴스의 썸네일, WebP 변환, 지연 로딩, 키보드 확대 보기를 하나의 흐름으로 관리합니다.</p></article>
       <article class="tech-cap"><span>04 / QUALITY GATE</span><h3>자동 정적 검사</h3><p>페이지 링크, 이미지 설명·크기, 중복 ID, 스크립트 문법을 발행 전에 자동으로 확인합니다.</p></article>
     </div>
     <aside class="tech-console" aria-label="핀로그 콘텐츠 발행 파이프라인">
-      <div class="tech-console__head"><span>FINLOG_PIPELINE</span><b>STATUS / PASS</b></div>
+      <div class="tech-console__head"><span>FINLOG_PIPELINE</span><b>STATIC CHECK / PASS</b></div>
       <ol class="tech-pipeline">
         <li><i>01</i><div><b>SOURCE</b><span>공식 자료·현장 기록 수집</span></div></li>
         <li><i>02</i><div><b>NORMALIZE</b><span>용어·FAQ·이미지 구조화</span></div></li>
@@ -329,52 +428,45 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
         <li><i>04</i><div><b>VALIDATE</b><span>접근성·참조·문법 검사</span></div></li>
       </ol>
       <div class="tech-signals"><span><i></i>LOCAL-FIRST</span><span><i></i>KEYBOARD READY</span><span><i></i>CSP APPLIED</span></div>
-      <a href="https://github.com/c1yun/finlog" target="_blank" rel="noopener noreferrer">구현 근거 확인 · GitHub ↗</a>
+      <a href="https://github.com/c1yun/finlog" target="_blank" rel="noopener noreferrer">GitHub에서 구현 내역 보기 ↗</a>
     </aside>
-  </div>
-</div></section>
-
-<section class="band"><div class="wrap reveal" style="padding:54px 24px">
-  <div class="bstats">
-    <div class="bstat"><div class="n" data-n="21">21</div><div class="l">분석 주제</div></div>
-    <div class="bstat"><div class="n" data-n="108">108</div><div class="l">챗봇 금융용어</div></div>
-    <div class="bstat"><div class="n" data-n="168">168</div><div class="l">카드뉴스</div></div>
-    <div class="bstat"><div class="n" data-n="4">4</div><div class="l">현직자 인터뷰(인)</div></div>
-    <div class="bstat"><div class="n" data-n="100" data-suf="+">100+</div><div class="l">산출물 페이지</div></div>
-  </div>
+      </div>
+    </div>
+  </details>
 </div></section>
 
 <section id="field"><div class="wrap reveal">
   <span class="eyebrow">On the ground</span>
   <div class="bar"></div>
-  <h2>현장에서 <span class="a">배웠습니다</span></h2>
-  <p class="lead">교실 밖으로 — KRX 자본시장역사박물관, 제7회 디지털 금융 포럼, 현직자 인터뷰.</p>
+  <h2>현장 학습으로 <span class="a">검토 범위를 넓혔습니다</span></h2>
+  <p class="lead">KRX 자본시장역사박물관, 제7회 디지털 금융 포럼, 현직자 인터뷰를 통해 제도와 실무의 연결점을 확인했습니다.</p>
   <div class="gal">
-    <img src="assets/images/field/digital-finance-forum.webp" alt="제7회 디지털금융포럼 축사 세션을 현장에서 듣는 참가자들" width="1400" height="1050" decoding="async" loading="lazy">
-    <img src="assets/images/field/krx-history-gallery.webp" alt="자본시장역사박물관의 KOSPI 체험 전시를 살펴보는 핀로그 팀원들" width="1400" height="1050" decoding="async" loading="lazy">
-    <img src="assets/images/field/krx-market-gallery.webp" alt="자본시장역사박물관 Korea Value-up 전시 해설을 듣는 현장학습 모습" width="1400" height="1050" decoding="async" loading="lazy">
-    <img src="assets/images/field/finlog-team.webp" alt="핀로그 온라인 팀 미팅 단체 화면" width="1400" height="643" decoding="async" loading="lazy">
+    <figure><img src="assets/images/field/digital-finance-forum.webp" alt="제7회 디지털금융포럼 축사 세션을 현장에서 듣는 참가자들" width="1400" height="1050" decoding="async" loading="lazy"><figcaption><b>디지털금융포럼</b><span>발표와 토론을 경청하고 주요 내용을 기록했습니다.</span></figcaption></figure>
+    <figure><img src="assets/images/field/krx-history-gallery.webp" alt="자본시장역사박물관의 KOSPI 체험 전시를 살펴보는 핀로그 팀원들" width="1400" height="1050" decoding="async" loading="lazy"><figcaption><b>시장 체험 전시</b><span>거래 구조를 직접 살펴보며 추상적인 개념을 구체화했습니다.</span></figcaption></figure>
+    <figure><img src="assets/images/field/krx-market-gallery.webp" alt="자본시장역사박물관 Korea Value-up 전시 해설을 듣는 현장 학습 모습" width="1400" height="1050" decoding="async" loading="lazy"><figcaption><b>KRX 현장 학습</b><span>해설을 듣고 각자가 주목한 내용을 다시 이야기했습니다.</span></figcaption></figure>
+    <figure><img src="assets/images/field/finlog-team.webp" alt="핀로그 온라인 팀 미팅 단체 화면" width="1400" height="643" decoding="async" loading="lazy"><figcaption><b>온라인 정기 모임</b><span>거리와 일정이 달라도 꾸준히 얼굴을 마주하고 진행 상황을 공유했습니다.</span></figcaption></figure>
   </div>
 </div></section>
 
 <section id="team" style="background:#0a1c3c"><div class="wrap reveal">
-  <span class="eyebrow">Team</span>
+  <span class="eyebrow">People</span>
   <div class="bar"></div>
-  <h2>6인의 <span class="a">융합</span></h2>
-  <p class="lead">상경 3 + 비상경 3. 서로 다른 전공이 만나 '번역'이 일어납니다.</p>
+  <h2>여섯 사람이 함께 지켜 온 <span class="a">작업 원칙</span></h2>
+  <p class="lead">확실하지 않은 부분은 주저하지 않고 질문했으며, 맡은 일의 진행 상황은 꾸준히 공유했습니다. 의견이 다를 때에는 개인의 입장보다 근거와 공동의 목적을 중심으로 합의점을 찾았습니다.</p>
+  <h3 class="sr-only">팀의 전공 구성</h3>
   <div class="team">
-    <div class="tm"><div class="av" style="background:var(--cyan2)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.4 5.4l1.9 1.9M16.7 16.7l1.9 1.9M18.6 5.4l-1.9 1.9M7.3 16.7l-1.9 1.9"/></svg></div><div><h4>경영 · 경제 (3명) — 전공자</h4><p>자본시장·정책·재무 분석으로 논리의 뼈대를 세웁니다.</p></div></div>
-    <div class="tm"><div class="av" style="background:var(--gold2)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-6 7.2V19l-4 2v-8.8z"/></svg></div><div><h4>철학 · 도시공학 · 영문 (3명) — 비전공자</h4><p>윤리·소비자 관점과 명료한 해설을 담당합니다.</p></div></div>
+    <div class="tm"><div class="av" style="background:var(--cyan2)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.4 5.4l1.9 1.9M16.7 16.7l1.9 1.9M18.6 5.4l-1.9 1.9M7.3 16.7l-1.9 1.9"/></svg></div><div><h4>상경계열 · 경영·경제 (3명)</h4><p>자본시장·정책·재무 분석을 바탕으로 논리와 근거를 점검합니다.</p></div></div>
+    <div class="tm"><div class="av" style="background:var(--gold2)"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-6 7.2V19l-4 2v-8.8z"/></svg></div><div><h4>비상경계열 · 철학·도시공학·영문 (3명)</h4><p>윤리·소비자 관점과 명료한 해설을 담당합니다.</p></div></div>
   </div>
   <div class="team-note">
-    <div class="eyebrow">Collaboration protocol</div>
-    <h3>공동 학습, 교차 검토, 공동 발행</h3>
-    <p>핀로그의 결과물은 서로 다른 전공의 질문과 검토를 바탕으로 완성됩니다. 각자의 관점을 보태고 근거를 함께 확인하며, 공개 이후에도 수정과 보완을 이어가고 있습니다.</p>
+    <div class="eyebrow">Working notes</div>
+    <h3>자료 확인부터 사후 보완까지</h3>
+    <p>핀로그의 결과물은 전공별 질문과 검토를 거쳐 완성됩니다. 일정과 진행 상황을 공유하고 필요한 부분을 조정했으며, 공개 이후에도 기록을 보완하고 있습니다.</p>
     <div class="team-note__grid">
-      <div><b>DISCUSS</b><span>금융·시사 주제를 함께 선정하고 이해관계자 관점으로 토론합니다.</span></div>
-      <div><b>CROSS REVIEW</b><span>전공자는 논리와 제도를, 비전공자는 문장과 전달력을 점검합니다.</span></div>
-      <div><b>VERIFY</b><span>AI는 보조 도구로 활용하며 사실 판단과 최종 검토는 팀이 맡습니다.</span></div>
-      <div><b>PUBLISH</b><span>보고서·카드뉴스·챗봇·웹 아카이브를 공동 결과물로 축적합니다.</span></div>
+      <div><b>QUESTIONS</b><span>각자의 해석을 듣고, 의견이 다른 이유를 충분히 확인합니다.</span></div>
+      <div><b>STATUS</b><span>진행 상황과 필요한 지원을 꾸준히 공유합니다.</span></div>
+      <div><b>REVIEW</b><span>전공별 관점에서 논리, 제도, 문장과 전달력을 점검합니다.</span></div>
+      <div><b>UPDATE</b><span>결과물을 발행한 뒤에도 필요한 내용을 계속 보완합니다.</span></div>
     </div>
     <div class="team-note__links">
       <a href="insight.html">금융 분석 노트 읽기</a>
@@ -382,18 +474,22 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
       <a href="https://github.com/c1yun/finlog" target="_blank" rel="noopener">GitHub · c1yun/finlog</a>
     </div>
   </div>
-  <article class="contribution-note">
-    <div class="eyebrow">Individual contribution</div>
-    <h3>정시윤 · 웹 아카이브 및 콘텐츠 엔지니어링</h3>
-    <p>콘텐츠의 바탕은 팀의 공동 학습과 토론입니다. 그 결과를 실제로 열람·검색·검증할 수 있는 디지털 포트폴리오로 전환하는 과정에서 아래 범위를 담당했습니다.</p>
-    <div class="contribution-grid">
-      <div><b>INFORMATION ARCHITECTURE</b><span>9개 페이지의 정보 구조, 이동 체계, 반응형 화면 구현</span></div>
-      <div><b>DATA MODELING</b><span>금융용어 108개·FAQ 63개 지식베이스와 검색 로직 구조화</span></div>
-      <div><b>CONTENT SYSTEM</b><span>카드뉴스·보고서·발표자료·현장 기록의 웹 자산 통합</span></div>
-      <div><b>QUALITY & ACCESSIBILITY</b><span>이미지 최적화, 키보드 탐색, 링크·문법 자동 검사 구축</span></div>
+  <div class="role-disclosure">
+    <div><b>담당 범위 기록</b><p>결과물의 제작 배경을 확인할 필요가 있을 때 개인 역할을 구분해 볼 수 있도록 보조 정보로 남겼습니다.</p></div>
+    <button class="contribution-voice-trigger" type="button" data-contribution-dialog-open>담당 범위와 작업 원칙 보기</button>
+  </div>
+  <dialog class="contribution-voice" id="contribution-voice" aria-labelledby="contribution-voice-title">
+    <button class="contribution-voice__close" type="button" data-contribution-dialog-close aria-label="메모 닫기">×</button>
+    <div class="contribution-voice__body">
+      <div class="eyebrow">Author principles</div>
+      <h2 id="contribution-voice-title">정확하게 기록하고, 꾸준히 보완하는 태도</h2>
+      <p>핀로그는 서로 다른 전공 배경을 지닌 팀원들이 주제를 함께 고르고, 토론하고, 교차 검토하며 만든 기록입니다. 팀원들의 전공 지식과 질문 덕분에 자료의 논리와 표현을 계속 보완할 수 있었습니다.</p>
+      <p>자료를 정확히 다루고 함께 일하는 사람을 존중하는 태도를 실제 작업 과정에서 익히고자 했습니다. 저는 웹 아카이브의 정보 구조와 금융 용어 데이터 정리, 공개 전 품질 점검을 맡았습니다.</p>
+      <p>공동 학습의 결과가 일회성 자료에 머물지 않도록 웹 아카이브와 데이터베이스로 정리하고, 공개 이후의 보완을 이어가고 있습니다. 담당 범위는 분명히 밝히되, 성과는 팀이 함께 만든 결과로 소개하고자 합니다.</p>
+      <p class="contribution-voice__closing">동료의 전문성을 존중하고 맡은 범위는 끝까지 점검하는 원칙으로 작업했습니다.</p>
+      <div class="contribution-voice__signature">정시윤 · 웹 아카이브·데이터·품질 관리</div>
     </div>
-    <p class="contribution-note__closing">팀원들의 전공 지식과 비전공자 관점의 질문이 있었기에 콘텐츠를 완성할 수 있었으며, 개인 기여는 이를 지속 가능한 웹 시스템으로 정리한 범위에 한정해 설명합니다.</p>
-  </article>
+  </dialog>
 </div></section>
 
 <section id="hub"><div class="wrap reveal">
@@ -402,24 +498,25 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
   <h2>콘텐츠 <span class="a">허브</span></h2>
   <p class="lead">주요 산출물을 웹 아카이브에서 직접 확인할 수 있도록 연결했습니다.</p>
   <div class="hub">
-    <a class="hl" href="forum.html" style="text-decoration:none;color:inherit"><div><div class="t">디지털 금융 포럼 — 웹 리포트</div><div class="f">forum.html · 클릭하면 열림</div></div><span class="go">→</span></a>
-    <a class="hl" href="report.html#p15" style="text-decoration:none;color:inherit"><div><div class="t">주제별 심화 보고서</div><div class="f">report.html · 브라우저에서 바로 열람</div></div><span class="go">→</span></a>
-    <a class="hl" href="chatbot.html" style="text-decoration:none;color:inherit"><div><div class="t">금융 챗봇 (108용어)</div><div class="f">chatbot.html · 클릭하면 열림</div></div><span class="go">→</span></a>
-    <a class="hl" href="cards.html" style="text-decoration:none;color:inherit"><div><div class="t">카드뉴스 24세트 (168장)</div><div class="f">cards.html · 클릭하면 열림</div></div><span class="go">→</span></a>
-    <div class="hl"><div><div class="t">블로그 24편 · 숏폼 5편</div><div class="f">블로그_숏폼/</div></div><span class="tag">제출물 폴더</span></div>
-    <a class="hl" href="report.html#p7" style="text-decoration:none;color:inherit"><div><div class="t">AI 활용 보고서 · 면접 대비</div><div class="f">report.html · 브라우저에서 바로 열람</div></div><span class="go">→</span></a>
-    <a class="hl" href="report.html#p75" style="text-decoration:none;color:inherit"><div><div class="t">현직자 인터뷰 · 박물관 견학</div><div class="f">report.html · 브라우저에서 바로 열람</div></div><span class="go">→</span></a>
-    <a class="hl" href="translator.html" style="text-decoration:none;color:inherit"><div><div class="t">용어 번역과정 (인터랙티브 체험)</div><div class="f">translator.html · 클릭하면 열림</div></div><span class="go">→</span></a>
-    <a class="hl" href="report.html" style="text-decoration:none;color:inherit"><div><div class="t">전체 활동 보고서 (통합본 95쪽)</div><div class="f">report.html · 브라우저에서 바로 열람</div></div><span class="go">→</span></a>
-    <a class="hl" href="deck.html" style="text-decoration:none;color:inherit"><div><div class="t">최종 발표자료 (22장)</div><div class="f">deck.html · 브라우저에서 바로 열람</div></div><span class="go">→</span></a>
+    <a class="hl" href="forum.html" style="text-decoration:none;color:inherit"><div><div class="t">디지털 금융 포럼 — 웹 리포트</div><div class="f">현장 기록과 주요 논의 정리</div></div><span class="go">→</span></a>
+    <a class="hl" href="report.html#p16" style="text-decoration:none;color:inherit"><div><div class="t">주제별 심화 보고서</div><div class="f">주제별 분석과 토론 기록</div></div><span class="go">→</span></a>
+    <a class="hl" href="chatbot.html" style="text-decoration:none;color:inherit"><div><div class="t">금융 챗봇 (108개 용어)</div><div class="f">지식베이스 검색 및 관련 항목 탐색</div></div><span class="go">→</span></a>
+    <a class="hl" href="cards.html" style="text-decoration:none;color:inherit"><div><div class="t">카드뉴스 24세트 (168장)</div><div class="f">금융·시사 주제별 카드뉴스 아카이브</div></div><span class="go">→</span></a>
+    <div class="hl"><div><div class="t">블로그 24편 · 숏폼 5편</div><div class="f">주제별 해설과 대화형 콘텐츠 제작 기록</div></div><span class="tag">콘텐츠 기록</span></div>
+    <a class="hl" href="index.html#ai" style="text-decoration:none;color:inherit"><div><div class="t">AI 활용 원칙</div><div class="f">자료 검토의 보조 도구로 활용하는 세 가지 기준</div></div><span class="go">→</span></a>
+    <a class="hl" href="report.html#p75" style="text-decoration:none;color:inherit"><div><div class="t">현직자 인터뷰 · 박물관 견학</div><div class="f">실무 관점과 자본시장 현장 학습 기록</div></div><span class="go">→</span></a>
+    <a class="hl" href="translator.html" style="text-decoration:none;color:inherit"><div><div class="t">용어 번역 과정 · 인터랙티브 보기</div><div class="f">전문 개념과 핵심 해설의 대응 관계</div></div><span class="go">→</span></a>
+    <a class="hl" href="report.html" style="text-decoration:none;color:inherit"><div><div class="t">활동 보고서 (웹 공개본 86쪽)</div><div class="f">학습·토론·현장 활동·제작 과정을 엮은 선별 기록</div></div><span class="go">→</span></a>
+    <a class="hl" href="deck.html" style="text-decoration:none;color:inherit"><div><div class="t">핀로그 결과 발표 자료 (웹 공개본 17장)</div><div class="f">문제 정의·활동 방식·주요 산출물 요약</div></div><span class="go">→</span></a>
   </div>
 </div></section>
 
+</main>
 <footer>
   <div class="wrap">
     <div class="lg">Fin<span style="color:var(--gold2)">Log</span></div>
-    <p>금융을 함께 탐구하고 기록하다 · 부산대학교 학습플러스코칭 동아리 · 활동 진행 중</p>
-    <p style="margin-top:6px;color:#54678a">전공자와 비전공자가 함께 검토하고, AI를 보조 도구로 활용해 금융 정보를 명료하게 구조화합니다.</p>
+    <p>금융을 탐구하고 기록하는 학습 모임 · 부산대학교 학습플러스코칭 동아리 · 활동 진행 중</p>
+    <p style="margin-top:6px;color:#54678a">전공별 관점을 바탕으로 내용을 검토하고, AI를 보조 도구로 활용해 금융 정보를 근거와 맥락이 드러나도록 정리합니다.</p>
     <p style="margin-top:8px;color:#6d7f9f;font-size:.82rem">학습·정보 제공 목적이며 특정 금융상품의 매수·매도 또는 투자자문이 아닙니다. 수치·법령은 표기한 기준일 이후 변경될 수 있습니다. · <a href="sources.html" style="color:#8dbbd7">출처·검증 원장</a></p>
   </div>
 </footer>
@@ -431,6 +528,11 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
   function countUp(el){let end,suf;if(el.dataset.n!==undefined){end=+el.dataset.n;suf=el.dataset.suf||'';}else{const m=el.textContent.match(/(\d+)/);if(!m)return;end=+m[1];suf=el.textContent.replace(m[1],'');}let s=0;const step=Math.max(1,Math.round(end/40));const t=setInterval(()=>{s+=step;if(s>=end){s=end;clearInterval(t);}el.textContent=s+suf;},22);}
   const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.n').forEach(countUp);co.unobserve(e.target)}}),{threshold:.4});
   document.querySelectorAll('.bstats,.hstats').forEach(el=>co.observe(el));
+  const albumShots=[...document.querySelectorAll('.album-shot')];
+  if('IntersectionObserver' in window){
+    const albumObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-in-view');albumObserver.unobserve(entry.target)}}),{threshold:.16,rootMargin:'0px 0px -8%'});
+    albumShots.forEach((shot,index)=>{shot.style.setProperty('--album-delay',(index%3)*70+'ms');albumObserver.observe(shot)});
+  }else{albumShots.forEach(shot=>shot.classList.add('is-in-view'))}
 </script>
 <!--navlogo--></body>
 </html>

@@ -11,6 +11,10 @@
 
   onReady(() => {
     const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.pillnav').forEach((navigation) => {
+      navigation.setAttribute('role', 'navigation');
+      navigation.setAttribute('aria-label', '주요 페이지');
+    });
     document.querySelectorAll('a[href]').forEach((link) => {
       const href = link.getAttribute('href').split('#')[0];
       if (href === path || (path === '' && href === 'index.html')) {
@@ -70,7 +74,7 @@
     const hasPageLightbox = document.getElementById('lb');
     const selector = hasPageLightbox
       ? '.pages img, [data-lightbox]'
-      : '.pages img, .gal img, [data-lightbox]';
+      : '.pages img, .activity-album img, .gal img, [data-lightbox]';
     const images = [...document.querySelectorAll(selector)].filter((image) => {
       const src = image.getAttribute('src') || '';
       return src && src !== 'data:,' && !image.closest('.finlog-image-viewer');

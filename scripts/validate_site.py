@@ -53,8 +53,20 @@ def main() -> int:
         ]
         if len(descriptions) != 1:
             errors.append(f"{html_path.name}: expected exactly one meta description")
-        if not document.xpath("//body[contains(concat(' ',normalize-space(@class),' '),' finlog-lab ')]"):
-            errors.append(f"{html_path.name}: finlog-lab body class missing")
+        headings = document.xpath("//h1|//h2|//h3|//h4|//h5|//h6")
+        if len(document.xpath("//h1")) != 1:
+            errors.append(f"{html_path.name}: expected exactly one h1")
+        for previous, current in zip(headings, headings[1:]):
+            previous_level = int(previous.tag[1])
+            current_level = int(current.tag[1])
+            if current_level > previous_level + 1:
+                label = " ".join(current.text_content().split())[:60]
+                errors.append(
+                    f"{html_path.name}: heading level jumps h{previous_level} to "
+                    f"h{current_level}: {label}"
+                )
+        if not document.xpath("//body[contains(concat(' ',normalize-space(@class),' '),' finlog-classic ')]"):
+            errors.append(f"{html_path.name}: finlog-classic body class missing")
         if not document.xpath("//link[@href='assets/finlog-lab.css']"):
             errors.append(f"{html_path.name}: shared lab stylesheet missing")
         if not document.xpath("//script[@src='assets/finlog-lab.js']"):
@@ -117,6 +129,16 @@ def main() -> int:
                     for attribute in ("width", "height", "decoding"):
                         if image.get(attribute) is None:
                             errors.append(f"{html_path.name}: {src} missing {attribute}")
+
+        for figure in document.xpath("//figure[.//img]"):
+            if not figure.xpath(".//figcaption"):
+                image_src = figure.xpath("string(.//img[1]/@src)")
+                errors.append(f"{html_path.name}: image figure without caption: {image_src[:80]}")
+
+        for dialog in document.xpath("//dialog"):
+            labelled = bool(dialog.get("aria-label") or dialog.get("aria-labelledby"))
+            if not labelled:
+                errors.append(f"{html_path.name}: dialog without accessible label")
 
         references = []
         references.extend(document.xpath("//a[@href]/@href"))

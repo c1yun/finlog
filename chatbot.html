@@ -5,7 +5,7 @@
 <link rel="icon" href="assets/images/brand/finlog-mark.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>핀로그 금융 챗봇 · FinLog Bot</title>
-<meta name="description" content="금융용어 108개와 FAQ 63개를 외부 API 없이 검색할 수 있는 핀로그 오프라인 금융 지식 챗봇입니다.">
+<meta name="description" content="금융 용어 108개와 FAQ 63개를 외부 API 없이 검색할 수 있는 핀로그 오프라인 금융 지식 챗봇입니다.">
 <link rel="stylesheet" href="assets/site-upgrade.css">
 <script defer src="assets/site-upgrade.js"></script>
 <style>
@@ -46,7 +46,7 @@
   .tip .h{color:var(--blue)}
   .hl{background:#fff3c4;border-radius:3px;padding:0 1px}
   .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
-  .chip{font-size:.8rem;font-weight:600;background:#eaf0fb;color:var(--blue);border:1px solid #d6e1f5;padding:6px 12px;border-radius:20px;cursor:pointer;transition:.15s}
+  .chip{appearance:none;font-family:inherit;text-align:left;font-size:.8rem;font-weight:600;background:#eaf0fb;color:var(--blue);border:1px solid #d6e1f5;padding:6px 12px;border-radius:20px;cursor:pointer;transition:.15s}
   .chip:hover{background:var(--blue);color:#fff}
   .chip.cat{background:var(--navy);color:#fff;border-color:var(--navy)}
   .chip.cat:hover{background:var(--gold);color:var(--navy)}
@@ -60,6 +60,9 @@
   .quick{padding:9px 14px 10px;background:var(--card);display:flex;gap:7px;flex-wrap:wrap;border-top:1px solid var(--line)}
   .quick .chip{font-size:.85rem}
   .hint{font-size:.78rem;color:var(--mut);margin-top:8px;margin-bottom:2px;font-weight:600}
+  .chat-disclaimer{font-size:.68rem;color:#7a879b;margin-top:7px;line-height:1.45;font-weight:500}
+  .chat-disclaimer a{color:#5c6f8d;text-decoration:underline;text-underline-offset:2px}
+  .chat-disclaimer a:hover{color:var(--blue)}
 
   header .av{overflow:hidden;background:#fff;padding:0}
   header .av img{width:100%;height:100%;object-fit:cover}
@@ -102,7 +105,7 @@
 </style>
 <style>body{word-break:keep-all;overflow-wrap:break-word}</style>
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://c1yun.github.io/finlog/">
+<link rel="canonical" href="https://c1yun.github.io/finlog/chatbot.html"><meta property="og:url" content="https://c1yun.github.io/finlog/chatbot.html">
 <meta property="og:image" content="https://c1yun.github.io/finlog/og-v2.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -111,14 +114,14 @@
 <link rel="stylesheet" href="assets/finlog-lab.css">
 <script defer src="assets/finlog-lab.js"></script>
 </head>
-<body class="finlog-lab" data-finlog-page="chatbot">
-<div class="pillnav" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:99999;display:flex;gap:2px;align-items:center;background:rgba(10,27,58,.94);backdrop-filter:blur(8px);padding:5px 6px;border-radius:100px;border:1px solid #2c4570;font-family:Pretendard,Malgun Gothic,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.38)"><a href="index.html" title="FinLog 홈" style="display:flex;align-items:center;align-self:center;padding:0 4px 0 1px;text-decoration:none"><img src="assets/images/brand/finlog-mark-small.png" alt="FinLog" style="height:23px;width:23px;border-radius:50%;display:block" width="46" height="46" decoding="async"></a><a href="index.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">홈</a><a href="chatbot.html" style="background:#e6b34d;color:#10254a;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">챗봇</a><a href="forum.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">포럼</a><a href="translator.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">번역과정</a><a href="cards.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">카드뉴스</a><a href="report.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">보고서</a></div>
+<body class="finlog-classic" data-finlog-enhancement-page="chatbot">
+<div class="pillnav" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:99999;display:flex;gap:2px;align-items:center;background:rgba(10,27,58,.94);backdrop-filter:blur(8px);padding:5px 6px;border-radius:100px;border:1px solid #2c4570;font-family:Pretendard,Malgun Gothic,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.38)"><a href="index.html" title="FinLog 홈" style="display:flex;align-items:center;align-self:center;padding:0 4px 0 1px;text-decoration:none"><img src="assets/images/brand/finlog-mark-small.png" alt="FinLog" style="height:23px;width:23px;border-radius:50%;display:block" width="46" height="46" decoding="async"></a><a href="index.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">홈</a><a href="chatbot.html" style="background:#e6b34d;color:#10254a;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">챗봇</a><a href="forum.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">포럼</a><a href="translator.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">번역 과정</a><a href="cards.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">카드뉴스</a><a href="report.html" style="color:#dbe6fb;padding:6px 13px;border-radius:100px;font-size:13.5px;font-weight:800;text-decoration:none;white-space:nowrap">보고서</a></div>
 <div class="app">
   <header>
     <div class="av" id="hdav"></div>
     <div>
       <h1>핀로그 금융 챗봇</h1>
-      <p>금융용어·시사·면접 주제를 구조화한 검색형 지식베이스</p>
+      <p>금융 용어·시사·금융 직무 주제를 구조화한 검색형 지식베이스</p>
     </div>
     <div class="kbn" id="kbn"></div>
   </header>
@@ -126,10 +129,11 @@
   <div class="quick" id="quick"></div>
   <div class="composer">
     <input id="inp" placeholder="용어·질문을 입력하세요 (예: 공매도란 무엇인가요?)" autocomplete="off" aria-label="용어·질문 입력">
-    <button id="send" title="보내기">➤</button>
+    <button id="send" title="보내기" aria-label="질문 보내기">➤</button>
   </div>
 </div>
 <script src="assets/chatbot-data.js"></script>
+<script src="assets/chatbot-editorial-patches.js"></script>
 <script>
 const IMG = {"goma": "assets/images/chatbot/goma-avatar.png", "oreuso": "assets/images/chatbot/orso-avatar.png", "gomaFull": "assets/images/chatbot/goma-full.png", "oreusoFull": "assets/images/chatbot/orso-full.png"};
 const chat=document.getElementById('chat'), inp=document.getElementById('inp'), quick=document.getElementById('quick');
@@ -141,7 +145,7 @@ const STOP=['뭐','뭐야','뭔가요','무엇','무엇인가요','뜻','의미'
 function norm(s){return (s||'').toLowerCase().replace(/[\s()\[\]·,.\-_/?!~'"]/g,'');}
 function toks(s){return (s||'').toLowerCase().split(/[\s()\[\]·,.\-_/?!~'"]+/).map(w=>w.replace(/(이란|이라는|라는|에대해|에대한|에관해)$/,'')).filter(w=>w.length>=2&&!STOP.includes(w));}
 function escapeHtml(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
-function el(tag,cls,html){const d=document.createElement(tag);if(cls)d.className=cls;if(html!=null)d.innerHTML=html;return d;}
+function el(tag,cls,html){const isChip=tag==='div'&&cls&&cls.split(/\s+/).includes('chip');const d=document.createElement(isChip?'button':tag);if(isChip)d.type='button';if(cls)d.className=cls;if(html!=null)d.innerHTML=html;return d;}
 function scroll(){chat.scrollTop=chat.scrollHeight;}
 function addUser(t){const m=el('div','msg user');m.appendChild(el('div','b',escapeHtml(t)));chat.appendChild(m);scroll();}
 function botWrap(){const m=el('div','msg bot');m.appendChild(el('div','ic','<img src="'+IMG.goma+'" alt="고마 캐릭터" width="300" height="300" decoding="async">'));const b=el('div','b');m.appendChild(b);chat.appendChild(m);scroll();return b;}
@@ -236,14 +240,14 @@ function renderEntry(e,tk){
     let mi=''; if(x.indexOf('순기능')===0) mi='<img class="mi" src="'+IMG.oreuso+'" alt="오르소 캐릭터">'; else if(x.indexOf('역기능')===0) mi='<img class="mi" src="'+IMG.goma+'" alt="고마 캐릭터">';
     h+='<li>'+mi+highlight(x,tk)+'</li>';});h+='</ul>';}
   if(e.example) h+='<div class="ex"><b>사례</b> '+highlight(e.example,tk)+'</div>';
-  if(e.conclusion) h+='<div class="box concl"><span class="h">💡 핀로그의 결론</span>'+escapeHtml(e.conclusion)+'</div>';
-  if(e.interview_tip) h+='<div class="box tip"><span class="h">🎯 면접·자소서 활용</span>'+escapeHtml(e.interview_tip)+'</div>';
+  if(e.conclusion) h+='<div class="box concl"><span class="h">💡 핀로그 검토 요약</span>'+escapeHtml(e.conclusion)+'</div>';
+  if(e.interview_tip) h+='<div class="box tip"><span class="h">🎯 금융 직무 연결</span>'+escapeHtml(e.interview_tip)+'</div>';
   h+='</div>';
   return h;
 }
 function faqChips(b,e){
   if(!e.faqs||!e.faqs.length) return;
-  b.appendChild(el('div','hint','이 주제 자주 묻는 질문:'));
+  b.appendChild(el('div','hint','이 주제에 관해 자주 묻는 질문:'));
   const c=el('div','chips');
   e.faqs.forEach(f=>{const ch=el('div','chip faq','Q. '+escapeHtml(f.question));ch.onclick=()=>{FORCE_FAQ=f;ask('Q. '+f.question);};c.appendChild(ch);});
   b.appendChild(c);
@@ -312,7 +316,7 @@ function answer(q){
     const b=botWrap();
     const ch1=sg.term.charAt(sg.term.length-1).charCodeAt(0);
     const josa=(ch1>=0xac00&&ch1<=0xd7a3&&(ch1-0xac00)%28!==0)?'을':'를';
-    b.innerHTML='음… <b>"'+escapeHtml(q)+'"</b>는 잘 못 찾았어요. 혹시 <b>\''+escapeHtml(sg.term)+'\'</b>'+josa+' 찾으셨나요?';
+    b.innerHTML='<b>"'+escapeHtml(q)+'"</b>에 해당하는 항목을 찾지 못했습니다. 혹시 <b>\''+escapeHtml(sg.term)+'\'</b>'+josa+' 찾으셨나요?';
     const c=el('div','chips');
     const ch=el('div','chip','▶ \''+escapeHtml(sg.term)+'\' 보기');ch.onclick=()=>ask(sg.term);c.appendChild(ch);
     b.appendChild(c); scroll(); return;
@@ -345,8 +349,8 @@ function allTermsBrowse(b){
 }
 // quick bar: 21주제 + categories
 (function(){
-  const t=el('div','chip cat','🎓 핀로그 학습주제'); t.onclick=()=>{
-    const b=botWrap(); b.innerHTML='핀로그가 검토한 <b>21개 주제</b>입니다. 각 항목에서 주요 결론과 면접 관점을 확인할 수 있습니다.';
+  const t=el('div','chip cat','🎓 핀로그 학습 주제'); t.onclick=()=>{
+    const b=botWrap(); b.innerHTML='핀로그가 검토한 <b>21개 주제</b>입니다. 각 항목에서 핵심 설명과 금융 직무 관점을 확인할 수 있습니다.';
     const c=el('div','chips'); TOPICS.forEach(e=>{const ch=el('div','chip',escapeHtml(e.term));ch.onclick=()=>ask(e.term);c.appendChild(ch);});
     b.appendChild(c); scroll();
   }; quick.appendChild(t);
@@ -358,10 +362,10 @@ document.getElementById('hdav').innerHTML='<img src="'+IMG.goma+'" alt="고마 �
 (function(){
   const b=botWrap();
   b.innerHTML='';
-  b.appendChild(el('div','mascots','<div class="mc"><img src="'+IMG.oreusoFull+'" alt="상승장을 상징하는 오르소 캐릭터" width="128" height="240" decoding="async"><span class="nm o">안녕, 내 이름은 상승장(Bull)을 의미하는 오르소야!</span></div><div class="mc"><img src="'+IMG.gomaFull+'" alt="하락장을 상징하는 고마 캐릭터" width="158" height="240" decoding="async"><span class="nm g">안녕, 내 이름은 하락장(Bear)을 의미하는 고마야!</span></div>'));
+  b.appendChild(el('div','mascots','<div class="mc"><img src="'+IMG.oreusoFull+'" alt="상승장을 상징하는 오르소 캐릭터" width="128" height="240" decoding="async"><span class="nm o">상승장을 상징하는 오르소입니다.</span></div><div class="mc"><img src="'+IMG.gomaFull+'" alt="하락장을 상징하는 고마 캐릭터" width="158" height="240" decoding="async"><span class="nm g">하락장을 상징하는 고마입니다.</span></div>'));
   /* 인사말 라인 제거 — 마스코트가 각자 자기소개 */
-  b.appendChild(el('div','welsub','금융용어부터 시사 쟁점, 면접 활용까지 함께 정리해 드릴게요.'));
-  b.appendChild(el('div','hint','학습·정보 제공용이며 투자 권유가 아닙니다. 오르소·고마 비주얼은 Gemini를 활용해 생성하고 핀로그가 콘셉트·편집·브랜딩했습니다. · <a href="sources.html">출처·검증 원장</a>'));
+  b.appendChild(el('div','welsub','금융 용어부터 시사 쟁점과 금융 직무 관점까지 함께 정리해 드립니다.'));
+  b.appendChild(el('div','chat-disclaimer','학습·정보 제공용이며 투자 권유가 아닙니다. · <a href="sources.html">출처·검증 원장</a>'));
   // 오늘의 용어(날짜 기반 결정론적 선택)
   (function(){
     const td=KB[new Date().getDate()%KB.length]; if(!td) return;
@@ -372,7 +376,7 @@ document.getElementById('hdav').innerHTML='<img src="'+IMG.goma+'" alt="고마 �
     card.appendChild(c); b.appendChild(card);
   })();
   b.appendChild(el('div','hint','이렇게 물어보세요'));
-  const pops=['우리나라 밸류업과 관련된 정보들 알려줘.','국내 빅테크에 관련된 정보들 알려줘.'];
+  const pops=['국내 기업 밸류업 제도를 설명해 주세요.','국내 빅테크 규제의 주요 쟁점을 설명해 주세요.'];
   const c=el('div','chips'); c.style.flexDirection='column'; c.style.alignItems='flex-start'; pops.forEach(p=>{const ch=el('div','chip',p);ch.onclick=()=>ask(p);c.appendChild(ch);}); b.appendChild(c);
 })();
 </script>

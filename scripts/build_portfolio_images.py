@@ -49,7 +49,7 @@ def build_card_news_preview() -> Path:
     add_grid(draw, canvas.size, 72, (18, 37, 58))
     draw.rectangle((0, 0, 1400, 92), fill=(8, 14, 22))
     draw.line((0, 91, 1400, 91), fill=(34, 48, 68), width=2)
-    draw.text((64, 27), "FINLOG / EDITORIAL SYSTEM", font=font(27, bold=True), fill=(242, 246, 251))
+    draw.text((64, 27), "FINLOG / LEARNING ARCHIVE", font=font(27, bold=True), fill=(242, 246, 251))
     draw.text((1060, 32), "24 SETS / 168 CARDS", font=font(19, bold=True), fill=(98, 215, 255))
 
     sources = [
@@ -74,12 +74,12 @@ def build_social_preview() -> Path:
     add_grid(draw, canvas.size, 48, (12, 28, 44))
     draw.rectangle((0, 0, 1200, 9), fill=(98, 215, 255))
 
-    draw.text((72, 55), "FINLOG / AI RESEARCH LAB", font=font(25, bold=True), fill=(98, 215, 255))
-    draw.text((72, 126), "복잡한 금융을,", font=font(58, bold=True), fill=(242, 246, 251))
-    draw.text((72, 204), "검증 가능한 콘텐츠로", font=font(58, bold=True), fill=(242, 246, 251))
-    draw.text((72, 300), "공식 자료 · AI 보조 · 팀 교차 검토 · 웹 발행", font=font(24), fill=(150, 167, 188))
+    draw.text((72, 55), "FINLOG / LEARNING ARCHIVE", font=font(25, bold=True), fill=(98, 215, 255))
+    draw.text((72, 126), "함께 공부하고,", font=font(58, bold=True), fill=(242, 246, 251))
+    draw.text((72, 204), "기록으로 남겼습니다", font=font(58, bold=True), fill=(242, 246, 251))
+    draw.text((72, 300), "공식 자료 확인 · 팀 토론 · 교차 검토 · 웹 기록", font=font(24), fill=(150, 167, 188))
 
-    metrics = [("108", "TERMS"), ("168", "CARDS"), ("95", "PAGES"), ("6", "MEMBERS")]
+    metrics = [("108", "TERMS"), ("168", "CARDS"), ("86", "PAGES"), ("6", "MEMBERS")]
     x = 72
     for number, label in metrics:
         draw.text((x, 395), number, font=font(36, bold=True), fill=(242, 246, 251))
@@ -89,7 +89,7 @@ def build_social_preview() -> Path:
     panel = (760, 72, 1128, 548)
     draw.rounded_rectangle(panel, radius=18, fill=(8, 14, 22), outline=(52, 71, 96), width=2)
     draw.line((760, 126, 1128, 126), fill=(34, 48, 68), width=2)
-    draw.text((786, 91), "RESEARCH SYSTEM", font=font(17, bold=True), fill=(150, 167, 188))
+    draw.text((786, 91), "EDITORIAL FLOW", font=font(17, bold=True), fill=(150, 167, 188))
     draw.ellipse((1066, 94, 1080, 108), fill=(96, 214, 177))
     draw.text((1088, 91), "PASS", font=font(14, bold=True), fill=(96, 214, 177))
 
