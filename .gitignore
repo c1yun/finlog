@@ -1,1 +1,4 @@
 .claude/
+.qa/
+__pycache__/
+*.pyc

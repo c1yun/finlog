@@ -1,0 +1,13 @@
+{
+  "schema_version": "finlog-research-note-2.1",
+  "source": "cards_content.json",
+  "source_sha256": "ad619379b27c07fe2becf2d5efcd44aea82624fce4671a78b7b9d55d22df9e9d",
+  "sets": 24,
+  "cards_per_set": 7,
+  "rendered_cards": 168,
+  "dimensions": [
+    1080,
+    1080
+  ],
+  "copy_policy": "verbatim-from-structured-source"
+}
