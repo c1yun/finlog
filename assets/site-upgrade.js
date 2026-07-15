@@ -11,6 +11,18 @@
 
   onReady(() => {
     const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav, .pillnav, .slinks').forEach((navigation) => {
+      const chatbotLink = navigation.querySelector('a[href="chatbot.html"]');
+      if (!chatbotLink || navigation.querySelector('a[href="team.html"]')) return;
+      const teamLink = chatbotLink.cloneNode(false);
+      teamLink.href = 'team.html';
+      teamLink.textContent = '팀 소개';
+      teamLink.classList.remove('on', 'active');
+      teamLink.removeAttribute('aria-current');
+      teamLink.style.removeProperty('background');
+      if (navigation.classList.contains('pillnav')) teamLink.style.color = '#dbe6fb';
+      chatbotLink.before(teamLink);
+    });
     document.querySelectorAll('.pillnav').forEach((navigation) => {
       navigation.setAttribute('role', 'navigation');
       navigation.setAttribute('aria-label', '주요 페이지');
@@ -47,7 +59,8 @@
     let progressQueued = false;
     const updateProgress = () => {
       const max = document.documentElement.scrollHeight - innerHeight;
-      progress.style.width = `${max > 0 ? Math.min(100, scrollY / max * 100) : 0}%`;
+      const ratio = max > 0 ? Math.max(0, Math.min(1, scrollY / max)) : 0;
+      progress.style.transform = `scaleX(${ratio})`;
       progressQueued = false;
     };
     addEventListener('scroll', () => {
