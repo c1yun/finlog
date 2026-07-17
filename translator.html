@@ -513,6 +513,7 @@ D.forEach(item => {
 });
 
 let idx = 0;
+let curCat = 'all';
 const $ = id => document.getElementById(id);
 const picker = $('picker');
 const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -530,6 +531,7 @@ $('cSoc').textContent='시사 '+D.filter(t=>t.cat==='soc').length;
 document.querySelectorAll('.cat').forEach(btn=>{
   btn.onclick=()=>{
     const cat=btn.dataset.cat;
+    curCat=cat;
     document.querySelectorAll('.cat').forEach(b=>b.classList.toggle('on',b===btn));
     picker.querySelectorAll('.tch').forEach(c=>c.classList.toggle('hide',cat!=='all'&&c.dataset.cat!==cat));
   };
@@ -560,8 +562,15 @@ $('tmap').innerHTML=(t.em||t.dm)?('<div class="tmt">어려운 말을 다시 풀�
   $('count').textContent=(idx+1)+' / '+D.length;
   picker.querySelectorAll('.tch').forEach((c,j)=>{c.classList.toggle('on',j===idx);c.setAttribute('aria-pressed',j===idx?'true':'false');});
 }
-$('prev').onclick=()=>load(idx-1);
-$('next').onclick=()=>load(idx+1);
+function step(dir){
+  let j=idx;
+  for(let k=0;k<D.length;k++){
+    j=(j+dir+D.length)%D.length;
+    if(curCat==='all'||D[j].cat===curCat){load(j);return;}
+  }
+}
+$('prev').onclick=()=>step(-1);
+$('next').onclick=()=>step(1);
 load(0);
 </script>
 </body>

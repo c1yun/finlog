@@ -275,7 +275,7 @@ function catChips(b,label){
 
 let FORCE_FAQ=null;
 function answer(q){
-  if(FORCE_FAQ){const f=FORCE_FAQ;FORCE_FAQ=null;const b=botWrap();b.innerHTML='<div class="ans"><div class="short">'+escapeHtml(f.question)+'</div><div class="detail">'+escapeHtml(f.answer)+'</div></div>';scroll();return;}
+  if(FORCE_FAQ){const f=FORCE_FAQ;FORCE_FAQ=null;typingOff();const b=botWrap();b.innerHTML='<div class="ans"><div class="short">'+escapeHtml(f.question)+'</div><div class="detail">'+escapeHtml(f.answer)+'</div></div>';scroll();return;}
   typingOff();
   const tk=toks(q);
   const FOREIGN=['미국','해외','글로벌','일본','중국','유럽','영국','인도','대만','실리콘밸리','월가'];
@@ -306,7 +306,7 @@ function answer(q){
   }
   if(res.length && res[0].s>=50){
     const e=res[0].e; const b=botWrap();
-    const pre=hasForeign?'<div class="short">핀로그 지식베이스는 <b>국내 금융 이슈</b>를 중심으로 구성되어 있습니다. 관련성이 높은 국내 항목을 제시합니다.</div>':'';
+    const pre=hasForeign?'<div class="short">해외 이슈는 <b>한국과 연결되는 주제</b> 위주로 일부만 다루고 있습니다. 가장 관련성이 높은 항목을 제시합니다.</div>':'';
     b.innerHTML=pre+renderEntry(e,tk);
     faqChips(b,e); sameTopicChips(b,e); scroll(); return;
   }
