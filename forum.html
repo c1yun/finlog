@@ -104,7 +104,7 @@
   /* gallery */
   .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   .gal figure{margin:0;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 6px 18px rgba(10,31,68,.16);cursor:zoom-in}
-  .gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:.4s}
+  .gal img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;transition:.4s}
   .gal figure:hover img{transform:scale(1.05);opacity:.92}
   .gal figcaption{font-size:.82rem;color:var(--mut);padding:9px 11px;background:#fff}
 
@@ -435,7 +435,8 @@ nav .wrap{height:52px}
     });
   });
   // reveal on scroll
-  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+  // threshold must stay 0: a tall section can never reach a % threshold inside a short viewport
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 <!--navlogo--></body>

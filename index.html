@@ -528,7 +528,8 @@ footer p{color:var(--grayd);font-size:.86rem;margin-top:8px}
 </footer>
 
 <script>
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
+  // threshold must stay 0: a tall section can never reach a % threshold inside a short viewport
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:0,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   // count-up
   function countUp(el){let end,suf;if(el.dataset.n!==undefined){end=+el.dataset.n;suf=el.dataset.suf||'';}else{const m=el.textContent.match(/(\d+)/);if(!m)return;end=+m[1];suf=el.textContent.replace(m[1],'');}let s=0;const step=Math.max(1,Math.round(end/40));const t=setInterval(()=>{s+=step;if(s>=end){s=end;clearInterval(t);}el.textContent=s+suf;},22);}

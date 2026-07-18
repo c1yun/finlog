@@ -92,6 +92,12 @@ body {
 
 .finlog-classic .toc { top: 52px !important; }
 
+/* width/height attributes are CLS hints only — without this, the height hint
+   (e.g. height="1350") wins over CSS width:100% and stretches every photo. */
+img:where([width][height]) {
+  height: auto;
+}
+
 img[data-finlog-image] {
   transition: opacity .22s ease, filter .22s ease, transform .28s ease;
 }
